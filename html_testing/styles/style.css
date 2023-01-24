@@ -30,6 +30,10 @@ a:hover {
     color: yellowgreen;
 }
 
+a {
+  text-align: right;
+}
+
 img {
     width: 150px;
         display: block;
