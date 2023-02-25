@@ -1,10 +1,18 @@
-let maxIndex = 22;
-const imgAppear = (imgID) => {
-    document.querySelector('[imgfield=tn_img_' + imgID + ']').style.opacity = 1;
-    console.log(document.querySelector('[data-elem-id="' + imgID + '"]').style.zIndex)
-    document.querySelector('[data-elem-id="' + imgID + '"]').style.zIndex = maxIndex;
-    maxIndex += 1;
-}
+function randomNum() {
+    return Math.floor(Math.random() * 26) + 75;
+  }
+
+  
+      
+  let maxIndex = 22;
+  const imgAppear = (imgID) => {
+      document.querySelector('[data-elem-id="' + imgID + '"]').style.textAlign = 'center';
+      document.querySelector('[imgfield=tn_img_' + imgID + ']').style.display = 'inline';
+      document.querySelector('[imgfield=tn_img_' + imgID + ']').style.width = String(randomNum()) + '%';
+      document.querySelector('[imgfield=tn_img_' + imgID + ']').style.opacity = 1;
+      document.querySelector('[data-elem-id="' + imgID + '"]').style.zIndex = maxIndex;
+      maxIndex += 1;
+  }
 
 document.querySelector('.link-image-121').addEventListener('mouseenter', function(){imgAppear('1660234451202');});
 document.querySelector('.link-image-120').addEventListener('mouseenter', function(){imgAppear('1660234699638');});
