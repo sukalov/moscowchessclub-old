@@ -5,7 +5,7 @@ var html = document.getElementsByTagName("html")[0];
 
 // html.setAttribute("style", "color-scheme: dark");
 // html.setAttribute("style", "transition: color-scheme 3s;");
-    document.documentElement.style.setProperty("--text-color", "#ffffff");
+    document.documentElement.style.setProperty("--text-color", "#dddddd");
     document.documentElement.style.setProperty("--bg-color", "#111111");
 
 
@@ -21,12 +21,12 @@ function toggleColorScheme() {
 function toggleColorScheme2() {
   if (html.getAttribute("data-color-mode") === "dark") {
     html.setAttribute("data-color-mode", "light");
-    html.style.setProperty("--bg-color", "#ffffff");
+    html.style.setProperty("--bg-color", "#dddddd");
     html.style.setProperty("--text-color", "#111111");
   } else {
     html.setAttribute("data-color-mode", "dark");
     html.style.setProperty("--bg-color", "#111111");
-    html.style.setProperty("--text-color", "#ffffff");
+    html.style.setProperty("--text-color", "#dddddd");
   }
 }
 
