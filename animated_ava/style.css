@@ -135,7 +135,7 @@ img {
 
   .toggle.on .fas {
     transform: translateX(30px) 
-               rotate(45deg);
+               rotate(50deg);
   }
 
   .toggle.on .fa-sun {
@@ -161,7 +161,7 @@ img {
     left: 6px;
     transition:
       transform var(--color-scheme-change)  ease-in-out,
-        opacity calc(var(--color-scheme-change)* 1.3) ease-in-out;
+        opacity calc(var(--color-scheme-change)* 1.2) ease-in-out;
     z-index: 1;
   }
  .fa-sun {
@@ -173,6 +173,7 @@ img {
   .fa-moon {
     /* position: relative; */
     color: #7777cc;
+    top: 6px;
   }
 
 
