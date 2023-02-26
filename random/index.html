@@ -1,0 +1,45 @@
+<!DOCTYPE html> <!-- second branch -->
+<html lang="en-US">
+  <head>
+    <link href="html_testing/styles/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <meta charset="utf-8" />
+    
+    <meta name="viewport" content="width=device-width" />
+    <title>Matvey Sokolovsky</title>
+  </head>
+  <body>
+    <h1>Matvey Sokolovsky</h1>
+    <img src="https://raw.githubusercontent.com/sukalov/js_learning/main/html_testing/images/ava.JPG" alt="Matvey Sokolovsky's face chilling in the pool"/>
+    <p>This is a page to test some basic html tags and methods.</p>
+    <nobr><p>Click counter: <emph><span id="count">0</span></emph></p></nobr>
+    <button id="button-inc" onClick="increment()">click counter</button>
+    <ul>
+        <li class="li1">html + css</li>
+        <li class="li1">javascript</li>
+        <li class="li1">python</li>
+    </ul>
+    <a href="https://github.com/sukalov/js_learning/blob/main/index.html">Here you can find this page source code</a>
+    <br><br>
+    <form>
+      <ul class="ul1">
+        <li>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="user_name" />
+        </li>
+        <li>
+          <label for="mail">Email:</label>
+          <input type="email" id="mail" name="user_email" />
+        </li>
+        <li>
+          <label for="msg">Message:</label>
+          <textarea id="msg" name="user_message"></textarea>
+        </li>
+        <li class="button">
+          <button onclick="thanks()">Send your message</button>
+        </li>
+      </ul>
+      <script src="html_testing/index.js"></script>
+    </form>
+  </body>
+</html>
