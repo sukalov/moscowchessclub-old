@@ -26,7 +26,7 @@ function toggleColorScheme2() {
   } else {
     html.setAttribute("data-color-mode", "dark");
     html.style.setProperty("--bg-color", "#111111");
-    html.style.setProperty("--text-color", "#dddddd");
+    html.style.setProperty("--text-color", "#cccccc");
   }
 }
 
