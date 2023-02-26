@@ -14,7 +14,7 @@ html {
 }
 
 body {
-    font-size: 1.25rem;
+    font-size: 1.25rem; 
     line-height: 1.9rem;
     padding: 2rem 0;
     font-family: 'Roboto Mono', monospace;
@@ -26,7 +26,7 @@ body {
     gap: 3vw;
     max-width: 700px;
     /* min-width: 500px; */
-    margin: 15rem auto;
+    margin: 10rem auto;
     padding-inline: 15px;
     
 }
@@ -37,9 +37,10 @@ img {
 }
 
 .person {
+    font-size: 0.8rem;
     --transform-speed: 250ms;
     position: relative;
-    max-width: 15rem;
+    max-width: 10rem;
     margin-inline: auto;
     /* flex: 1 1; */
     /* border: 2px solid; */
@@ -54,6 +55,7 @@ img {
     overflow: hidden;
     position: relative;
     transition: transform var(--transform-speed) ease-in-out;
+    /* border-bottom: 2px solid; */
 }
 
 .person__container:hover {
@@ -69,15 +71,17 @@ img {
     border-radius: 50%;
     object-fit: cover;
     filter: blur(1px);
+    /* border: 2px solid; */
     border-bottom: 2px solid black;
 }
 
 .person__img {
     /* border: 2px solid; */
     left: -5px;
+    bottom: -5px;
     position: relative;
     z-index: 2;
-    transform: scale(1.2);
+    transform: scale(1.1);
     filter: drop-shadow(0 0 2px #272737);
     transition: 
         transform calc(var(--transform-speed) * 1.5) ease-in-out,
@@ -87,13 +91,13 @@ img {
 .person__container:hover .person__img {
     transform:
         scale(1.3)
-        translateY(-1.5rem);
+        translateY(-1.1rem);
     filter: drop-shadow(0 0 4px #272737);
 
 }
 
 .person__info {
-    margin-block: 40px;
+    margin-block: 20px;
     text-align: center;
     text-transform: uppercase;
 
@@ -154,6 +158,7 @@ img {
  .fa-sun {
     /* position: relative; */
     color: rgb(255, 183, 0);
+    text-shadow:0px 0px 1px orange;
   }
 
   .fa-moon {
