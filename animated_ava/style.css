@@ -42,6 +42,7 @@ img {
 
 .person {
     font-size: 0.8rem;
+    letter-spacing: 0.04rem;
     --transform-speed: 250ms;
     position: relative;
     max-width: 10rem;
