@@ -141,7 +141,6 @@ img {
 
   .toggle.on .fa-sun {
     opacity: 1;
-    font-size: 1.1rem;
   }
 
   .toggle.on .fa-moon {
@@ -167,14 +166,15 @@ img {
   }
  .fa-sun {
     /* position: relative; */
-    color: rgb(255, 183, 0);
-    text-shadow:0px 0px 1px rgb(255, 153, 0);
+    color: rgb(245, 147, 0);
+    font-size: 1.1rem;
+    /* text-shadow:0px 0px 2px rgb(255, 153, 0); */
   }
 
   .fa-moon {
     /* position: relative; */
     color: #7777cc;
-    top: 6px;
+    top: 6.1px;
   }
 
 
