@@ -6,14 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animated Avatar</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;800&family=Roboto+Mono:wght@100;300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d6a8ce8d77.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="person">
-        <div class="person__container">
-            <img class="person__circle" src="chesspattern/chesspattern.jpg" alt="chess pattern background">
-            <img class="person__img" src="matvey3.png" alt="matvey sokolovsky">
-        </div>
-
+    <div class="toggle off" onclick="toggleButton()" id="my-toggle">
+        <span class="color_cheme_icons">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+        </span>
     </div>
+    <div class="people">
+        <div class="person">
+            <div class="person__container">
+                <img class="person__circle" src="chesspattern2.png" alt="chess pattern background">
+                <img class="person__img" src="matvey3.png" alt="matvey sokolovsky">
+            </div>
+            <div class="person__info">
+                <h2 class="person__name">матвей<br>гроссмейстер</h2>
+            </div>
+        </div>
+        <div class="person">
+            <div class="person__container">
+                <img class="person__circle" src="chesspattern2.png" alt="chess pattern background">
+                <img class="person__img" src="vanya4.png" alt="vanya vor">
+            </div>
+            <div class="person__info">
+                <h2 class="person__name">ваня<br>вор</h2>
+            </div>
+        </div>
+    </div>
+    <script src="script.js">
+  </script>
 </body>
 </html>
