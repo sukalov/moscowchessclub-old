@@ -13,26 +13,21 @@ var html = document.getElementsByTagName("html")[0];
 function toggleColorScheme() {
   if (html.getAttribute("style") == "color-scheme: dark") {
     html.setAttribute("style", "color-scheme: light");
-    toggle_back.style.backgroundColor = "#272737";
   } else {
     html.setAttribute("style", "color-scheme: dark");
-    toggle_back.style.backgroundColor = "#ccc";
-    
   }
 }
 
 function toggleColorScheme2() {
-  var htmlTag = document.getElementsByTagName("html")[0];
-  if (htmlTag.getAttribute("data-color-mode") === "dark") {
-    htmlTag.setAttribute("data-color-mode", "light");
-    document.documentElement.style.setProperty("--bg-color", "#ffffff");
-    document.documentElement.style.setProperty("--text-color", "#111111");
+  if (html.getAttribute("data-color-mode") === "dark") {
+    html.setAttribute("data-color-mode", "light");
+    html.style.setProperty("--bg-color", "#ffffff");
+    html.style.setProperty("--text-color", "#111111");
   } else {
-    htmlTag.setAttribute("data-color-mode", "dark");
-    document.documentElement.style.setProperty("--bg-color", "#111111");
-    document.documentElement.style.setProperty("--text-color", "#ffffff");
+    html.setAttribute("data-color-mode", "dark");
+    html.style.setProperty("--bg-color", "#111111");
+    html.style.setProperty("--text-color", "#ffffff");
   }
-  document.documentElement.style.transition = "background-color var(--color-scheme-change) ease-in-out, var(--color-scheme-change) ease-in-out";
 }
 
 // function that affects button css and switches toggle position back and forth
