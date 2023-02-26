@@ -104,6 +104,7 @@ img {
 }
 
 .toggle {
+    font-size: 1rem;
     margin-inline: auto;
     display: block;
     position: relative;
@@ -150,8 +151,8 @@ img {
 
   .fas {
     position: absolute;
-    top: 4.5px;
-    left: 4px;
+    top: 5.6px;
+    left: 6px;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     z-index: 1;
   }
