@@ -5,7 +5,7 @@ var html = document.getElementsByTagName("html")[0];
 
 // html.setAttribute("style", "color-scheme: dark");
 // html.setAttribute("style", "transition: color-scheme 3s;");
-    document.documentElement.style.setProperty("--text-color", "#dddddd");
+    document.documentElement.style.setProperty("--text-color", "#cccccc");
     document.documentElement.style.setProperty("--bg-color", "#111111");
 
 
