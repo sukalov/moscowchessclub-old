@@ -159,12 +159,12 @@ img {
  .fa-sun {
     /* position: relative; */
     color: rgb(255, 183, 0);
-    text-shadow:0px 0px 1px orange;
+    text-shadow:0px 0px 1px rgb(255, 153, 0);
   }
 
   .fa-moon {
     /* position: relative; */
-    color: #5555aa;
+    color: #7777cc;
   }
 
 
