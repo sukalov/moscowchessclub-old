@@ -10,7 +10,7 @@
 
 html {
     /* color-scheme: dark light; */
-    min-width: 300px;
+    min-width: 250px;
 }
 
 body {
@@ -168,7 +168,7 @@ img {
   }
 
 
-  @media only screen and (max-width: 530px) {
+  @media only screen and (max-width: 450px) {
     .people {
         flex-direction: column;
         margin-block: 7vh;
