@@ -59,9 +59,9 @@ img {
 .person {
     --transform-speed: 250ms;
     position: relative;
-    max-width: 10rem;
+    max-width: 11rem;
     margin-inline: auto;
-    /* flex: 1 1; */
+    flex: 1 1;
     /* border: 2px solid; */
 }
 
@@ -72,6 +72,7 @@ img {
     align-items: end;
     border-radius: 0 0 100vw 100vw;
     overflow: hidden;
+    mask-image: -webkit-radial-gradient(white, black);
     -webkit-mask-image: -webkit-radial-gradient(white, black);
     /* this line -webkit-mask-img prevents laggy png images but i don't know how */
     /* https://gist.github.com/ayamflow/b602ab436ac9f05660d9c15190f4fd7b */
@@ -100,6 +101,7 @@ img {
 
 .person__img {
     /* border: 2px solid; */
+    backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     left: -5px;
     bottom: -5px;
@@ -183,7 +185,7 @@ img {
 
   .fas {
     position: absolute;
-    top: 5.6px;
+    top: 5.52px;
     left: 6px;
     transition:
       transform var(--color-scheme-change)  ease-in-out,
@@ -211,7 +213,7 @@ img {
     font-size: 0.8rem;
     text-align: center;
     position: absolute;
-    bottom: 40px;
+    bottom: 20px;
     width: 100%;
   }
 
@@ -243,7 +245,6 @@ img {
         margin-top: 0px;
     }
     footer::before {
-        margin-bottom: -10px;
         content: 'сайт мосшахклуба в разработке';
     }
   }
@@ -258,6 +259,11 @@ img {
         line-height: 1.3rem;
         margin-top: 10px;
     }
+
+    footer::before {
+        margin-bottom: -10px;
+    }
+
     }
 
   @media only screen and (max-height: 500px) {
@@ -278,11 +284,12 @@ img {
 
     .person__container.touched .person__img {
         transform:
-            scale(1.1)
-            translateY(-1.1rem);
+            scale(1.23)
+            translateY(-1rem);
         -webkit-transform:
-            scale(1.1)
-            translateY(-1.1rem);
+            scale(1.23)
+            translateY(-1rem);
+    }
 }
 
 @media only screen and (max-width: 350px) {
@@ -302,7 +309,7 @@ img {
     }
 
     footer::before {
-        margin-bottom: -20px;
+        margin-bottom: -10px;
     }
 
     .person__container.touched .person__img {
@@ -312,4 +319,5 @@ img {
         -webkit-transform:
             scale(1.1)
             translateY(-1.1rem);
+    }
 }
