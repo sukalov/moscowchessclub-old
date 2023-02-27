@@ -72,6 +72,9 @@ img {
     align-items: end;
     border-radius: 0 0 100vw 100vw;
     overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    /* this line -webkit-mask-img prevents laggy png images but i don't know how */
+    /* https://gist.github.com/ayamflow/b602ab436ac9f05660d9c15190f4fd7b */
     position: relative;
     transition: transform var(--transform-speed) ease-in-out;
     -webkit-transition: transform var(--transform-speed) ease-in-out;
@@ -97,11 +100,13 @@ img {
 
 .person__img {
     /* border: 2px solid; */
+    -webkit-backface-visibility: hidden;
     left: -5px;
     bottom: -5px;
     position: relative;
     z-index: 2;
     transform: scale(1.1);
+    -webkit-transform: scale(1.1);
     /* filter: drop-shadow(0 0 2px #272737); */
     transition: 
         transform calc(var(--transform-speed) * 1.5) ease-in-out,
@@ -113,6 +118,9 @@ img {
 
 .person__container.touched .person__img {
     transform:
+        scale(1.3)
+        translateY(-1.1rem);
+    -webkit-transform:
         scale(1.3)
         translateY(-1.1rem);
     filter: drop-shadow(0 0 1px #272737);
@@ -220,6 +228,7 @@ img {
 
     .person__container:hover {
         transform: scale(1.1);
+        -webkit-transform: scale(1.1);
     }
 
   }
