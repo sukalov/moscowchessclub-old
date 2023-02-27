@@ -15,6 +15,7 @@ html {
     background-color: var(--bg-color);
     color: var(--text-color);
     transition: background-color var(--color-scheme-change) ease-in-out, color var(--color-scheme-change) ease-in-out;
+    -webkit-transition: background-color var(--color-scheme-change) ease-in-out, color var(--color-scheme-change) ease-in-out;
 }
 
 body {
@@ -66,6 +67,7 @@ img {
     overflow: hidden;
     position: relative;
     transition: transform var(--transform-speed) ease-in-out;
+    -webkit-transition: transform var(--transform-speed) ease-in-out;
     /* border-bottom: 2px solid; */
 }
 
@@ -95,6 +97,9 @@ img {
     transform: scale(1.1);
     /* filter: drop-shadow(0 0 2px #272737); */
     transition: 
+        transform calc(var(--transform-speed) * 1.5) ease-in-out,
+        filter calc(var(--transform-speed) * 1.5) ease-in-out;
+    -webkit-transition:
         transform calc(var(--transform-speed) * 1.5) ease-in-out,
         filter calc(var(--transform-speed) * 1.5) ease-in-out;
 }
@@ -136,6 +141,7 @@ img {
     border-radius: 50%;
     background-color: white;
     transition: transform 0.3s ease-in-out;
+    -webkit-transition: transform 0.3s ease-in-out;
     z-index: 1;
   } */
 
@@ -165,6 +171,9 @@ img {
     top: 5.6px;
     left: 6px;
     transition:
+      transform var(--color-scheme-change)  ease-in-out,
+        opacity calc(var(--color-scheme-change)* 1.2) ease-in-out;
+    -webkit-transition:
       transform var(--color-scheme-change)  ease-in-out,
         opacity calc(var(--color-scheme-change)* 1.2) ease-in-out;
     z-index: 1;
