@@ -22,19 +22,23 @@ body {
     line-height: 1.9rem;
     padding: 2rem 0;
     font-family: 'Roboto Mono', monospace;
-    height: 100vh;
+    height: 100svh;
     position: relative;
 }
 
 .people {
+    font-size: 0.8rem;
+    letter-spacing: 0.04rem;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
     gap: 3vw;
     max-width: 700px;
     /* min-width: 500px; */
-    margin: 30vh auto auto auto;
+    margin-inline: auto;
+    padding-block: 2vh 3vh;
     padding-inline: 15px;
-    max-height: 90vh;
+    height: 85svh;
     
 }
 
@@ -44,8 +48,6 @@ img {
 }
 
 .person {
-    font-size: 0.8rem;
-    letter-spacing: 0.04rem;
     --transform-speed: 250ms;
     position: relative;
     max-width: 10rem;
@@ -193,10 +195,14 @@ img {
 
   @media only screen and (max-width: 450px) {
     .people {
+        font-size: 0.6rem;
+        letter-spacing: 0.03rem;
+        line-height: 1.2rem;
         flex-direction: column;
-        margin-block: 7vh;
+        /* margin-block: 7vh; */
     }
     footer::before {
+        padding-bottom: 20px;
         content: 'сайт мосшахклуба в разработке';
     }
   }
