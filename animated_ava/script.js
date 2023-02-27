@@ -5,8 +5,8 @@ var html = document.getElementsByTagName("html")[0];
 
 // html.setAttribute("style", "color-scheme: dark");
 // html.setAttribute("style", "transition: color-scheme 3s;");
-    document.documentElement.style.setProperty("--text-color", "#cccccc");
-    document.documentElement.style.setProperty("--bg-color", "#111111");
+    html.style.setProperty("--text-color", "#cccccc");
+    html.style.setProperty("--bg-color", "#111111");
 
 
 // function that changes html color scheme
@@ -17,7 +17,7 @@ function toggleColorScheme() {
     html.setAttribute("style", "color-scheme: dark");
   }
 }
-
+// function that changes html color scheme manually by switching colors
 function toggleColorScheme2() {
   if (html.getAttribute("data-color-mode") === "dark") {
     html.setAttribute("data-color-mode", "light");
@@ -38,4 +38,15 @@ function toggleButton() {
     toggleColorScheme2();
     // finally we call the first function to actually toggle color scheme
 }
+
+function touchHandle(el) {
+  el.classList.toggle("touched");
+}
+
+  const els = document.querySelector('person_container');
+  
+  els.forEach(el => {
+    el.addEventListener('touchstart', touchHandle(el));
+    el.addEventListener('touchend', touchHandle(el));
+}); 
 

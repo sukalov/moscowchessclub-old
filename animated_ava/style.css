@@ -69,7 +69,7 @@ img {
     /* border-bottom: 2px solid; */
 }
 
-.person__container:hover {
+.person__container.touched {
     transform: scale(1.1);
 }
 
@@ -99,12 +99,11 @@ img {
         filter calc(var(--transform-speed) * 1.5) ease-in-out;
 }
 
-.person__container:hover .person__img {
+.person__container.touched .person__img {
     transform:
         scale(1.3)
         translateY(-1.1rem);
     filter: drop-shadow(0 0 1px #272737);
-
 }
 
 .person__info {
@@ -192,6 +191,19 @@ img {
     width: 100%;
   }
 
+  @media (hover: hover) {
+    .person__container:hover .person__img {
+        transform:
+            scale(1.3)
+            translateY(-1.1rem);
+        filter: drop-shadow(0 0 1px #272737);
+    }
+
+    .person__container:hover {
+        transform: scale(1.1);
+    }
+
+  }
 
 
   @media only screen and (max-width: 450px) {
