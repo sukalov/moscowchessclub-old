@@ -22,7 +22,7 @@ body {
     line-height: 1.9rem;
     padding: 2rem 0;
     font-family: 'Roboto Mono', monospace;
-    height: 100svh;
+    height: 97svh;
     position: relative;
 }
 
@@ -203,7 +203,7 @@ img {
         padding-block: 4vh 1vh;
     }
     footer::before {
-        padding-bottom: 30px;
+        padding-bottom: 20px;
         content: 'сайт мосшахклуба в разработке';
     }
   }
