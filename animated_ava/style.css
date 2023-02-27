@@ -224,7 +224,7 @@ img {
         padding-block: 4vh 1vh;
     }
     footer::before {
-        padding-bottom: 10px;
+        /* padding-bottom: 10px; */
         content: 'сайт мосшахклуба в разработке';
     }
   }
