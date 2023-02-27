@@ -39,6 +39,7 @@ body {
     padding-block: 2vh 3vh;
     padding-inline: 15px;
     height: 85svh;
+    border: 2px solid;
     
 }
 
@@ -53,7 +54,7 @@ img {
     max-width: 10rem;
     margin-inline: auto;
     /* flex: 1 1; */
-    /* border: 2px solid; */
+    border: 2px solid;
 }
 
 .person__container {
@@ -206,3 +207,29 @@ img {
         content: 'сайт мосшахклуба в разработке';
     }
   }
+
+
+  @media only screen and (max-height: 700px){
+    .person {
+        max-width: 9rem;
+    }
+    .people {
+        font-size: 0.7rem;
+        letter-spacing: 0.04rem;
+        line-height: 1.3rem;
+        margin-top: -20px;
+    }
+    }
+
+  @media only screen and (max-height: 500px) {
+    .person {
+        max-width: 8.5rem;
+    }
+
+    .people {
+        font-size: 0.6rem;
+        letter-spacing: 0.03rem;
+        line-height: 1.2rem;
+        margin-top: -30px;
+    }
+}
