@@ -1,1 +1,0 @@
-// create function sum all elements of an array
