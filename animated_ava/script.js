@@ -46,7 +46,7 @@ function touchHandle(el) {
 
   const els = document.getElementsByClassName('person__container');
   Array.prototype.forEach.call(els, el => {
-    el.addEventListener('touchstart', touchHandle(el));
-    el.addEventListener('touchend', touchHandle(el));
+    el.addEventListener('touchstart', function() {touchHandle(el)});
+    el.addEventListener('touchend', function() {touchHandle(el)});
 });
 
