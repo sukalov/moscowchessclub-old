@@ -200,10 +200,10 @@ img {
         letter-spacing: 0.03rem;
         line-height: 1.2rem;
         flex-direction: column;
-        /* margin-block: 7vh; */
+        padding-block: 4vh 1vh;
     }
     footer::before {
-        padding-bottom: 20px;
+        padding-bottom: 30px;
         content: 'сайт мосшахклуба в разработке';
     }
   }
