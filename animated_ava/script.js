@@ -39,14 +39,14 @@ function toggleButton() {
     // finally we call the first function to actually toggle color scheme
 }
 
+// function adding event listeners to make hover effect only while touching on mobile devices
 function touchHandle(el) {
   el.classList.toggle("touched");
 }
 
-  const els = document.querySelector('person_container');
-  
-  els.forEach(el => {
+  const els = document.getElementsByClassName('person__container');
+  Array.prototype.forEach.call(els, el => {
     el.addEventListener('touchstart', touchHandle(el));
     el.addEventListener('touchend', touchHandle(el));
-}); 
+});
 
