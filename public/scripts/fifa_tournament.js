@@ -80,8 +80,11 @@ add('арина некрасова');
 // console.log(a);
 
 
-import json from './data/test_tournament.json' assert { type: "json" };
-console.log(json);
+import jsony from './data/test_tournament.json' assert { type: "json" };
+console.log(jsony);
+
+// export { players, Player, Game, startTournament, randomizeArray, add }
+// export * from './fifa_tournament.js'
 
 
 

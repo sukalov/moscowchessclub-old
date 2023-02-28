@@ -10,6 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/sukalov/moscowchessclub.git"
   },
+  "type": "commonjs",
   "keywords": [
     "chess",
     "node",
