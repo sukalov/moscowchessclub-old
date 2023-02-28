@@ -21,5 +21,11 @@
   "bugs": {
     "url": "https://github.com/sukalov/moscowchessclub/issues"
   },
-  "homepage": "https://github.com/sukalov/moscowchessclub#readme"
+  "homepage": "https://github.com/sukalov/moscowchessclub#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
+  }
 }
