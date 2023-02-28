@@ -80,11 +80,8 @@ add('арина некрасова');
 // console.log(a);
 
 
-import json from './data/test_tournament.json' assert { type: "json" };
-console.log(json);
-
-
-
+// import json from './data/test_tournament.json' assert { type: "json" };
+// console.log(json);
 
 
 
