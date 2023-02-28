@@ -2,7 +2,7 @@
   "name": "moscowchessclub-copy",
   "version": "1.0.0",
   "description": "trying to turn my static basic html page into NodeJS app to get closer to some back-end mechanics connected to the page",
-  "main": "index.js",
+  "main": "index.ejs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

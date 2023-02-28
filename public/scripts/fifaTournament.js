@@ -1,4 +1,4 @@
-let players = [];
+var players = [];
 
 // конструктор добавляющий игроков
 class Player {
@@ -11,7 +11,7 @@ class Player {
     }
 
     // добавляет к каждому игроку метод, который выводит всё инфу про игрока
-    getSelf() {
+    show() {
         console.log(this);
     }
 }
@@ -53,7 +53,7 @@ function randomizeArray(arr) {
 
 
 // перемешивает всех игроков и разбивает на группы по {numPeople} человек
-const startTournament = (numPeople) => {
+const startTournament = (numPeople = 4) => {
     players = randomizeArray(players);
     const groups = groupElements(numPeople);
 
@@ -75,19 +75,32 @@ add('адиля аюпова');
 add('андрей саламов');
 add('саша пилипенко');
 add('арина некрасова');
+add('сергей скрынников');
 
 
 // console.log(a);
 
 
-import jsony from './data/test_tournament.json' assert { type: "json" };
-console.log(jsony);
+// import jsony from './data/test_tournament.json' assert { type: "json" };
+// console.log(jsony);
 
-// export { players, Player, Game, startTournament, randomizeArray, add }
+
+
+// export { players, Player, Game, startTournament, randomizeArray, add };
+
+window.Player = Player;
+window.Game = Game;
+window.players = players;
+window.add = add;
+window.groupElements = groupElements;
+window.randomizeArray = randomizeArray;
+window.startTournament = startTournament;
+
+
+
+
+
 // export * from './fifa_tournament.js'
-
-
-
 
 
 
