@@ -16,6 +16,7 @@ class Player {
     }
 }
 
+//конструктор создающий партию
 class Game {
     constructor(white, black, tour) {
         this.white = white;
@@ -79,9 +80,12 @@ add('сергей скрынников');
 
 // console.log(a);
 
+let tournament = startTournament();
 
-// import jsony from './data/test_tournament.json' assert { type: "json" };
-// console.log(jsony);
+import SLAY from './data/test_tournament.json' assert { type: "json" };
+ console.log(SLAY);
+
+ // export  tournament './data/test_tournament.json' assert { type: "json" };
 
 
 
