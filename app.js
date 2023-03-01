@@ -13,12 +13,11 @@ app.set('views', 'public');
 //tells express that the public folder is the static folder
 app.use(express.static("public"));
 
-
 //home route
 app.get("/", function(req,res){
   res.render("./index");
 });
 
-app.listen(3000, function(){
-        console.log("working at localhost: 3000");
+app.listen(5000, function(){
+        console.log("working at localhost: 5000");
 })
