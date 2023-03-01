@@ -98,6 +98,7 @@ window.add = add;
 window.groupElements = groupElements;
 window.randomizeArray = randomizeArray;
 window.startTournament = startTournament;
+window.SLAY = SLAY;
 
 
 
