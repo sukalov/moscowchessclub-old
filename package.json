@@ -4,7 +4,7 @@
   "description": "trying to turn my static basic html page into NodeJS app to get closer to some back-end mechanics connected to the page",
   "main": "index.ejs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+      "start": "node app.js"
   },
   "repository": {
     "type": "git",
