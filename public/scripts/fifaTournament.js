@@ -56,7 +56,6 @@ function randomizeArray(arr) {
 const startTournament = (numPeople = 4) => {
     players = randomizeArray(players);
     const groups = groupElements(numPeople);
-
     return groups;
 }
 
