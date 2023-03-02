@@ -19,6 +19,6 @@ is hanging, the bishop is blocked because of the
 Queen.--Fischer} b5 10.Nxb5 cxb5 11.Bxb5+ Nbd7 12.O-O-O Rd8
 13.Rxd7 Rxd7 14.Rd1 Qe6 15.Bxd7+ Nxd7 16.Qb8+ Nxb8 17.Rd8# 1-0`
 
-import { parse } from './@mliebelt/pgn-parser' 
+import { parse } from './@mliebelt/pgn-parser' assert { type: "json" };
 let game = parse(opera)
 console.log(game)
