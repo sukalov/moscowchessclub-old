@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/sukalov/moscowchessclub#readme",
   "dependencies": {
+    "@mliebelt/pgn-parser": "^1.4.6",
     "body-parser": "^1.20.2",
     "ejs": "^3.1.8",
     "express": "^4.18.2",

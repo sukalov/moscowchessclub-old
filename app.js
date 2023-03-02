@@ -6,6 +6,8 @@ const app= express();
 const fs = require('fs');
 const PORT = process.env.PORT || 4000;
 var favicon = require('serve-favicon');
+let parse = require("@mliebelt/pgn-parser").parse
+
 
 // sets my favicon
 app.use(favicon(__dirname + '/public/assets/favicon.ico'));
