@@ -4,7 +4,7 @@ const ejs=require("ejs");
 const bodyParser=require("body-parser");
 const app= express();
 const fs = require('fs');
-const PORT = process.env.PORT || 5002;
+const PORT = process.env.PORT || 4000;
 var favicon = require('serve-favicon');
 
 // sets my favicon
