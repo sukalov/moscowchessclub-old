@@ -1,7 +1,7 @@
 let players = [];
 let tournamentStatus = 0;
 let tournament = {};
-let allGroupTours = { tour1: {}, tour2: {}, tour3: {} };
+let allGroupTours = {};
 
 // конструктор добавляющий игроков
 class Player {
@@ -11,6 +11,7 @@ class Player {
         this.draws = 0;
         this.loses = 0;
         this.colorIndex = 10; // индекс по которому определяется кто каким цветом играет (у кого индекс меньше тот белыми, если равный - рандом)
+        []
     }
 
     // добавляет к каждому игроку метод, который выводит всё инфу про игрока
@@ -19,22 +20,49 @@ class Player {
     }
 
     score() {
-        return this.wins + (this.draws / 2)
+        return this.wins + (this.draws / 2);
     }
 }
 
 //конструктор создающий партию
 class Game {
-    constructor(white, black, tour) {
+    constructor(white, black, tour, group) {
         this.white = white;
         this.black = black;
         this.tour = tour;
+        this.group = group;
+    }
+
+    result(winner) {
+        switch (winner) {
+        case 'white':
+        case this.white.name:
+            this.white.wins += 1;
+            this.black.loses += 1;
+            this.score = '1-0';
+            break;
+        case 'black':
+        case this.black.name:
+            this.black.wins += 1;
+            this.white.loses += 1;
+            this.score = '0-1'
+            break;
+        case 'draw':
+            this.black.draws += 1;
+            this.white.draws += 1;
+            this.score = '1/2-1/2'
+            break;
+        default:
+            console.log('не получается записать результат партии...'); 
+        }
     }
 }
 
 // создаём функцию адд через которую будем обращаться к конструктору и добавлять игроков
-const add = (name) => {
-    players.push(new Player(name));
+function add() {
+    for (let i = 0; i < arguments.length; i++) {
+        players.push(new Player(arguments[i]));
+      }  
 }
 
 // делает из массива игроков объект с группами по 4 человека в группе
@@ -58,39 +86,54 @@ function randomizeArray(arr) {
     return arr.sort(() => Math.random() - 0.5);
   }
 
-  function generateAllTours(groups) {
-
-    console.log(groups);
-  
-    // Iterate over each group
-    for (const groupName in groups) {
-      const group = groups[groupName];
-      const games = [];
-  
-
-      // Iterate over each pair of players in the group
-      for (let i = 0; i < group.length; i++) {
-        for (let j = i + 1; j < group.length; j++) {
-          // Create a game object with the two players
-          const game = { player1: group[i], player2: group[j] };
-          games.push(game);
-        }
-      }
- 
-      // Shuffle the games to create a random order
-      games.sort(() => Math.random() - 0.5);
-  
-      // Distribute the games evenly across the three tours
-      for (let i = 0; i < games.length; i++) {
-        const tourNumber = i % 3 + 1;
-        const tourName = `tour${tourNumber}`;
-        if (!allGroupTours[tourName][groupName]) {
-            allGroupTours[tourName][groupName] = [];
-            allGroupTours[tourName][groupName].push(games[i]);
-        }
+//создаём все партии внутри группы
+  function getAllPairs(players, groupNum) {
+    let pairs = [];
+    for (let i = 0; i < players.length - 1; i++) {
+      for (let j = i+1; j < players.length; j++) {
+        pairs.push(new Game (players[i], players[j], undefined, groupNum));
       }
     }
+    return pairs;
   }
+  
+  function generateAllTours(groups) {
+  
+  // Determine the number of tours based on the number of players in a group
+  const numTours = Object.values(groups)[0].length - 1;
+
+  for (let tourNum = 1; tourNum <= numTours; tourNum++) {
+    const tour = {};
+
+    // Iterate over each group in the input object
+    for (const groupName in groups) {
+        console.log(groupName);
+      const group = groups[groupName];
+      const numPlayers = group.length;
+
+      // Determine the number of games in the group for this tour
+      const numGames = numPlayers % 2 === 0 ? numPlayers / 2 : (numPlayers - 1) / 2;
+
+      // Shuffle the array of players for randomness
+      const shuffledPlayers = randomizeArray(group);
+
+      // Generate an array of unique game pairs
+      const gamePairs = [];
+      for (let i = 0; i < numGames; i++) {
+        const player1 = shuffledPlayers[i];
+        const player2 = shuffledPlayers[numPlayers - 1 - i];
+        let newGame = new Game(player1, player2, tour, groupName)
+        gamePairs.push(newGame);
+      }
+
+      // Add the array of game pairs to the current tour and group
+      tour[groupName] = gamePairs;
+    }
+
+    // Add the completed tour object to the output object
+    allGroupTours[`tour${tourNum}`] = tour;
+  }
+}
 
 // перемешивает всех игроков и разбивает на группы по {numPeople} человек
 const startTournament = (numPeople = 4) => {
@@ -98,8 +141,12 @@ const startTournament = (numPeople = 4) => {
     players = randomizeArray(players);
 
     const groups = groupPeople(numPeople, players);
+    delete groups.status;
 
     generateAllTours(groups);
+    console.log(getAllPairs(tournament.group1, 'group1'))
+
+
     groups.status = `group stage. tour ${ tournamentStatus }`;
     tournament = groups;
 }
@@ -143,6 +190,13 @@ add('сергей скрынников');
 
 startTournament();
 
+function cl() {
+    for (var i = 0; i < arguments.length; i++) {
+      console.log(arguments[i]);
+    }
+  }
+
+try {
 window.Player = Player;
 window.Game = Game;
 window.players = players;
@@ -153,3 +207,6 @@ window.startTournament = startTournament;
 window.newTour = newTour;
 window.tournament = tournament;
 window.allGroupTours = allGroupTours;
+window.cl = cl;} catch (err) {
+    console.log('error happened')
+}
