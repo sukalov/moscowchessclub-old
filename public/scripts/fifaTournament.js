@@ -1,5 +1,7 @@
-var players = [];
-var tournament;
+let players = [];
+let tournamentStatus = 0;
+let tournament = {};
+let allGroupTours = { tour1: {}, tour2: {}, tour3: {} };
 
 // конструктор добавляющий игроков
 class Player {
@@ -14,6 +16,10 @@ class Player {
     // добавляет к каждому игроку метод, который выводит всё инфу про игрока
     show() {
         console.log(this);
+    }
+
+    score() {
+        return this.wins + (this.draws / 2)
     }
 }
 
@@ -32,16 +38,15 @@ const add = (name) => {
 }
 
 // делает из массива игроков объект с группами по 4 человека в группе
-function groupElements(numPeople) {
-    let result = {};
+function groupPeople(numPeople, people) {
     let groupNumber = 1;
-  
-    for (let i = 0; i < players.length; i += numPeople) {
+
+    for (let i = 0; i < people.length; i += numPeople) {
       let groupName = `group${groupNumber}`;
-      result[groupName] = players.slice(i, i + numPeople);
+      tournament[groupName] = people.slice(i, i + numPeople);
       groupNumber++;
     }
-    return result;
+    return tournament;
 }
 
 // перемешивает все элементы массива. в нашем случае всех участников турнира
@@ -53,13 +58,65 @@ function randomizeArray(arr) {
     return arr.sort(() => Math.random() - 0.5);
   }
 
+  function generateAllTours(groups) {
+  
+    // Iterate over each group
+    for (const groupName in groups) {
+      const group = groups[groupName];
+      const games = [];
+  
+      // Iterate over each pair of players in the group
+      for (let i = 0; i < group.length; i++) {
+        for (let j = i + 1; j < group.length; j++) {
+          // Create a game object with the two players
+          const game = { player1: group[i], player2: group[j] };
+          games.push(game);
+        }
+      }
+
+      // Shuffle the games to create a random order
+      games.sort(() => Math.random() - 0.5);
+  
+      // Distribute the games evenly across the three tours
+      for (let i = 0; i < games.length; i++) {
+        const tourNumber = i % 3 + 1;
+        const tourName = `tour${tourNumber}`;
+        if (!allGroupTours[tourName][groupName]) allGroupTours[tourName][groupName] = [];
+        allGroupTours[tourName][groupName].push(games[i]);
+      }
+    }
+  }
 
 // перемешивает всех игроков и разбивает на группы по {numPeople} человек
 const startTournament = (numPeople = 4) => {
+    tournamentStatus = 0;
     players = randomizeArray(players);
-    const groups = groupElements(numPeople);
-    tournament = groups
+
+    const groups = groupPeople(numPeople, players);
+
+    generateAllTours(groups)
+    groups.status = `group stage. tour ${ tournamentStatus }`;
+    tournament = groups;
 }
+
+startTournament();
+
+// фунция создаёт новый тур группового этапа.
+const newGroupStage = () => {
+    tournamentStatus += 1;
+    tournament.status = `group stage. tour ${ tournamentStatus }`;
+}
+
+const newTour = () => {
+    if (allGroupTours != 0) {
+        //здесь будет проверка, закончился ли предыдущий тур
+    } else if (false) {
+        //здесь будет проверка, закончился ли групповой этап
+    } else{
+        newGroupStage();
+    }
+}
+
 
 add('матвей соколовский');
 add('ваня вор');
@@ -79,65 +136,13 @@ add('арина некрасова');
 add('сергей скрынников');
 
 
-// console.log(a);
-
-
-
-// import SLAY from './data/test_tournament.json' assert { type: "json" };
-// console.log(SLAY);
-
-// let zuker = '[Event "London"] [Site "London ENG"] [Date "1883.05.05"] [EventDate "1883.04.26"] [Round "6.1"] [Result "1-0"] [White "Johannes Zukertort"] [Black "Joseph Henry Blackburne"] [ECO "A13"] [WhiteElo "?"] [BlackElo "?"] [PlyCount "65"] 1. c4 e6 2. e3 Nf6 3. Nf3 b6 4. Be2 Bb7 5. O-O d5 6. d4 Bd6 7. Nc3 O-O 8. b3 Nbd7 9. Bb2 Qe7 10. Nb5 Ne4 11. Nxd6 cxd6 Rfc8 17. Rae1 Rc7 18. e4 Rac8 19. e5 Ne8 20. f4 g6 21. Re3 f5 22. exf6 Nxf6 23. f5 Ne4 24. Bxe4 dxe4 25. fxg6 Rc2 26. gxh7+ Kh8 27. d5+ e5 28. Qb4 R8c5 29. Rf8+ Kxh7 30. Qxe4+ Kg7 31. Bxe5+ Kxf8 32. Bg7+ Kg8 33. Qxe7 1-0';
-
-// const parse = require("pgn-parser").parse;
-// import { parse } from '/@mliebelt/pgn-parser'
-// let ggame = parse(zuker);
-// console.log(ggame);
-// console.log(zuker);
-
-
-//  import game from './data/game_zuker.pgn';
-//  console.log(game);
-
-
-
- // export  tournament './data/test_tournament.json' assert { type: "json" };
-
-
-
-// export { players, Player, Game, startTournament, randomizeArray, add };
-
 window.Player = Player;
 window.Game = Game;
 window.players = players;
 window.add = add;
-window.groupElements = groupElements;
+window.groupPeople = groupPeople;
 window.randomizeArray = randomizeArray;
 window.startTournament = startTournament;
-window.SLAY = SLAY;
-window.ggame = ggame;
-
-
-
-
-
-// export * from './fifa_tournament.js'
-// import json from './data/test_tournament.json' assert { type: "json" };
-// console.log(json);
-
-
-
-// console.log(startTournament(4));
-
-
-
-
-
-// ДАЛЬШЕ ПРОСТО ПОЛЕЗНЫЕ МЕТОДЫ
-
-// в этой строчке метод, возвращающий всё про игрока по его имени
-// player1 = players.find(obj => obj.name === 'матвей соколовский');
-// console.log(player1);
-
-
-// метод возвращающий все объекты класса
-// myClassObjects = myArray.filter(obj => obj instanceof MyClass);
+window.newTour = newTour;
+window.tournament = tournament;
+window.allGroupTours = allGroupTours;
