@@ -82,7 +82,6 @@ add('сергей скрынников');
 
 let tournament = startTournament();
 
-<<<<<<<< HEAD:public/scripts/fifaTournament.js
 import SLAY from './data/test_tournament.json' assert { type: "json" };
  console.log(SLAY);
 
@@ -106,10 +105,8 @@ window.SLAY = SLAY;
 
 
 // export * from './fifa_tournament.js'
-========
 // import json from './data/test_tournament.json' assert { type: "json" };
 // console.log(json);
->>>>>>>> 835b20eb2dd69de708aebe33a95495393e45c916:public/scripts/fifa_tournament.js
 
 
 
