@@ -59,12 +59,15 @@ function randomizeArray(arr) {
   }
 
   function generateAllTours(groups) {
+
+    console.log(groups);
   
     // Iterate over each group
     for (const groupName in groups) {
       const group = groups[groupName];
       const games = [];
   
+
       // Iterate over each pair of players in the group
       for (let i = 0; i < group.length; i++) {
         for (let j = i + 1; j < group.length; j++) {
@@ -73,7 +76,7 @@ function randomizeArray(arr) {
           games.push(game);
         }
       }
-
+ 
       // Shuffle the games to create a random order
       games.sort(() => Math.random() - 0.5);
   
@@ -81,8 +84,10 @@ function randomizeArray(arr) {
       for (let i = 0; i < games.length; i++) {
         const tourNumber = i % 3 + 1;
         const tourName = `tour${tourNumber}`;
-        if (!allGroupTours[tourName][groupName]) allGroupTours[tourName][groupName] = [];
-        allGroupTours[tourName][groupName].push(games[i]);
+        if (!allGroupTours[tourName][groupName]) {
+            allGroupTours[tourName][groupName] = [];
+            allGroupTours[tourName][groupName].push(games[i]);
+        }
       }
     }
   }
@@ -94,12 +99,12 @@ const startTournament = (numPeople = 4) => {
 
     const groups = groupPeople(numPeople, players);
 
-    generateAllTours(groups)
+    generateAllTours(groups);
     groups.status = `group stage. tour ${ tournamentStatus }`;
     tournament = groups;
 }
 
-startTournament();
+
 
 // фунция создаёт новый тур группового этапа.
 const newGroupStage = () => {
@@ -135,6 +140,8 @@ add('саша пилипенко');
 add('арина некрасова');
 add('сергей скрынников');
 
+
+startTournament();
 
 window.Player = Player;
 window.Game = Game;
