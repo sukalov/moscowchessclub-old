@@ -14,7 +14,8 @@ require("aws-sdk/lib/maintenance_mode_message").suppress = true;
 const s3 = new AWS.S3({
     credentials:{
         accessKeyId: process.env.MCC_AWS_KEY,
-        secretAccessKey: process.env.MCC_AWS_SECRET_KEY
+        secretAccessKey: process.env.MCC_AWS_SECRET_KEY,
+        region: 'eu-west-3'
     }
 });
 const listObjectsAsync = util.promisify(s3.listObjects).bind(s3);
