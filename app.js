@@ -18,6 +18,14 @@ const s3 = new AWS.S3({
         region: 'eu-west-3'
     }
 });
+const s3cc = new AWS.S3({
+  credentials:{
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SECRET_KEY,
+      region: 'eu-west-3'
+  }
+});
+
 const listObjectsAsync = util.promisify(s3.listObjects).bind(s3);
 
 // parse application/json
