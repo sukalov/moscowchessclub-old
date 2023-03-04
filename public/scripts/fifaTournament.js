@@ -3,6 +3,7 @@ let tournamentStatus = 0;
 let tournament = {};
 let allGroupTours = {};
 
+
 // конструктор добавляющий игроков
 class Player {
     constructor(name) {
@@ -97,8 +98,8 @@ function randomizeArray(arr) {
     return pairs;
   }
   
+
   function generateAllTours(groups) {
-  
   // Determine the number of tours based on the number of players in a group
   const numTours = Object.values(groups)[0].length - 1;
 
@@ -169,7 +170,6 @@ const newTour = () => {
     }
 }
 
-
 add('матвей соколовский');
 add('ваня вор');
 add('лола ткаченко');
@@ -187,14 +187,29 @@ add('саша пилипенко');
 add('арина некрасова');
 add('сергей скрынников');
 
-
 startTournament();
 
-function cl() {
-    for (var i = 0; i < arguments.length; i++) {
-      console.log(arguments[i]);
-    }
-  }
+
+//   function save() {
+//     fetch("saved", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(tournament),
+//     });
+// }
+
+function save() {
+  fetch('/add', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(tournament),
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+};
 
 try {
 window.Player = Player;
@@ -207,6 +222,8 @@ window.startTournament = startTournament;
 window.newTour = newTour;
 window.tournament = tournament;
 window.allGroupTours = allGroupTours;
-window.cl = cl;} catch (err) {
-    console.log('error happened')
+window.newGroupStage = newGroupStage;
+window.save = save;
+} catch (err) {
+    console.log(err)
 }

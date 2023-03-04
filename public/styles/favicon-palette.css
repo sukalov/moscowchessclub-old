@@ -1,0 +1,36 @@
+/* CSS HEX */
+--ecru-white: #f3efdf;
+--fuscous-gray: #5a574c;
+--mikado: #221c0c;
+--soya-bean: #5c5444;
+--taupe: #4a4535;
+--nomad: #bcb4a4;
+--fuscous-gray: #545444;
+--eagle: #bcbcac;
+--rangitoto: #3c3c28;
+
+
+/* SCSS HEX */
+$ecru-white: #f3efdf;
+$fuscous-gray: #5a574c;
+$mikado: #221c0c;
+$soya-bean: #5c5444;
+$taupe: #4a4535;
+$nomad: #bcb4a4;
+$fuscous-gray: #545444;
+$eagle: #bcbcac;
+$rangitoto: #3c3c28;
+
+
+/* SCSS RGB */
+--ecru-white: rgba(243,239,223,1);
+--fuscous-gray: rgba(90,87,76,1);
+--mikado: rgba(34,28,12,1);
+--soya-bean: rgba(92,84,68,1);
+--taupe: rgba(74,69,53,1);
+--nomad: rgba(188,180,164,1);
+--fuscous-gray: rgba(84,84,68,1);
+--eagle: rgba(188,188,172,1);
+--rangitoto: rgba(60,60,40,1);
+
+
