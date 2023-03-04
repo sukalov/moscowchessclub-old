@@ -189,7 +189,6 @@ add('сергей скрынников');
 
 startTournament();
 
-
 //функция отправляет объект tournament на сервер
 function save() {
   fetch('/add', {
