@@ -190,16 +190,7 @@ add('сергей скрынников');
 startTournament();
 
 
-//   function save() {
-//     fetch("saved", {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(tournament),
-//     });
-// }
-
+//функция отправляет объект tournament на сервер
 function save() {
   fetch('/add', {
       method: 'POST',
