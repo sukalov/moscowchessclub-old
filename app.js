@@ -63,12 +63,11 @@ app.post("/add", function (req, res) {
         Bucket: "moscowchessclub/tournaments",
         Key: `tournament${ fileNum + 1}.json`
       }).promise();
+      res.json({message: 'вроде всё записалось'}['message']);
     } catch (err) {
       console.log(err, err.stack);
     }
   })();
-
-  res.json({message: 'вроде всё записалось'}['message']);
 });
 
 app.listen(PORT, function(){
