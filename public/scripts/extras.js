@@ -35,3 +35,10 @@
 
 // метод возвращающий все объекты класса
 // myClassObjects = myArray.filter(obj => obj instanceof MyClass);
+
+
+const myObject = { foo: 'bar', baz: 42 };
+localStorage.setItem('myObject', JSON.stringify(myObject));
+
+const storedObject = JSON.parse(localStorage.getItem('myObject'));
+console.log(storedObject); // { foo: 'bar', baz: 42 }

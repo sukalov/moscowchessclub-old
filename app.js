@@ -36,9 +36,10 @@ app.set('views', 'public');
 app.use(express.static("public"));
 
 //home route
-app.get("", function(req,res){
+app.get("/", function(req,res){
   res.render("./index");
 });
+
 
 bucketContents = s3.listObjects(params, function(err, bucketContents) {
   if (err) console.log(err, err.stack);
@@ -71,5 +72,5 @@ app.post("/add", function (req, res) {
 });
 
 app.listen(PORT, function(){
-        console.log(`working at localhost: ${ PORT }`);
+  console.log(`working at port: ${ PORT }`);
 })

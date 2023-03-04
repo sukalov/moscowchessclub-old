@@ -8,8 +8,13 @@
     font: imnherit;
 }
 
-html {
+:root {
+    --text-color: #cccccc;
+    --bg-color: #111111;
     --color-scheme-change: 0.3s;
+}
+
+html {
     /* color-scheme: dark light; */
     min-width: 250px;
     background-color: var(--bg-color);
@@ -25,6 +30,30 @@ body {
     font-family: 'Roboto Mono', monospace;
     height: 100svh;
     position: relative;
+}
+
+#loader {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Roboto Mono', monospace;
+    position: relative;
+    display: block;
+    top: 45svh;
+    text-align: center;
+    margin-inline: auto;
+    animation-name: loader;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    animation-direction: alternate;
+}
+
+@keyframes loader {
+    from {
+      font-size:1rem;
+    }
+    to {
+        font-size: 1.5rem;
+    }
 }
 
 .people {
