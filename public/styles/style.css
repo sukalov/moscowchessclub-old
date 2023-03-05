@@ -32,30 +32,6 @@ body {
     position: relative;
 }
 
-#loader {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: 'Roboto Mono', monospace;
-    position: relative;
-    display: block;
-    top: 45svh;
-    text-align: center;
-    margin-inline: auto;
-    animation-name: loader;
-    animation-iteration-count: infinite;
-    animation-duration: 2s;
-    animation-direction: alternate;
-}
-
-@keyframes loader {
-    from {
-      font-size:1rem;
-    }
-    to {
-        font-size: 1.5rem;
-    }
-}
-
 .people {
     font-size: 0.8rem;
     letter-spacing: 0.04rem;
