@@ -1,24 +1,43 @@
-const opera = `[Event "Paris"]
-[Site "Paris FRA"]
-[Date "1858.??.??"]
-[EventDate "?"]
-[Round "?"]
-[Result "1-0"]
-[White "Paul Morphy"]
-[Black "Duke Karl / Count Isouard"]
-[ECO "C41"]
-[WhiteElo "?"]
-[BlackElo "?"]
-[PlyCount "33"]
+import game from './data/test_game.json' assert { type: "json" };
+console.log(game.moves[0]);
 
-1.e4 e5 2.Nf3 d6 3.d4 Bg4 {This is a weak move
-already.--Fischer} 4.dxe5 Bxf3 5.Qxf3 dxe5 6.Bc4 Nf6 7.Qb3 Qe7
-8.Nc3 c6 9.Bg5 {Black is in what's like a zugzwang position
-here. He can't develop the [Queen's] knight because the pawn
-is hanging, the bishop is blocked because of the
-Queen.--Fischer} b5 10.Nxb5 cxb5 11.Bxb5+ Nbd7 12.O-O-O Rd8
-13.Rxd7 Rxd7 14.Rd1 Qe6 15.Bxd7+ Nxd7 16.Qb8+ Nxb8 17.Rd8# 1-0`
+const moves = game.moves;
+var moveIndex = 0;
+var clickcount = 0
+let whiteTurn = true;
 
-import { parse } from './@mliebelt/pgn-parser' assert { type: "json" };
-let game = parse(opera)
-console.log(game)
+const clickonperson1 = document.getElementById('motya');
+const clickonperson2 = document.getElementById('vanya');
+const makemoveW = document.querySelector('.moveW');
+const makemoveB = document.querySelector('.moveB');
+
+
+clickonperson1.addEventListener("click", (event) => {
+
+    if (whiteTurn) {
+        makemoveW.style.fontSize = '50px';
+        makemoveB.textContent = ''
+        makemoveW.textContent = moves[moveIndex++];
+        clickcount++
+        console.log(clickcount)
+        whiteTurn = false;
+    } else {
+        makemoveW.style.fontSize = '20px';
+        makemoveW.textContent = 'ход Вора';
+    }
+});
+
+clickonperson2.addEventListener("click", (event) => {
+
+    if (!whiteTurn) {
+        makemoveB.style.fontSize = '50px';
+        makemoveW.textContent = ''
+        makemoveB.textContent = moves[moveIndex++];
+        clickcount++
+        console.log(clickcount)
+        whiteTurn = true;
+    } else {
+        makemoveB.style.fontSize = '20px';
+        makemoveB.textContent = 'ход Матвея';
+    }
+});
