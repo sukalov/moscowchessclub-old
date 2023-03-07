@@ -229,6 +229,9 @@ window.groupPeople = groupPeople;
 window.randomizeArray = randomizeArray;
 window.startTournament = startTournament;
 window.SLAY = SLAY;
+} catch (err) {
+  console.log(err)
+}
 
 
 
