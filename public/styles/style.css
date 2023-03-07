@@ -8,8 +8,13 @@
     font: imnherit;
 }
 
-html {
+:root {
+    --text-color: #cccccc;
+    --bg-color: #111111;
     --color-scheme-change: 0.3s;
+}
+
+html {
     /* color-scheme: dark light; */
     min-width: 250px;
     background-color: var(--bg-color);

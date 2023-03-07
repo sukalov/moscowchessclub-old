@@ -1,0 +1,27 @@
+#loader {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Roboto Mono', monospace;
+    position: relative;
+    display: block;
+    top: 45svh;
+    text-align: center;
+    margin-inline: auto;
+    animation-name: loader;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    animation-direction: alternate;
+    -webkit-animation-name: loader;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-direction: alternate;
+}
+
+@keyframes loader {
+    from {
+      font-size:1rem;
+    }
+    to {
+        font-size: 1.5rem;
+    }
+}

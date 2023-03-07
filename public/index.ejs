@@ -5,15 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>МосШахКлуб</title>
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon2.ico">
     <link rel="stylesheet" href="styles/style.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="styles/dialog.css">
+=======
+    <link rel="stylesheet" href="styles/loader.css">
+>>>>>>> pre-main
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;800&family=Roboto+Mono:wght@100;300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d6a8ce8d77.js" crossorigin="anonymous"></script>
+    <script>
+        function showPage() {
+            setTimeout(() => {
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("content").style.display = "block";
+            }, 1000);
+        }
+    </script>
 </head>
-<body>
+<body onload="showPage()">
+    <div id="loader" class="loader">Loading...</div>
+    <div id="content" style="display: none">
     <div class="toggle off" onclick="toggleButton()" id="my-toggle">
         <span class="color_cheme_icons">
             <i class="fas fa-sun"></i>
@@ -44,9 +58,13 @@
         </div>
     </div>
     <script src="./scripts/script.js"></script>
+<<<<<<< HEAD
     <script type='module' src="./scripts/dialog.js"></script>
+=======
+>>>>>>> pre-main
     <script type="module" src="./scripts/fifaTournament.js"></script>
   <footer>
 </footer>
+</div>
 </body>
 </html>
