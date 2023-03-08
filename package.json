@@ -33,7 +33,7 @@
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "jest": "^29.4.3"
+    "jest": "^29.4.3",
     "@cyclic.sh/dynamodb": "^0.0.33",
     "@mliebelt/pgn-parser": "^1.4.6",
     "aws-sdk": "^2.1328.0",
