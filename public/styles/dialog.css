@@ -8,8 +8,8 @@
 
 
 #moveW, #moveB {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    background-color: var(--text-color);
+    color: var(--bg-color);
     border-radius: 10px;
     padding: 10px;
     /* font-size: 30px; */
@@ -39,7 +39,7 @@
     position: absolute;
     border-style: solid;
     border-width: 15px;
-    border-color: var(--bg-color) transparent transparent var(--bg-color);
+    border-color: var(--text-color) transparent transparent var(--text-color);
     }
 
 #moveW::before {
