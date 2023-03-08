@@ -1,0 +1,93 @@
+{
+    "str": {
+        "Event": "Herceg Novi blitz",
+        "Site": "Herceg Novi blitz",
+        "Date": "1970.04.08",
+        "EventDate": "?",
+        "Round": "4.2",
+        "Result": "1-0",
+        "White": "Robert James Fischer",
+        "Black": "Samuel Reshevsky",
+        "ECO": "B40",
+        "WhiteElo": "?",
+        "BlackElo": "?",
+        "PlyCount": "119"
+    },
+    "moves": [
+        "e4",
+        "c5",
+        "Nf3"
+    ],
+    "annotations": [
+        {
+            "moveCount": 1,
+            "comment": "Notes by Bobby Fischer"
+        },
+        {
+            "moveCount": 5,
+            "comment": "5...d5 equalizes"
+        },
+        {
+            "moveCount": 8,
+            "comment": "if 8 d4? cxd4 9 Nxd4 Nxe4! wins a Pawn."
+        },
+        {
+            "moveCount": 9,
+            "comment": "Weaker is 9...b6? 10d4 with an advantage for White as in the game Smyslov-Reshevsky, the match of the century, Belgrade 1970. Now the position is symmetrical with White two tempi ahead."
+        },
+        {
+            "moveCount": 15,
+            "comment": "Very anti-positional. Correct of course was 15 exd5. Now Black gets a strong passed a-Pawn, also White's b-Pawn is isolated."
+        },
+        {
+            "moveCount": 17,
+            "comment": "Otherwise 17. . . Nc7-b5. White sacrifices a Pawn for complications."
+        },
+        {
+            "moveCount": 21,
+            "comment": "If 20 Rxa4?,... Nc3 wins the exchange."
+        },
+        {
+            "moveCount": 25,
+            "comment": "25. . . d3! won by force. For example a) 26 Bd7 Ba1 27 Rxb6 Bb2 or . . . Bd4 etc. b) 26 e5 Rd2! 27 Nd2 Be5 28 Bd7 Ba1 29 Rb6 Bd4 etc."
+        },
+        {
+            "moveCount": 31,
+            "comment": "A last swindle try."
+        },
+        {
+            "moveCount": 31,
+            "comment": "31. . . Ra2!  won easily 32.Qxa2 Qe1+  33.Kg2 d2, But as Dr. Tarrasch said \"You must see it\""
+        }
+    ],
+    "nag": [
+        {
+            "moveCount": 15,
+            "value": "$4"
+        },
+        {
+            "moveCount": 17,
+            "value": "$6"
+        },
+        {
+            "moveCount": 21,
+            "value": "$1"
+        },
+        {
+            "moveCount": 25,
+            "value": "$2"
+        },
+        {
+            "moveCount": 29,
+            "value": "$1"
+        },
+        {
+            "moveCount": 31,
+            "value": "$5"
+        },
+        {
+            "moveCount": 31,
+            "value": "$4"
+        }
+    ]
+}

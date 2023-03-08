@@ -170,22 +170,8 @@ const newTour = () => {
     }
 }
 
-// add('матвей соколовский');
-// add('ваня вор');
-// add('лола ткаченко');
-// add('миша ярчевский');
-// add('андрей буртов');
-// add('максим смоленцев');
-// add('ваня толстой');
-// add('толя яцков');
-// add('миша бешкуров');
-// add('лёша слинка');
-// add('саша другалёв');
-// add('адиля аюпова');
-// add('андрей саламов');
-// add('саша пилипенко');
-// add('арина некрасова');
-// add('сергей скрынников');
+import SLAY from './data/test_tournament.json' assert { type: "json" };
+ console.log(SLAY);
 
 add('вова')
 add('александр роший')
@@ -242,11 +228,33 @@ window.add = add;
 window.groupPeople = groupPeople;
 window.randomizeArray = randomizeArray;
 window.startTournament = startTournament;
-window.newTour = newTour;
-window.tournament = tournament;
-window.allGroupTours = allGroupTours;
-window.newGroupStage = newGroupStage;
-window.save = save;
+window.SLAY = SLAY;
 } catch (err) {
-    console.log(err)
+  console.log(err)
 }
+
+
+
+
+
+// export * from './fifa_tournament.js'
+// import json from './data/test_tournament.json' assert { type: "json" };
+// console.log(json);
+
+
+
+// console.log(startTournament(4));
+
+
+
+
+
+// ДАЛЬШЕ ПРОСТО ПОЛЕЗНЫЕ МЕТОДЫ
+
+// в этой строчке метод, возвращающий всё про игрока по его имени
+// player1 = players.find(obj => obj.name === 'матвей соколовский');
+// console.log(player1);
+
+
+// метод возвращающий все объекты класса
+// myClassObjects = myArray.filter(obj => obj instanceof MyClass);
