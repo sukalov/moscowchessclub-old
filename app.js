@@ -1,13 +1,4 @@
 // app.js
-
-const express = require("express"); 
-const ejs = require("ejs");
-const bodyParser = require("body-parser");
-const app = express();
-const fs = require('fs');
-const PORT = process.env.PORT || 4000;
-var favicon = require('serve-favicon');
-
 const fns = require('./fns');
 
 const express = require("express");
@@ -18,7 +9,6 @@ const bodyParser = require("body-parser");
 const fs = require('fs');
 
 app.use(express.json());
-
 
 // parse application/json
 app.use(bodyParser.json())
@@ -67,10 +57,5 @@ app.post("/save", function (req, res) {
 
 
 app.listen(PORT, function(){
-<<<<<<< HEAD
-        console.log(`working at localhost: ${ PORT }`);
-})
-=======
   console.log(`working at port: ${ PORT }`);
 })
->>>>>>> pre-main
