@@ -1,13 +1,14 @@
 /* Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ea! Corrupti harum quidem laborum, velit repellendus non, optio nisi pariatur et recusandae, voluptate suscipit natus nesciunt facilis consequuntur aut ullam. */
 #result {
     position: absolute;
-    top:25%;
+    top: 22%;
     font-size: 30px;
     user-select: none;
 }
 
 
-#moveW, #moveB {
+#moveW,
+#moveB {
     background-color: var(--text-color);
     color: var(--bg-color);
     border-radius: 10px;
@@ -31,7 +32,8 @@
     transform-origin: bottom right;
 }
 
-#moveW::before, #moveB::before {
+#moveW::before,
+#moveB::before {
     content: "";
     display: block;
     width: 0;
@@ -40,25 +42,28 @@
     border-style: solid;
     border-width: 15px;
     border-color: var(--text-color) transparent transparent var(--text-color);
-    }
+}
 
 #moveW::before {
     transform: rotate(10deg);
     left: 5px;
 }
+
 #moveB::before {
     transform: scale(-1, 1) rotate(10deg);
     right: 5px;
 }
 
 
-#moveW.animate-in, #moveB.animate-in {
+#moveW.animate-in,
+#moveB.animate-in {
     animation: transform 0.5s ease;
     animation-fill-mode: forwards;
 }
 
-#moveW.animate-out, #moveB.animate-out {
-    animation: transform-reverse 0.5s ease;
+#moveW.animate-out,
+#moveB.animate-out {
+    animation: transform-reverse 0.25s ease;
     animation-fill-mode: forwards;
 }
 
@@ -70,33 +75,64 @@
     0% {
         opacity: 0;
         transform: scale(0);
-      }
-      50% {
+    }
+
+    50% {
         transform: scale(1.25);
-      }
-      100% {
+    }
+
+    100% {
         opacity: 1;
         transform: scale(1);
-      }
+    }
 }
-  
-  @keyframes transform-reverse {
+
+@keyframes transform-reverse {
     0% {
-      transform: scale(1);
+        opacity: 1;
+        transform: scale(1);
     }
+
     100% {
-    opacity: 0;  
-    transform: scale(0);
+        opacity: 0;
+        transform: scale(0);
     }
-  }
-  
-  @keyframes appear {
+}
+
+@keyframes appear {
     0% {
         opacity: 0;
         transform: scale(0);
     }
+
     100% {
         opacity: 1;
         transform: scale(1);
     }
-  }
+}
+
+#playAgain {
+    position: absolute;
+    font-size: smaller;
+    top: 26%;
+    user-select: none;
+    text-decoration: underline;
+    transition: 0.2s ease;
+}
+
+#playAgain:hover {
+scale: 1.2;
+}
+
+#newGame {
+    position: absolute;
+    font-size: smaller;
+    top: 28%;
+    user-select: none;
+    text-decoration: underline;
+    transition: 0.2s ease;
+}
+
+#newGame:hover {
+scale: 1.2;
+}
