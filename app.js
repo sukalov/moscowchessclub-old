@@ -1,4 +1,8 @@
 // app.js
+// import { ChatGPTAPI } from 'chatgpt'
+// import { createRequire } from "module";
+// const require = createRequire(import.meta.url);
+
 const fns = require('./fns');
 
 const express = require("express");
@@ -12,12 +16,20 @@ const pgn = require('@mliebelt/pgn-parser');
 
 app.use(express.json());
 
+async function example() {
+  const api = new ChatGPTAPI({
+    apiKey: process.env.OPENAI_API_KEY
+  })
+
+  const res = await api.sendMessage('Hello World!')
+  console.log(res.text)
+}
+
 
 const gamesPGN = fs.readFileSync(path.resolve(__dirname, 'chessgames/game_collection.pgn'), 'utf8')
 
 // console.log(gamesPGN);
 
-// const games = readModuleFile('./5games.pgn', function (err, words) {});
 const gamesOBJ = pgn.parseGames(gamesPGN);
 console.log(gamesOBJ.length);
 
