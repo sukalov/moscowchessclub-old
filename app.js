@@ -7,8 +7,19 @@ const ejs = require("ejs");
 const PORT = process.env.PORT || 4000;
 const bodyParser = require("body-parser");
 const fs = require('fs');
+const path = require('path');
+const pgn = require('@mliebelt/pgn-parser');
 
 app.use(express.json());
+
+
+const gamesPGN = fs.readFileSync(path.resolve(__dirname, 'chessgames/game_collection.pgn'), 'utf8')
+
+// console.log(gamesPGN);
+
+// const games = readModuleFile('./5games.pgn', function (err, words) {});
+const gamesOBJ = pgn.parseGames(gamesPGN);
+console.log(gamesOBJ.length);
 
 // parse application/json
 app.use(bodyParser.json())

@@ -23,15 +23,17 @@
   },
   "homepage": "https://github.com/sukalov/moscowchessclub#readme",
   "dependencies": {
-    "jest": "^29.4.3",
     "@cyclic.sh/dynamodb": "^0.0.33",
     "@mliebelt/pgn-parser": "^1.4.6",
     "aws-sdk": "^2.1328.0",
     "body-parser": "^1.20.2",
+    "chatgpt": "^5.0.8",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
+    "file-type": "^16.5.3",
     "fs": "^0.0.1-security",
+    "jest": "^29.4.3",
     "nodemon": "^2.0.21",
     "serve-favicon": "^2.5.0",
     "util": "^0.12.5"
