@@ -69,4 +69,3 @@ clickonperson2.addEventListener("click", (event) => {
     console.log(result)
   }
 });
-
