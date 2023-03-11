@@ -1,10 +1,4 @@
 /* Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ea! Corrupti harum quidem laborum, velit repellendus non, optio nisi pariatur et recusandae, voluptate suscipit natus nesciunt facilis consequuntur aut ullam. */
-#result {
-    position: absolute;
-    top: 22%;
-    font-size: 30px;
-    user-select: none;
-}
 
 
 #moveW,
@@ -76,11 +70,11 @@
         opacity: 0;
         transform: scale(0);
     }
-
+    
     50% {
         transform: scale(1.25);
     }
-
+    
     100% {
         opacity: 1;
         transform: scale(1);
@@ -92,7 +86,7 @@
         opacity: 1;
         transform: scale(1);
     }
-
+    
     100% {
         opacity: 0;
         transform: scale(0);
@@ -104,18 +98,36 @@
         opacity: 0;
         transform: scale(0);
     }
-
+    
     100% {
         opacity: 1;
         transform: scale(1);
     }
 }
 
-#playAgain {
+.resContainer {
+    display: block;
+    align-items: center;
     position: absolute;
-    font-size: smaller;
-    top: 26%;
+    top: 20%;
+    text-align: center;
+    line-height: 1;
+}
+
+#result, #playAgain, #newGame {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
     user-select: none;
+}
+
+#result {
+    bottom: 5px;
+    font-size: 30px;
+}
+
+#playAgain {
+    font-size: smaller;
     text-decoration: underline;
     transition: 0.2s ease;
 }
@@ -125,10 +137,8 @@ scale: 1.2;
 }
 
 #newGame {
-    position: absolute;
+    bottom: 5px;
     font-size: smaller;
-    top: 28%;
-    user-select: none;
     text-decoration: underline;
     transition: 0.2s ease;
 }

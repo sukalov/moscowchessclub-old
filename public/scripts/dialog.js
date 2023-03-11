@@ -33,6 +33,7 @@ function start() {
   moveB.style.display = 'none';
   resultMessage.textContent = ''
   playAgain.textContent = ''
+  newGame.textContent = ''
   
 
 clickonperson1.addEventListener("click", (event) => {
@@ -77,6 +78,7 @@ clickonperson2.addEventListener("click", (event) => {
 
   resultMessage.textContent = ''
   playAgain.textContent = ''
+  newGame.textContent = ''
 
   if (!whiteTurn) {
     moveB.style.display = 'block';
