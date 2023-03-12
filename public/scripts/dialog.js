@@ -1,11 +1,12 @@
 import game from './data/test_game.json' assert { type: "json" };
 import game2 from './data/test_game2.json' assert { type: "json" };
 
-
 document.getElementById('playAgain').addEventListener('click', start);
 
   const moves = game2.moves;
   const result = game2.str.Result;
+
+
 
 function start() {
 
@@ -16,12 +17,6 @@ function start() {
   var moveIndex = 0;
   var clickcount = 0;
   let whiteTurn = true;
-
-  // if ((moveIndex + 1) / 2 == 1) {
-  //   whiteTurn = false
-  //   } else {
-  //     whiteTurn = true
-  //   }
   
   const clickonperson1 = document.getElementById('motya');
   const clickonperson2 = document.getElementById('vanya');

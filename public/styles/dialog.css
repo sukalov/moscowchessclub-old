@@ -117,7 +117,9 @@
 #result, #playAgain, #newGame {
     display: flex;
     justify-content: center;
+    height: 100%;
     padding: 5px;
+    /* margin: 5px;  */
     user-select: none;
 }
 
