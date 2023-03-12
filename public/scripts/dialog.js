@@ -3,9 +3,9 @@ import game2 from './data/test_game2.json' assert { type: "json" };
 console.log(game.moves[0]);
 
 const moves = game2.moves;
-const result = game2.str.Result
+const result = game2.str.Result;
 var moveIndex = 0;
-var clickcount = 0
+var clickcount = 0;
 let whiteTurn = true;
 
 const clickonperson1 = document.getElementById('motya');
