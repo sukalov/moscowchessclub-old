@@ -5,8 +5,32 @@ document.getElementById('playAgain').addEventListener('click', start);
 
   const moves = game2.moves;
   const result = game2.str.Result;
+var smth
 
 
+
+
+  async function getNewGame() { 
+    
+    let response = await fetch('/new-game');
+    if (response.ok) {
+
+      let json = await response.json();
+
+      smth = json
+    } else {
+      console.log("Ошибка HTTP: " + response.status);
+    }
+  }
+
+getNewGame().then(
+  function (result) {
+    console.log(result)
+  },
+  function (err) {
+    console.error('oops')
+  }
+)
 
 function start() {
 
@@ -106,6 +130,10 @@ clickonperson2.addEventListener("click", (event) => {
   } 
 })
 }
+
+window.getNewGame = getNewGame
+window.printJson = printJson
+window.func = func
 
 start()
 

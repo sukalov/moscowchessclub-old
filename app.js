@@ -8,7 +8,6 @@ const ejs = require("ejs");
 const PORT = process.env.PORT || 4000;
 const bodyParser = require("body-parser");
 const fs = require('fs');
-let parse = require("@mliebelt/pgn-parser").parse;
 
 app.use(express.json());
 
@@ -56,9 +55,12 @@ app.get("/tournaments", async (req, res) => {
 app.post("/save", function (req, res) {
   let file = JSON.stringify(req.body);
   fns.putOrUpdateTournament(req.body, 1);
-  res.send('got')
 }); 
 
+app.get('/new-game', function(req, res) {
+  res.json('newjson:newparse') 
+
+});
 
 app.listen(PORT, function(){
   console.log(`working at port: ${ PORT }`);
