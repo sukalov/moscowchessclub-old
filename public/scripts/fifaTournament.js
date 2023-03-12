@@ -11,7 +11,7 @@ class Player {
         this.wins = 0;
         this.draws = 0;
         this.loses = 0;
-        this.colorIndex = 10; // индекс по которому определяется кто каким цветом играет (у кого индекс меньше тот белыми, если равный - рандом)
+        this.colorIndex = 0; // индекс по которому определяется кто каким цветом играет (у кого индекс меньше тот белыми, если равный - рандом)
         []
     }
 
@@ -170,9 +170,6 @@ const newTour = () => {
     }
 }
 
-// import SLAY from './data/test_tournament.json' assert { type: "json" };
-//  console.log(SLAY);
-
 add('вова')
 add('александр роший')
 add('илья лакаев')
@@ -229,7 +226,6 @@ window.groupPeople = groupPeople;
 window.randomizeArray = randomizeArray;
 window.startTournament = startTournament;
 window.save = save;
-window.tournament = tournament;
 } catch (err) {
   console.log(err)
 }

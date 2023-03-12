@@ -127,6 +127,7 @@ clickonperson2.addEventListener("click", (event) => {
     playAgain.textContent = 'Сыграть ещё раз'
     newGame.textContent = 'Новая игра'
     console.log(result)
+<<<<<<< HEAD
   } 
 })
 }
@@ -137,3 +138,7 @@ window.func = func
 
 start()
 
+=======
+  }
+});
+>>>>>>> main

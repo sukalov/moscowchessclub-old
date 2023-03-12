@@ -1,4 +1,10 @@
 // app.js
+<<<<<<< HEAD
+=======
+// import { ChatGPTAPI } from 'chatgpt'
+// import { createRequire } from "module";
+// const require = createRequire(import.meta.url);
+>>>>>>> main
 
 // const fns = require('./fns');
 
@@ -8,9 +14,27 @@ const ejs = require("ejs");
 const PORT = process.env.PORT || 4000;
 const bodyParser = require("body-parser");
 const fs = require('fs');
+const path = require('path');
+const pgn = require('@mliebelt/pgn-parser');
 
 app.use(express.json());
 
+async function example() {
+  const api = new ChatGPTAPI({
+    apiKey: process.env.OPENAI_API_KEY
+  })
+
+  const res = await api.sendMessage('Hello World!')
+  console.log(res.text)
+}
+
+
+const gamesPGN = fs.readFileSync(path.resolve(__dirname, 'chessgames/game_collection.pgn'), 'utf8')
+
+// console.log(gamesPGN);
+
+const gamesOBJ = pgn.parseGames(gamesPGN);
+console.log(gamesOBJ.length);
 
 // parse application/json
 app.use(bodyParser.json())
@@ -62,6 +86,13 @@ app.get('/new-game', function(req, res) {
 
 });
 
+<<<<<<< HEAD
+=======
+app.get(process.env.CERTBOT_ADDRESS, function(req,res){
+  res.send(process.env.CERTBOT_DATA);
+});
+
+>>>>>>> main
 app.listen(PORT, function(){
   console.log(`working at port: ${ PORT }`);
 })
