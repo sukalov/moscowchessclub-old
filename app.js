@@ -1,10 +1,7 @@
 // app.js
-<<<<<<< HEAD
-=======
 // import { ChatGPTAPI } from 'chatgpt'
 // import { createRequire } from "module";
 // const require = createRequire(import.meta.url);
->>>>>>> main
 
 // const fns = require('./fns');
 
@@ -86,13 +83,10 @@ app.get('/new-game', function(req, res) {
 
 });
 
-<<<<<<< HEAD
-=======
 app.get(process.env.CERTBOT_ADDRESS, function(req,res){
   res.send(process.env.CERTBOT_DATA);
 });
 
->>>>>>> main
 app.listen(PORT, function(){
   console.log(`working at port: ${ PORT }`);
 })
