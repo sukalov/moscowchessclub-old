@@ -170,9 +170,6 @@ const newTour = () => {
     }
 }
 
-import SLAY from './data/test_tournament.json' assert { type: "json" };
- console.log(SLAY);
-
 add('вова')
 add('александр роший')
 add('илья лакаев')
@@ -228,7 +225,7 @@ window.add = add;
 window.groupPeople = groupPeople;
 window.randomizeArray = randomizeArray;
 window.startTournament = startTournament;
-window.SLAY = SLAY;
+window.save = save;
 } catch (err) {
   console.log(err)
 }
