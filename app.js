@@ -83,6 +83,11 @@ app.get('/new-game', function(req, res) {
 
 });
 
+app.get("/testing", function (req, res) {
+  const gameToSend = JSON.stringify(gamesOBJ[0]);
+  res.json(gameToSend);
+});
+
 app.get(process.env.CERTBOT_ADDRESS, function(req,res){
   res.send(process.env.CERTBOT_DATA);
 });
