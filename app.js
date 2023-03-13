@@ -26,7 +26,7 @@ async function example() {
 }
 
 
-const gamesPGN = fs.readFileSync(path.resolve(__dirname, 'chessgames/game_collection.pgn'), 'utf8')
+const gamesPGN = fs.readFileSync(path.resolve(__dirname, 'public/scripts/data/games/game_collection.pgn'), 'utf8')
 
 // console.log(gamesPGN);
 
@@ -87,7 +87,8 @@ function getRandomIndex(arr) {
 }
 
 app.get('/new-game', function(req, res) {
-  const gameToSend = JSON.stringify(gamesOBJ[getRandomIndex(gamesOBJ)]);
+  // const gameToSend = JSON.stringify(gamesOBJ[getRandomIndex(gamesOBJ)]);
+  const gameToSend = JSON.stringify(gamesOBJ[95]);
   res.json(gameToSend);
 });
 

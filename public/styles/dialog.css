@@ -1,8 +1,8 @@
 /* Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ea! Corrupti harum quidem laborum, velit repellendus non, optio nisi pariatur et recusandae, voluptate suscipit natus nesciunt facilis consequuntur aut ullam. */
 
-
-#moveW,
-#moveB {
+#movePlayerOne,
+#movePlayerTwo {
+    display: none;
     background-color: var(--text-color);
     color: var(--bg-color);
     border-radius: 10px;
@@ -14,20 +14,20 @@
     width: auto;
 }
 
-#moveW {
+#movePlayerOne {
     top: -25%;
     left: 70%;
     transform-origin: bottom left;
 }
 
-#moveB {
+#movePlayerTwo {
     top: -25%;
     right: 70%;
     transform-origin: bottom right;
 }
 
-#moveW::before,
-#moveB::before {
+#movePlayerOne::before,
+#movePlayerTwo::before {
     content: "";
     display: block;
     width: 0;
@@ -38,25 +38,25 @@
     border-color: var(--text-color) transparent transparent var(--text-color);
 }
 
-#moveW::before {
+#movePlayerOne::before {
     transform: rotate(10deg);
     left: 5px;
 }
 
-#moveB::before {
+#movePlayerTwo::before {
     transform: scale(-1, 1) rotate(10deg);
     right: 5px;
 }
 
 
-#moveW.animate-in,
-#moveB.animate-in {
+#movePlayerOne.animate-in,
+#movePlayerTwo.animate-in {
     animation: transform 0.5s ease;
     animation-fill-mode: forwards;
 }
 
-#moveW.animate-out,
-#moveB.animate-out {
+#movePlayerOne.animate-out,
+#movePlayerTwo.animate-out {
     animation: transform-reverse 0.25s ease;
     animation-fill-mode: forwards;
 }
@@ -106,7 +106,7 @@
 }
 
 .resContainer {
-    display: block;
+    /* display: none; */
     align-items: center;
     position: absolute;
     top: 20%;

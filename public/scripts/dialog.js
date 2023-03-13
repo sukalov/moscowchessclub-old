@@ -1,16 +1,22 @@
 // import game from './data/test_game.json' assert { type: "json" };
 // import game2 from './data/test_game2.json' assert { type: "json" };
 
-document.getElementById('playAgain').addEventListener('click', start);
 
 
 var jsonRes
 let moves
 let result
 
-// function getNewGame() {  
- 
-// }
+const player1 = document.getElementById('motya');
+const player2 = document.getElementById('vanya');
+const movePlayerOne = document.getElementById('movePlayerOne');
+const movePlayerTwo = document.getElementById('movePlayerTwo');
+let resultMessage = document.getElementById('result')
+let playAgain = document.getElementById('playAgain')
+
+
+document.getElementById('playAgain').addEventListener('click', start);
+
 
 function getNewGame() {
   return fetch('./new-game')
@@ -18,123 +24,99 @@ function getNewGame() {
   .then(data => {(jsonRes = JSON.parse(data), window.jsonRes = jsonRes)
   return data})
   .catch(err => console.log(err));
-  }
+}
+
+
+getNewGame()
+.then(data => moves = jsonRes.moves)
+.then(data => console.log(moves))
   
-  getNewGame()
-   .then(data => moves = jsonRes.moves)
-   .then(data => console.log(data))
 
 function start() {
-  
-  // getNewGame()
-  // .then(data => moves = jsonRes.moves)
-  // .then(data => console.log(data))
 
-  // getNewGame()
-
-  
-  const newGame = document.getElementById('newGame')
-  
-  var moveIndex = 0;
-  var clickcount = 0;
-  let playerOneTurn = (Math.random() < 0.5);
+  let newGame = document.getElementById('newGame')
+  // let playerOneTurn = (Math.random() < 0.5);
+  let playerOneTurn = false;
   
   console.log(moveIndex);
-
-  const clickonperson1 = document.getElementById('motya');
-  const clickonperson2 = document.getElementById('vanya');
-  const moveW = document.getElementById('moveW');
-  const moveB = document.getElementById('moveB');
-  const resultMessage = document.getElementById('result')
-  const playAgain = document.getElementById('playAgain')
-  moveW.style.display = 'none';
-  moveB.style.display = 'none';
-  resultMessage.textContent = ''
-  playAgain.textContent = ''
-  newGame.textContent = ''
   
-
-clickonperson1.addEventListener("click", (event) => {
-
+  var moveIndex = 0;
+  movePlayerOne.style.display = 'none';
+  movePlayerTwo.style.display = 'none';
   resultMessage.textContent = ''
   playAgain.textContent = ''
   newGame.textContent = ''
 
-  // if (playerOneTurn && moveIndex < moves.length) {
+player1.addEventListener("click", (event) => {
+
   
-  if (moveIndex == moves.length && playerOneTurn) {
-    moveW.style.display = 'none';
-    moveW.classList.remove("animate-out");
-    moveW.classList.remove("animate-in");
-    moveB.classList.add("animate-out");
-    moveB.classList.remove("animate-in");
+  
+  if (moveIndex >= moves.length) {
+    movePlayerOne.style.display = 'none';
+    movePlayerTwo.classList.add("animate-out");
+    movePlayerOne.classList.remove("animate-out");
+    movePlayerOne.classList.remove("animate-in");
+    movePlayerTwo.classList.remove("animate-in");
     resultMessage.textContent = jsonRes.tags.Result
     playAgain.textContent = 'Сыграть ещё раз'
     newGame.textContent = 'Новая игра'
-    // console.log(result)
   } 
 
-  else if (playerOneTurn) {
-    moveW.style.display = 'block';
-    moveB.classList.add("animate-out");
-    moveB.classList.remove("animate-in");
-    moveW.classList.remove("animate-out");
-    moveW.classList.add("animate-in");
-    moveW.style.fontSize = '30px';
-    moveW.textContent = moves[moveIndex++].notation.notation;
-    // moveIndex++
-    clickcount++
+  else if (moveIndex < moves.length && playerOneTurn) {
+    movePlayerOne.style.display = 'block';
+    movePlayerTwo.classList.add("animate-out");
+    movePlayerTwo.classList.remove("animate-in");
+    movePlayerOne.classList.remove("animate-out");
+    movePlayerOne.classList.add("animate-in");
+    movePlayerOne.style.fontSize = '30px';
+    movePlayerOne.textContent = moves[moveIndex++].notation.notation;
     console.log(moveIndex);
     playerOneTurn = false;
-  // } else if (!playerOneTurn && moveIndex <= moves.length) {
-  } else {
-
-    moveW.style.display = 'block'
-    moveW.classList.add("animate-in");
-    moveW.style.fontSize = '20px';
-    moveW.textContent = 'ход Вора';
+    
+  } else if (!playerOneTurn) {
+    movePlayerOne.style.display = 'block'
+    movePlayerOne.classList.add("animate-in");
+    movePlayerOne.style.fontSize = '20px';
+    movePlayerOne.textContent = 'ход Вора';
   }
   
-  // else (moveIndex > moves.length) {
   
-
 });
 
-clickonperson2.addEventListener("click", (event) => {
+player2.addEventListener("click", (event) => {
 
-  resultMessage.textContent = ''
-  playAgain.textContent = ''
-  newGame.textContent = ''
+  
 
-  if (moveIndex == moves.length && !playerOneTurn) {
-    moveB.style.display = 'none';
-    moveW.classList.remove("animate-in");
-    moveB.classList.remove("animate-out");
-    moveB.classList.remove("animate-in");
-    moveW.classList.add("animate-out");
+  if (moveIndex >= moves.length && !playerOneTurn) {
+    movePlayerTwo.style.display = 'none';
+    movePlayerOne.classList.add("animate-out");
+    movePlayerTwo.classList.remove("animate-out");
+    movePlayerOne.classList.remove("animate-in");
+    movePlayerTwo.classList.remove("animate-in");
     resultMessage.textContent = jsonRes.tags.Result
     playAgain.textContent = 'Сыграть ещё раз'
     newGame.textContent = 'Новая игра'
     // console.log(result)
   }
 
-  else if (!playerOneTurn) {
-    moveB.style.display = 'block';
-    moveW.classList.add("animate-out");
-    moveW.classList.remove("animate-in");
-    moveB.classList.remove("animate-out");
-    moveB.classList.add("animate-in");
-    moveB.style.fontSize = '30px';
-    moveB.textContent = moves[moveIndex++].notation.notation;
-    // moveIndex++
-    clickcount++
+  else if (moveIndex < moves.length && !playerOneTurn) {
+    movePlayerTwo.style.display = 'block';
+    movePlayerOne.classList.add("animate-out");
+    movePlayerOne.classList.remove("animate-in");
+    movePlayerTwo.classList.remove("animate-out");
+    movePlayerTwo.classList.add("animate-in");
+    movePlayerTwo.style.fontSize = '30px';
+    movePlayerTwo.textContent = moves[moveIndex++].notation.notation;
     console.log(moveIndex);
     playerOneTurn = true;
-  } else {
-    moveB.style.display = 'block'
-    moveB.classList.add("animate-in");
-    moveB.style.fontSize = '20px';
-    moveB.textContent = 'ход Матвея';
+  } 
+  
+  else if (playerOneTurn) {
+    
+    movePlayerTwo.style.display = 'block'
+    movePlayerTwo.classList.add("animate-in");
+    movePlayerTwo.style.fontSize = '20px';
+    movePlayerTwo.textContent = 'ход Матвея';
   }
 
   
