@@ -27,20 +27,22 @@ function getNewGame() {
 }
 
 
-getNewGame()
+
+
+function start() {
+  
+  getNewGame()
 .then(data => moves = jsonRes.moves)
 .then(data => console.log(moves))
   
-
-function start() {
 
   let newGame = document.getElementById('newGame')
   // let playerOneTurn = (Math.random() < 0.5);
   let playerOneTurn = false;
   
-  console.log(moveIndex);
   
-  var moveIndex = 0;
+  let moveIndex = 0;
+  console.log(moveIndex);
   movePlayerOne.style.display = 'none';
   movePlayerTwo.style.display = 'none';
   resultMessage.textContent = ''
@@ -49,9 +51,26 @@ function start() {
 
 player1.addEventListener("click", (event) => {
 
-  
-  
-  if (moveIndex >= moves.length) {
+  if (moveIndex < moves.length && playerOneTurn) {
+    movePlayerOne.style.display = 'block';
+    movePlayerTwo.classList.add("animate-out");
+    movePlayerTwo.classList.remove("animate-in");
+    movePlayerOne.classList.remove("animate-out");
+    movePlayerOne.classList.add("animate-in");
+    movePlayerOne.style.fontSize = '30px';
+    movePlayerOne.textContent = moves[moveIndex++].notation.notation;
+    console.log(moveIndex);
+    playerOneTurn = false;
+  }
+    
+    else  {
+      movePlayerOne.style.display = 'block'
+      movePlayerOne.classList.add("animate-in");
+      movePlayerOne.style.fontSize = '20px';
+      movePlayerOne.textContent = 'ход Вора';
+    }
+    
+  if (moveIndex == moves.length && playerOneTurn) {
     movePlayerOne.style.display = 'none';
     movePlayerTwo.classList.add("animate-out");
     movePlayerOne.classList.remove("animate-out");
@@ -62,23 +81,8 @@ player1.addEventListener("click", (event) => {
     newGame.textContent = 'Новая игра'
   } 
 
-  else if (moveIndex < moves.length && playerOneTurn) {
-    movePlayerOne.style.display = 'block';
-    movePlayerTwo.classList.add("animate-out");
-    movePlayerTwo.classList.remove("animate-in");
-    movePlayerOne.classList.remove("animate-out");
-    movePlayerOne.classList.add("animate-in");
-    movePlayerOne.style.fontSize = '30px';
-    movePlayerOne.textContent = moves[moveIndex++].notation.notation;
-    console.log(moveIndex);
-    playerOneTurn = false;
+  
     
-  } else if (!playerOneTurn) {
-    movePlayerOne.style.display = 'block'
-    movePlayerOne.classList.add("animate-in");
-    movePlayerOne.style.fontSize = '20px';
-    movePlayerOne.textContent = 'ход Вора';
-  }
   
   
 });
@@ -86,8 +90,26 @@ player1.addEventListener("click", (event) => {
 player2.addEventListener("click", (event) => {
 
   
-
-  if (moveIndex >= moves.length && !playerOneTurn) {
+  if (moveIndex < moves.length && !playerOneTurn) {
+    movePlayerTwo.style.display = 'block';
+    movePlayerOne.classList.add("animate-out");
+    movePlayerOne.classList.remove("animate-in");
+    movePlayerTwo.classList.remove("animate-out");
+    movePlayerTwo.classList.add("animate-in");
+    movePlayerTwo.style.fontSize = '30px';
+    movePlayerTwo.textContent = moves[moveIndex++].notation.notation;
+    console.log(moveIndex);
+    playerOneTurn = true;
+  } 
+  else {
+    
+    movePlayerTwo.style.display = 'block'
+    movePlayerTwo.classList.add("animate-in");
+    movePlayerTwo.style.fontSize = '20px';
+    movePlayerTwo.textContent = 'ход Матвея';
+  }
+  
+  if (moveIndex == moves.length && !playerOneTurn) {
     movePlayerTwo.style.display = 'none';
     movePlayerOne.classList.add("animate-out");
     movePlayerTwo.classList.remove("animate-out");
@@ -99,25 +121,7 @@ player2.addEventListener("click", (event) => {
     // console.log(result)
   }
 
-  else if (moveIndex < moves.length && !playerOneTurn) {
-    movePlayerTwo.style.display = 'block';
-    movePlayerOne.classList.add("animate-out");
-    movePlayerOne.classList.remove("animate-in");
-    movePlayerTwo.classList.remove("animate-out");
-    movePlayerTwo.classList.add("animate-in");
-    movePlayerTwo.style.fontSize = '30px';
-    movePlayerTwo.textContent = moves[moveIndex++].notation.notation;
-    console.log(moveIndex);
-    playerOneTurn = true;
-  } 
   
-  else if (playerOneTurn) {
-    
-    movePlayerTwo.style.display = 'block'
-    movePlayerTwo.classList.add("animate-in");
-    movePlayerTwo.style.fontSize = '20px';
-    movePlayerTwo.textContent = 'ход Матвея';
-  }
 
   
 })
