@@ -43,8 +43,8 @@ function hideMenu () {
 }}
 
   let newGame = document.getElementById('newGame')
-  // let playerOneTurn = (Math.random() < 0.5);
-  let playerOneTurn = false;
+  let playerOneTurn = (Math.random() < 0.5);
+  // let playerOneTurn = true;
   
   
   let moveIndex = 0;
@@ -66,10 +66,10 @@ player1.addEventListener("click", (event) => {
     movePlayerOne.style.fontSize = '30px';
     movePlayerOne.textContent = moves[moveIndex++].notation.notation;
     console.log(moveIndex);
-    playerOneTurn = false;
+    playerOneTurn = !playerOneTurn;
+    console.log(playerOneTurn)
   }
-    
-    else  {
+    else if (!resultMessage.textContent) {
       movePlayerOne.style.display = 'block'
       movePlayerOne.classList.add("animate-in");
       movePlayerOne.style.fontSize = '20px';
@@ -99,9 +99,10 @@ player2.addEventListener("click", (event) => {
     movePlayerTwo.style.fontSize = '30px';
     movePlayerTwo.textContent = moves[moveIndex++].notation.notation;
     console.log(moveIndex);
-    playerOneTurn = true;
+    playerOneTurn = !playerOneTurn;
+    console.log(playerOneTurn)
   } 
-  else {
+  else if (!resultMessage.textContent) {
     
     movePlayerTwo.style.display = 'block'
     movePlayerTwo.classList.add("animate-in");
