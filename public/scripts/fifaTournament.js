@@ -240,7 +240,6 @@ window.randomizeArray = randomizeArray;
 window.startTournament = startTournament;
 window.save = save;
 window.getNewGame = getNewGame;
-window.printJson = printJson;
 window.jsonRes = jsonRes;
 
 } catch (err) {
