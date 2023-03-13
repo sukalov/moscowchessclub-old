@@ -108,7 +108,7 @@ function randomizeArray(arr) {
 
     // Iterate over each group in the input object
     for (const groupName in groups) {
-        console.log(groupName);
+        // console.log(groupName);
       const group = groups[groupName];
       const numPlayers = group.length;
 
@@ -145,7 +145,7 @@ const startTournament = (numPeople = 5) => {
     delete groups.status;
 
     generateAllTours(groups);
-    console.log(getAllPairs(tournament.group1, 'group1'))
+    // console.log(getAllPairs(tournament.group1, 'group1'))
 
 
     groups.status = `group stage. tour ${ tournamentStatus }`;
@@ -213,7 +213,7 @@ function save() {
       body: JSON.stringify(tournament),
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    // .then(data => console.log(data))
     .catch(error => console.error(error));
 };
 
@@ -236,8 +236,8 @@ window.groupPeople = groupPeople;
 window.randomizeArray = randomizeArray;
 window.startTournament = startTournament;
 window.save = save;
-window.getNewGame = getNewGame;
-window.jsonRes = jsonRes;
+// window.getNewGame = getNewGame;
+// window.jsonRes = jsonRes;
 
 } catch (err) {
   console.log(err)

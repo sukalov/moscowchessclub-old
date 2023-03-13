@@ -78,10 +78,16 @@ app.post("/save", function (req, res) {
   fns.putOrUpdateTournament(req.body, 1);
 }); 
 
+function getRandomIndex(arr) {
+  
+  const max = arr.length; // определяем максимальный индекс длинной массива
+  const randomIndex = Math.floor(Math.random() * (max));
+  return randomIndex;
 
+}
 
 app.get('/new-game', function(req, res) {
-  const gameToSend = JSON.stringify(gamesOBJ[0]);
+  const gameToSend = JSON.stringify(gamesOBJ[getRandomIndex(gamesOBJ)]);
   res.json(gameToSend);
 });
 
