@@ -7,26 +7,32 @@ const movePlayerOne = document.getElementById('movePlayerOne');
 const movePlayerTwo = document.getElementById('movePlayerTwo');
 let resultMessage = document.getElementById('result')
 let playAgain = document.getElementById('playAgain')
+let newGame = document.getElementById('newGame')
 document.getElementById('playAgain').addEventListener('click', start);
+document.getElementById('newGame').addEventListener('click', getNewGame);
+document.getElementById('newGame').addEventListener('click', start);
 var jsonRes
 let moves
 let result
 
 function getNewGame() {
-  return fetch('./new-game')
+  fetch('./new-game')
     .then(response => response.json())
     .then(data => {
       (jsonRes = JSON.parse(data), window.jsonRes = jsonRes)
       return data
     })
+    .then(data => moves = jsonRes.moves)
+    .then(data => console.log(moves))
+    .then()
     .catch(err => console.log(err));
 }
 
-function start() {
+getNewGame()
+  
 
-  getNewGame()
-    .then(data => moves = jsonRes.moves)
-    .then(data => console.log(moves))
+
+function start() {
 
   function hideMenu() {
     if (moveIndex < moves.length) {
@@ -97,7 +103,6 @@ function start() {
       console.log(playerOneTurn)
     }
     else if (!resultMessage.textContent) {
-
       movePlayerTwo.style.display = 'block'
       movePlayerTwo.classList.add("animate-in");
       movePlayerTwo.style.fontSize = '20px';

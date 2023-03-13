@@ -87,8 +87,8 @@ function getRandomIndex(arr) {
 }
 
 app.get('/new-game', function(req, res) {
-  // const gameToSend = JSON.stringify(gamesOBJ[getRandomIndex(gamesOBJ)]);
-  const gameToSend = JSON.stringify(gamesOBJ[95]);
+  const gameToSend = JSON.stringify(gamesOBJ[getRandomIndex(gamesOBJ)]);
+  // const gameToSend = JSON.stringify(gamesOBJ[95]);
   res.json(gameToSend);
 });
 
