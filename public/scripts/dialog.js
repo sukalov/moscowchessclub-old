@@ -35,6 +35,12 @@ function start() {
 .then(data => moves = jsonRes.moves)
 .then(data => console.log(moves))
   
+function hideMenu () {
+  if (moveIndex < moves.length) {
+  resultMessage.textContent = ''
+  playAgain.textContent = ''
+  newGame.textContent = ''
+}}
 
   let newGame = document.getElementById('newGame')
   // let playerOneTurn = (Math.random() < 0.5);
@@ -50,7 +56,7 @@ function start() {
   newGame.textContent = ''
 
 player1.addEventListener("click", (event) => {
-
+  hideMenu()
   if (moveIndex < moves.length && playerOneTurn) {
     movePlayerOne.style.display = 'block';
     movePlayerTwo.classList.add("animate-out");
@@ -80,16 +86,10 @@ player1.addEventListener("click", (event) => {
     playAgain.textContent = 'Сыграть ещё раз'
     newGame.textContent = 'Новая игра'
   } 
-
-  
-    
-  
-  
 });
 
 player2.addEventListener("click", (event) => {
-
-  
+  hideMenu()
   if (moveIndex < moves.length && !playerOneTurn) {
     movePlayerTwo.style.display = 'block';
     movePlayerOne.classList.add("animate-out");
