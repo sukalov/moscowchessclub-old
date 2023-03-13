@@ -218,17 +218,14 @@ function save() {
 };
 
 
-var jsonRes
-function getNewGame() {  
-  fetch('./testing')
-  .then(response => response.json())
-  .then(
-    data => (jsonRes = JSON.parse(data),
-        window.jsonRes = jsonRes
-    ))
-  .catch(err => console.log(err));
-
-}
+// var jsonRes
+// function getNewGame() {  
+//   fetch('./testing')
+//   .then(response => response.json())
+//   .then(data => (jsonRes = JSON.parse(data),
+//         window.jsonRes = jsonRes))
+//   .catch(err => console.log(err));
+// }
 
 try {
 window.Player = Player;
@@ -240,7 +237,6 @@ window.randomizeArray = randomizeArray;
 window.startTournament = startTournament;
 window.save = save;
 window.getNewGame = getNewGame;
-window.printJson = printJson;
 window.jsonRes = jsonRes;
 
 } catch (err) {

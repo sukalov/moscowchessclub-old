@@ -5,32 +5,15 @@ document.getElementById('playAgain').addEventListener('click', start);
 
   const moves = game2.moves;
   const result = game2.str.Result;
-var smth
 
-
-
-
-  async function getNewGame() { 
-    
-    let response = await fetch('/new-game');
-    if (response.ok) {
-
-      let json = await response.json();
-
-      smth = json
-    } else {
-      console.log("Ошибка HTTP: " + response.status);
-    }
-  }
-
-getNewGame().then(
-  function (result) {
-    console.log(result)
-  },
-  function (err) {
-    console.error('oops')
-  }
-)
+var jsonRes
+function getNewGame() {  
+  fetch('./new-game')
+  .then(response => response.json())
+  .then(data => (jsonRes = JSON.parse(data),
+        window.jsonRes = jsonRes))
+  .catch(err => console.log(err));
+}
 
 function start() {
 
@@ -130,3 +113,7 @@ clickonperson2.addEventListener("click", (event) => {
   }
 })
 }
+
+window.getNewGame = getNewGame
+
+start()
