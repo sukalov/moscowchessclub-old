@@ -15,6 +15,7 @@ var jsonRes
 let moves
 let moveIndex
 let result
+let niceResult
 
 function getNewGame() {
   fetch('./new-game')
@@ -25,6 +26,9 @@ function getNewGame() {
     })
     .then(data => moves = jsonRes.moves)
     .then(data => result = jsonRes.tags.Result)
+    .then(data => {if (result == '1/2-1/2') {
+      niceResult = '½-½'
+    }})
     .then(data => console.log(moves))
     .then(data => console.log(jsonRes))
     .catch(err => console.log(err));
@@ -36,22 +40,9 @@ getNewGame()
 
 
 function start() {
-
+  // var playerOneTurn = (Math.random() < 0.5);
   var playerOneTurn
-
-var firstClickPlayerOne = (() => {
-  var clicked = false;
-  return function (a) {
-    if (!clicked) {
-      clicked = true;
-      playerOneTurn = a;
-    }
-  };
-})(); 
-// ахереть, но
-// круглые скобки 
-// в самом конце 
-// тут очень нужны
+  
 
   function hideMenu() {
     if (moveIndex < moves.length) {
@@ -64,10 +55,39 @@ var firstClickPlayerOne = (() => {
 
 let newGame = document.getElementById('newGame')
 
-let niceResult
-if (result = '1/2-1/2') {
-niceResult = '½-½'
-}
+
+
+
+// var firstClickPlayerOne = (function() {
+//   var clicked = false;
+//   return function() {
+//       if (!clicked) {
+//           clicked = true;
+//           playerOneTurn = true;
+//            // do something
+//         }
+//       };
+//   })();
+
+  var firstClickPlayerOne = (function() {
+    var clicked = false;
+    return function (a) {
+        if (!clicked) {
+            clicked = true;
+            playerOneTurn = a;
+            moveIndex = 0
+          }
+        }
+    })();
+    
+
+    // player1.addEventListener("click", (event) => {
+    //   playerOneTurn = true
+    // }, {once : true})
+    // player2.addEventListener("click", (event) => {
+    //   playerOneTurn = false
+    // }, {once : true})
+
 
   moveIndex = 0;
   console.log(moveIndex);
@@ -79,18 +99,20 @@ niceResult = '½-½'
   
   player1.addEventListener("click", (event) => {
     hideMenu()
-    firstClickPlayerOne(true)
-    console.log('here ' + playerOneTurn)
+  firstClickPlayerOne(true)
+    console.log('move ' + moveIndex, playerOneTurn)
     if (moveIndex < moves.length && playerOneTurn) {
+      
       movePlayerOne.style.display = 'block';
       movePlayerTwo.classList.add("animate-out");
       movePlayerTwo.classList.remove("animate-in");
       movePlayerOne.classList.remove("animate-out");
       movePlayerOne.classList.add("animate-in");
       movePlayerOne.style.fontSize = '30px';
-      movePlayerOne.textContent = moves[moveIndex++].notation.notation;
+      movePlayerOne.textContent = moves[moveIndex].notation.notation;
+      moveIndex++
       playerOneTurn = !playerOneTurn;
-      console.log('and here ' + moveIndex + ' ' + playerOneTurn)
+      console.log('next move ' + moveIndex, playerOneTurn)
     }
     else if (!resultMessage.textContent) {
       movePlayerOne.style.display = 'block'
@@ -114,16 +136,20 @@ niceResult = '½-½'
   player2.addEventListener("click", (event) => {
     hideMenu()
     firstClickPlayerOne(false)
+    console.log('move ' + moveIndex, playerOneTurn)
+    
     if (moveIndex < moves.length && !playerOneTurn) {
+      
       movePlayerTwo.style.display = 'block';
       movePlayerOne.classList.add("animate-out");
       movePlayerOne.classList.remove("animate-in");
       movePlayerTwo.classList.remove("animate-out");
       movePlayerTwo.classList.add("animate-in");
       movePlayerTwo.style.fontSize = '30px';
-      movePlayerTwo.textContent = moves[moveIndex++].notation.notation;
+      movePlayerTwo.textContent = moves[moveIndex].notation.notation;
+      moveIndex++
       playerOneTurn = !playerOneTurn;
-      console.log(moveIndex + ' ' + playerOneTurn)
+      console.log('next move ' + moveIndex, playerOneTurn)
     }
     else if (!resultMessage.textContent) {
       movePlayerTwo.style.display = 'block'
@@ -144,7 +170,7 @@ niceResult = '½-½'
       // console.log(result)
     }
   })
-
+  console.log(playerOneTurn)
   window.getNewGame = getNewGame
   window.jsonRes = jsonRes
   window.start = start
