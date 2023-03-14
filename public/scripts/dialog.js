@@ -13,8 +13,8 @@ document.getElementById('newGame').addEventListener('click', getNewGame);
 document.getElementById('newGame').addEventListener('click', start);
 var jsonRes
 let moves
-let result
 let moveIndex
+let result
 
 function getNewGame() {
   fetch('./new-game')
@@ -24,6 +24,7 @@ function getNewGame() {
       return data
     })
     .then(data => moves = jsonRes.moves)
+    .then(data => result = jsonRes.tags.Result)
     .then(data => console.log(moves))
     .then(data => console.log(jsonRes))
     .catch(err => console.log(err));
@@ -33,7 +34,24 @@ getNewGame()
   
 
 
+
 function start() {
+
+  var playerOneTurn
+
+var firstClickPlayerOne = (() => {
+  var clicked = false;
+  return function (a) {
+    if (!clicked) {
+      clicked = true;
+      playerOneTurn = a;
+    }
+  };
+})(); 
+// ахереть, но
+// круглые скобки 
+// в самом конце 
+// тут очень нужны
 
   function hideMenu() {
     if (moveIndex < moves.length) {
@@ -43,20 +61,13 @@ function start() {
     }
   }
 
-  let newGame = document.getElementById('newGame')
-  
-  var firstClickPlayerOne = (function() {
-    var clicked = false;
-    return function(a) {
-        if (!clicked) {
-            clicked = true;
-            playerOneTurn = a;
-             // do something
-          }
-        };
-    })();
 
-let playerOneTurn
+let newGame = document.getElementById('newGame')
+
+let niceResult
+if (result = '1/2-1/2') {
+niceResult = '½-½'
+}
 
   moveIndex = 0;
   console.log(moveIndex);
@@ -65,15 +76,11 @@ let playerOneTurn
   resultMessage.textContent = ''
   playAgain.textContent = ''
   newGame.textContent = ''
-  // player1.addEventListener("click", (event) => {
-    
-  // })
-  // player2.addEventListener("click", (event) => {})
-
-
+  
   player1.addEventListener("click", (event) => {
     hideMenu()
     firstClickPlayerOne(true)
+    console.log('here ' + playerOneTurn)
     if (moveIndex < moves.length && playerOneTurn) {
       movePlayerOne.style.display = 'block';
       movePlayerTwo.classList.add("animate-out");
@@ -82,9 +89,8 @@ let playerOneTurn
       movePlayerOne.classList.add("animate-in");
       movePlayerOne.style.fontSize = '30px';
       movePlayerOne.textContent = moves[moveIndex++].notation.notation;
-      console.log(moveIndex);
       playerOneTurn = !playerOneTurn;
-      console.log(playerOneTurn)
+      console.log('and here ' + moveIndex + ' ' + playerOneTurn)
     }
     else if (!resultMessage.textContent) {
       movePlayerOne.style.display = 'block'
@@ -99,7 +105,7 @@ let playerOneTurn
       movePlayerOne.classList.remove("animate-out");
       movePlayerOne.classList.remove("animate-in");
       movePlayerTwo.classList.remove("animate-in");
-      resultMessage.textContent = '0-1'
+      resultMessage.textContent = niceResult
       playAgain.textContent = 'Сыграть ещё раз'
       newGame.textContent = 'Новая игра'
     }
@@ -116,9 +122,8 @@ let playerOneTurn
       movePlayerTwo.classList.add("animate-in");
       movePlayerTwo.style.fontSize = '30px';
       movePlayerTwo.textContent = moves[moveIndex++].notation.notation;
-      console.log(moveIndex);
       playerOneTurn = !playerOneTurn;
-      console.log(playerOneTurn)
+      console.log(moveIndex + ' ' + playerOneTurn)
     }
     else if (!resultMessage.textContent) {
       movePlayerTwo.style.display = 'block'
@@ -133,7 +138,7 @@ let playerOneTurn
       movePlayerTwo.classList.remove("animate-out");
       movePlayerOne.classList.remove("animate-in");
       movePlayerTwo.classList.remove("animate-in");
-      resultMessage.textContent = '1-0'
+      resultMessage.textContent = niceResult
       playAgain.textContent = 'Сыграть ещё раз'
       newGame.textContent = 'Новая игра'
       // console.log(result)

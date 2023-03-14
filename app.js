@@ -26,7 +26,8 @@ async function example() {
 }
 
 
-const gamesPGN = fs.readFileSync(path.resolve(__dirname, 'chessgames/game_collection.pgn'), 'utf8')
+// const gamesPGN = fs.readFileSync(path.resolve(__dirname, 'chessgames/game_collection.pgn'), 'utf8')
+const gamesPGN = fs.readFileSync(path.resolve(__dirname, 'chessgames/test_collection.pgn'), 'utf8')
 
 // console.log(gamesPGN);
 
@@ -80,7 +81,7 @@ app.post("/save", function (req, res) {
 
 function getRandomIndex(arr) {
   
-  const max = arr.length; // определяем максимальный индекс длинной массива
+  const max = arr.length - 1; // определяем максимальный индекс длинной массива
   const randomIndex = Math.floor(Math.random() * (max));
   return randomIndex;
 
