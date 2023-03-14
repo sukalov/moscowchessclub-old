@@ -44,9 +44,19 @@ function start() {
   }
 
   let newGame = document.getElementById('newGame')
-  let playerOneTurn = (Math.random() < 0.5);
-  // let playerOneTurn = true;
+  
+  var firstClickPlayerOne = (function() {
+    var clicked = false;
+    return function(a) {
+        if (!clicked) {
+            clicked = true;
+            playerOneTurn = a;
+             // do something
+          }
+        };
+    })();
 
+let playerOneTurn
 
   moveIndex = 0;
   console.log(moveIndex);
@@ -55,9 +65,15 @@ function start() {
   resultMessage.textContent = ''
   playAgain.textContent = ''
   newGame.textContent = ''
+  // player1.addEventListener("click", (event) => {
+    
+  // })
+  // player2.addEventListener("click", (event) => {})
+
 
   player1.addEventListener("click", (event) => {
     hideMenu()
+    firstClickPlayerOne(true)
     if (moveIndex < moves.length && playerOneTurn) {
       movePlayerOne.style.display = 'block';
       movePlayerTwo.classList.add("animate-out");
@@ -91,6 +107,7 @@ function start() {
 
   player2.addEventListener("click", (event) => {
     hideMenu()
+    firstClickPlayerOne(false)
     if (moveIndex < moves.length && !playerOneTurn) {
       movePlayerTwo.style.display = 'block';
       movePlayerOne.classList.add("animate-out");
