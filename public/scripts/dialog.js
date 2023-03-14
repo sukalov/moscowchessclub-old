@@ -14,6 +14,7 @@ document.getElementById('newGame').addEventListener('click', start);
 var jsonRes
 let moves
 let result
+let moveIndex
 
 function getNewGame() {
   fetch('./new-game')
@@ -24,7 +25,7 @@ function getNewGame() {
     })
     .then(data => moves = jsonRes.moves)
     .then(data => console.log(moves))
-    .then()
+    .then(data => console.log(jsonRes))
     .catch(err => console.log(err));
 }
 
@@ -47,7 +48,7 @@ function start() {
   // let playerOneTurn = true;
 
 
-  let moveIndex = 0;
+  moveIndex = 0;
   console.log(moveIndex);
   movePlayerOne.style.display = 'none';
   movePlayerTwo.style.display = 'none';
@@ -82,7 +83,7 @@ function start() {
       movePlayerOne.classList.remove("animate-out");
       movePlayerOne.classList.remove("animate-in");
       movePlayerTwo.classList.remove("animate-in");
-      resultMessage.textContent = jsonRes.tags.Result
+      resultMessage.textContent = '0-1'
       playAgain.textContent = 'Сыграть ещё раз'
       newGame.textContent = 'Новая игра'
     }
@@ -115,7 +116,7 @@ function start() {
       movePlayerTwo.classList.remove("animate-out");
       movePlayerOne.classList.remove("animate-in");
       movePlayerTwo.classList.remove("animate-in");
-      resultMessage.textContent = jsonRes.tags.Result
+      resultMessage.textContent = '1-0'
       playAgain.textContent = 'Сыграть ещё раз'
       newGame.textContent = 'Новая игра'
       // console.log(result)
