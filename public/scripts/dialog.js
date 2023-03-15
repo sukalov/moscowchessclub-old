@@ -1,21 +1,12 @@
 // import game from './data/test_game.json' assert { type: "json" };
 // import game2 from './data/test_game2.json' assert { type: "json" };
-
-const player1 = document.getElementById('motya');
-const player2 = document.getElementById('vanya');
-const movePlayerOne = document.getElementById('movePlayerOne');
-const movePlayerTwo = document.getElementById('movePlayerTwo');
-let resultMessage = document.getElementById('result')
-let playAgain = document.getElementById('playAgain')
-let newGame = document.getElementById('newGame')
-document.getElementById('playAgain').addEventListener('click', start);
-document.getElementById('newGame').addEventListener('click', getNewGame);
-document.getElementById('newGame').addEventListener('click', start);
 var jsonRes
 let moves
 let moveIndex
 let result
-let niceResult
+let getResult
+let playsWhite
+
 
 function getNewGame() {
   fetch('./new-game')
@@ -25,24 +16,47 @@ function getNewGame() {
       return data
     })
     .then(data => moves = jsonRes.moves)
+    .then(data => playsWhite = true)
     .then(data => result = jsonRes.tags.Result)
-    .then(data => {if (result == '1/2-1/2') {
-      niceResult = '½-½'
-    }})
+    .then(data => {
+      if (result == '1/2-1/2') {
+        getResult = '½-½'
+      }
+      if (result == '1-0' && playsWhite) {
+        getResult = '1-0'
+      } else if (result == '0-1' && playsWhite) {
+        getResult = '0-1'
+      }
+       else if (result == '1-0' && !playsWhite) {
+        getResult = '1-0' 
+      } else {
+        getResult = '0-1'
+      }
+    })
     .then(data => console.log(moves))
     .then(data => console.log(jsonRes))
     .catch(err => console.log(err));
 }
 
-getNewGame()
-  
-
 
 
 function start() {
+
+
+  const player1 = document.getElementById('motya');
+  const player2 = document.getElementById('vanya');
+  const movePlayerOne = document.getElementById('movePlayerOne');
+  const movePlayerTwo = document.getElementById('movePlayerTwo');
+  let resultMessage = document.getElementById('result')
+  let playAgain = document.getElementById('playAgain')
+  let newGame = document.getElementById('newGame')
+  document.getElementById('playAgain').addEventListener('click', start);
+  document.getElementById('newGame').addEventListener('click', getNewGame);
+  document.getElementById('newGame').addEventListener('click', start);
+  
   // var playerOneTurn = (Math.random() < 0.5);
   var playerOneTurn
-  
+
 
   function hideMenu() {
     if (moveIndex < moves.length) {
@@ -52,42 +66,16 @@ function start() {
     }
   }
 
-
-let newGame = document.getElementById('newGame')
-
-
-
-
-// var firstClickPlayerOne = (function() {
-//   var clicked = false;
-//   return function() {
-//       if (!clicked) {
-//           clicked = true;
-//           playerOneTurn = true;
-//            // do something
-//         }
-//       };
-//   })();
-
-  var firstClickPlayerOne = (function() {
+  var firstClickPlayerOne = (function () {
     var clicked = false;
     return function (a) {
-        if (!clicked) {
-            clicked = true;
-            playerOneTurn = a;
-            moveIndex = 0
-          }
-        }
-    })();
-    
-
-    // player1.addEventListener("click", (event) => {
-    //   playerOneTurn = true
-    // }, {once : true})
-    // player2.addEventListener("click", (event) => {
-    //   playerOneTurn = false
-    // }, {once : true})
-
+      if (!clicked) {
+        clicked = true;
+        playerOneTurn = a;
+        moveIndex = 0
+      }
+    }
+  })();
 
   moveIndex = 0;
   console.log(moveIndex);
@@ -96,13 +84,13 @@ let newGame = document.getElementById('newGame')
   resultMessage.textContent = ''
   playAgain.textContent = ''
   newGame.textContent = ''
-  
+
   player1.addEventListener("click", (event) => {
     hideMenu()
-  firstClickPlayerOne(true)
+    firstClickPlayerOne(true)
     console.log('move ' + moveIndex, playerOneTurn)
     if (moveIndex < moves.length && playerOneTurn) {
-      
+
       movePlayerOne.style.display = 'block';
       movePlayerTwo.classList.add("animate-out");
       movePlayerTwo.classList.remove("animate-in");
@@ -127,7 +115,7 @@ let newGame = document.getElementById('newGame')
       movePlayerOne.classList.remove("animate-out");
       movePlayerOne.classList.remove("animate-in");
       movePlayerTwo.classList.remove("animate-in");
-      resultMessage.textContent = niceResult
+      resultMessage.textContent = getResult
       playAgain.textContent = 'Сыграть ещё раз'
       newGame.textContent = 'Новая игра'
     }
@@ -137,9 +125,9 @@ let newGame = document.getElementById('newGame')
     hideMenu()
     firstClickPlayerOne(false)
     console.log('move ' + moveIndex, playerOneTurn)
-    
+
     if (moveIndex < moves.length && !playerOneTurn) {
-      
+
       movePlayerTwo.style.display = 'block';
       movePlayerOne.classList.add("animate-out");
       movePlayerOne.classList.remove("animate-in");
@@ -164,7 +152,7 @@ let newGame = document.getElementById('newGame')
       movePlayerTwo.classList.remove("animate-out");
       movePlayerOne.classList.remove("animate-in");
       movePlayerTwo.classList.remove("animate-in");
-      resultMessage.textContent = niceResult
+      resultMessage.textContent = getResult
       playAgain.textContent = 'Сыграть ещё раз'
       newGame.textContent = 'Новая игра'
       // console.log(result)
@@ -177,4 +165,5 @@ let newGame = document.getElementById('newGame')
 
 }
 
+getNewGame()
 start()
