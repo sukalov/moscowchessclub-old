@@ -1,5 +1,7 @@
 // import game from './data/test_game.json' assert { type: "json" };
 // import game2 from './data/test_game2.json' assert { type: "json" };
+
+
 var jsonRes
 let moves
 let moveIndex
@@ -38,11 +40,7 @@ function getNewGame() {
     .catch(err => console.log(err));
 }
 
-
-
 function start() {
-
-
   const player1 = document.getElementById('motya');
   const player2 = document.getElementById('vanya');
   const movePlayerOne = document.getElementById('movePlayerOne');
@@ -72,7 +70,8 @@ function start() {
       if (!clicked) {
         clicked = true;
         playerOneTurn = a;
-        moveIndex = 0
+        moveIndex = 0;
+        playsWhite = true;
       }
     }
   })();
