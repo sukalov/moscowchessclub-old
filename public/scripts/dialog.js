@@ -52,7 +52,7 @@ playsWhite = 0;
   const playAgain = document.getElementById('playAgain')
   const newGame = document.getElementById('newGame')
   playAgain.addEventListener('click', start);
-  newGame.addEventListener('click', (eent) => {
+  newGame.addEventListener('click', () => {
     getNewGame();
     start()});
   
