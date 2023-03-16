@@ -5,6 +5,7 @@ let result
 let getResult
 let playsWhite
 let playerOneTurn
+let clicked
 
 function getNewGame() {
 jsonRes = 0;
@@ -51,8 +52,9 @@ playsWhite = 0;
   const playAgain = document.getElementById('playAgain')
   const newGame = document.getElementById('newGame')
   playAgain.addEventListener('click', start);
-  newGame.addEventListener('click', getNewGame);
-  newGame.addEventListener('click', start);
+  newGame.addEventListener('click', (eent) => {
+    getNewGame();
+    start()});
   
   // var playerOneTurn = (Math.random() < 0.5);
 
@@ -72,7 +74,7 @@ playsWhite = 0;
     console.log('====' + playsWhite);
     
 
-    let clicked = false;
+    clicked = false;
     function firstClickPlayerOne(a) {
       if (!clicked) {
         clicked = true; // теперь эта функция не будет срабатывать, пока не начнём всё заново
@@ -125,10 +127,10 @@ playsWhite = 0;
     }
   });
 
-  player2.addEventListener("click", (event) => {
-    hideMenu()
+  player2.addEventListener("click", () => {
+    // hideMenu()
     firstClickPlayerOne(false)
-    console.log('move ' + moveIndex, playerOneTurn)
+    console.log('======> move ' + moveIndex, playerOneTurn)
 
     if (moveIndex < moves.length && !playerOneTurn) {
 
@@ -163,10 +165,11 @@ playsWhite = 0;
     }
   })
   console.log(playerOneTurn)
+}
+
   window.getNewGame = getNewGame
   window.jsonRes = jsonRes
   window.start = start
-}
 
 getNewGame()
 start()
@@ -176,4 +179,3 @@ start()
 // не дублировались и просто было одно условие вначале
 // то есть вынести в отедльную функцию дублиркубщиеся строчки
 // и обращаться к ним извне в дух случаях с разным порядком аргументов
-
