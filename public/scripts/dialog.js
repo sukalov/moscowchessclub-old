@@ -155,21 +155,16 @@ function firstClickPlayerOne(a) {
     console.log('====' + jsonRes);
     console.log('====' + moveIndex);
     console.log('====' + playsWhite);
-    
 
     clicked = false;
 
-  moveIndex = 0;
-  console.log(moveIndex);
-  movePlayerOne.style.display = 'none';
-  movePlayerTwo.style.display = 'none';
-  resultMessage.textContent = ''
-  playAgain.textContent = ''
-  newGame.textContent = ''
-
-  
-  console.log(playerOneTurn)
-
+    moveIndex = 0;
+    console.log(moveIndex);
+    movePlayerOne.style.display = 'none';
+    movePlayerTwo.style.display = 'none';
+    resultMessage.textContent = ''
+    playAgain.textContent = ''
+    newGame.textContent = ''
 }
 
   window.getNewGame = getNewGame
@@ -177,10 +172,10 @@ function firstClickPlayerOne(a) {
   window.start = start
 
   getNewGame()
-  setTimeout(start(), 1000)
-  console.log(player1)
-  player1.addEventListener("click", playerOneHandler())
-  player2.addEventListener("click", playerTwoHandler())
+  start()
+
+  player1.addEventListener("click", playerOneHandler);
+  player2.addEventListener("click", playerTwoHandler);
 
 //1. вынести playsWhite и все ифы из фетча куда-нибудь в конец
 // 2. для плеер 1 и плеер 2 20 строчек кода дублируются. оптимизировать чтобы строчки 
