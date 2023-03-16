@@ -217,16 +217,6 @@ function save() {
     .catch(error => console.error(error));
 };
 
-
-// var jsonRes
-// function getNewGame() {  
-//   fetch('./testing')
-//   .then(response => response.json())
-//   .then(data => (jsonRes = JSON.parse(data),
-//         window.jsonRes = jsonRes))
-//   .catch(err => console.log(err));
-// }
-
 try {
 window.Player = Player;
 window.Game = Game;
@@ -236,8 +226,6 @@ window.groupPeople = groupPeople;
 window.randomizeArray = randomizeArray;
 window.startTournament = startTournament;
 window.save = save;
-// window.getNewGame = getNewGame;
-// window.jsonRes = jsonRes;
 
 } catch (err) {
   console.log(err)
