@@ -149,10 +149,6 @@ img {
 
 }
 
-#my-toggle {
-    user-select: none;
-}
-
 .toggle {
     font-size: 1rem;
     margin-inline: auto;
@@ -165,7 +161,9 @@ img {
     cursor: pointer;
     border: 1px solid;
     user-select: none;
+    touch-action: manipulation;
     -webkit-user-select: none;
+    -moz-user-select: none;
   }
 
   /* .toggle::before {
