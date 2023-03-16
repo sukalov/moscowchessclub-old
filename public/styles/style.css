@@ -151,6 +151,7 @@ img {
     /* background-color: #ccc; */
     cursor: pointer;
     border: 1px solid;
+    user-select: none;
   }
 
   /* .toggle::before {
