@@ -45,7 +45,11 @@ function toggleColorScheme2() {
   }
 }
 
+const div = document.querySelector('div');
 
+div.addEventListener('touchstart', function(event) {
+  event.preventDefault();
+});
 
 // function that affects button css and switches toggle position back and forth
 function toggleButton() {
