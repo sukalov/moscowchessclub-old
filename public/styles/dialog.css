@@ -1,15 +1,10 @@
 /* Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ea! Corrupti harum quidem laborum, velit repellendus non, optio nisi pariatur et recusandae, voluptate suscipit natus nesciunt facilis consequuntur aut ullam. */
-#result {
-    position: absolute;
-    top:25%;
-    font-size: 30px;
-    user-select: none;
-}
 
-
-#moveW, #moveB {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+#movePlayerOne,
+#movePlayerTwo {
+    display: none;
+    background-color: var(--text-color);
+    color: var(--bg-color);
     border-radius: 10px;
     padding: 10px;
     /* font-size: 30px; */
@@ -19,19 +14,20 @@
     width: auto;
 }
 
-#moveW {
+#movePlayerOne {
     top: -25%;
     left: 70%;
     transform-origin: bottom left;
 }
 
-#moveB {
+#movePlayerTwo {
     top: -25%;
     right: 70%;
     transform-origin: bottom right;
 }
 
-#moveW::before, #moveB::before {
+#movePlayerOne::before,
+#movePlayerTwo::before {
     content: "";
     display: block;
     width: 0;
@@ -39,26 +35,29 @@
     position: absolute;
     border-style: solid;
     border-width: 15px;
-    border-color: var(--bg-color) transparent transparent var(--bg-color);
-    }
+    border-color: var(--text-color) transparent transparent var(--text-color);
+}
 
-#moveW::before {
+#movePlayerOne::before {
     transform: rotate(10deg);
     left: 5px;
 }
-#moveB::before {
+
+#movePlayerTwo::before {
     transform: scale(-1, 1) rotate(10deg);
     right: 5px;
 }
 
 
-#moveW.animate-in, #moveB.animate-in {
+#movePlayerOne.animate-in,
+#movePlayerTwo.animate-in {
     animation: transform 0.5s ease;
     animation-fill-mode: forwards;
 }
 
-#moveW.animate-out, #moveB.animate-out {
-    animation: transform-reverse 0.5s ease;
+#movePlayerOne.animate-out,
+#movePlayerTwo.animate-out {
+    animation: transform-reverse 0.25s ease;
     animation-fill-mode: forwards;
 }
 
@@ -70,33 +69,82 @@
     0% {
         opacity: 0;
         transform: scale(0);
-      }
-      50% {
+    }
+    
+    50% {
         transform: scale(1.25);
-      }
-      100% {
+    }
+    
+    100% {
         opacity: 1;
         transform: scale(1);
-      }
+    }
 }
-  
-  @keyframes transform-reverse {
+
+@keyframes transform-reverse {
     0% {
-      transform: scale(1);
+        opacity: 1;
+        transform: scale(1);
     }
+    
     100% {
-    opacity: 0;  
-    transform: scale(0);
+        opacity: 0;
+        transform: scale(0);
     }
-  }
-  
-  @keyframes appear {
+}
+
+@keyframes appear {
     0% {
         opacity: 0;
         transform: scale(0);
     }
+    
     100% {
         opacity: 1;
         transform: scale(1);
     }
-  }
+}
+
+.resContainer {
+    /* display: none; */
+    align-items: center;
+    position: absolute;
+    top: 20%;
+    text-align: center;
+    line-height: 1;
+}
+
+#result, #playAgain, #newGame {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    padding: 5px;
+    /* margin: 5px;  */
+    user-select: none;
+}
+
+#result {
+    bottom: 5px;
+    font-size: 30px;
+}
+
+#playAgain {
+    font-size: smaller;
+    text-decoration: underline;
+    transition: 0.2s ease;
+}
+
+#playAgain:hover {
+scale: 1.2;
+}
+
+#newGame {
+    bottom: 5px;
+    font-size: smaller;
+    text-decoration: underline;
+    transition: 0.2s ease;
+}
+
+#newGame:hover {
+scale: 1.2;
+}

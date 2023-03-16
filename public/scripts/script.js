@@ -1,6 +1,5 @@
 var html = document.getElementsByTagName("html")[0];
-var moveW = document.getElementById('moveW');
-var moveB = document.getElementById('moveB');
+
 // var sun = document.getElementsByClassName('.fa-sun')[0];
 // var moon = document.getElementsByClassName('.fa-moon')[0];
 // // var toggle_back = document.getElementById('my-toggle');
@@ -9,10 +8,6 @@ var moveB = document.getElementById('moveB');
 // html.setAttribute("style", "transition: color-scheme 3s;");
     html.style.setProperty("--text-color", "#cccccc");
     html.style.setProperty("--bg-color", "#111111");
-    moveW.style.setProperty("--bg-color", "#dddddd");
-    moveW.style.setProperty("--text-color", "#111111");
-    moveB.style.setProperty("--bg-color", "#dddddd");
-    moveB.style.setProperty("--text-color", "#111111");
 
 // function that changes html color scheme
 function toggleColorScheme() {
@@ -28,20 +23,10 @@ function toggleColorScheme2() {
     html.setAttribute("data-color-mode", "light");
     html.style.setProperty("--bg-color", "#dddddd");
     html.style.setProperty("--text-color", "#111111");
-
-    moveW.style.setProperty("--bg-color", "#111111");
-    moveW.style.setProperty("--text-color", "#cccccc");
-    moveB.style.setProperty("--bg-color", "#111111");
-    moveB.style.setProperty("--text-color", "#cccccc");
   } else {
     html.setAttribute("data-color-mode", "dark");
     html.style.setProperty("--bg-color", "#111111");
     html.style.setProperty("--text-color", "#cccccc");
-    
-    moveW.style.setProperty("--bg-color", "#dddddd");
-    moveW.style.setProperty("--text-color", "#111111");
-    moveB.style.setProperty("--bg-color", "#dddddd");
-    moveB.style.setProperty("--text-color", "#111111");
   }
 }
 

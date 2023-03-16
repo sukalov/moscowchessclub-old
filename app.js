@@ -3,7 +3,7 @@
 // import { createRequire } from "module";
 // const require = createRequire(import.meta.url);
 
-const fns = require('./fns');
+// const fns = require('./fns');
 
 const express = require("express");
 const app = express();
@@ -27,6 +27,7 @@ async function example() {
 
 
 const gamesPGN = fs.readFileSync(path.resolve(__dirname, 'chessgames/game_collection.pgn'), 'utf8')
+// const gamesPGN = fs.readFileSync(path.resolve(__dirname, 'chessgames/test_collection.pgn'), 'utf8')
 
 // console.log(gamesPGN);
 
@@ -76,16 +77,26 @@ app.get("/tournaments", async (req, res) => {
 app.post("/save", function (req, res) {
   let file = JSON.stringify(req.body);
   fns.putOrUpdateTournament(req.body, 1);
-});
+}); 
 
-app.get("/testing", function (req, res) {
-  const gameToSend = JSON.stringify(gamesOBJ[0]);
+function getRandomIndex(arr) {
+  
+  const max = arr.length - 1; // определяем максимальный индекс длинной массива
+  const randomIndex = Math.floor(Math.random() * (max));
+  return randomIndex;
+
+}
+
+app.get('/new-game', function(req, res) {
+  const gameToSend = JSON.stringify(gamesOBJ[getRandomIndex(gamesOBJ)]);
+  // const gameToSend = JSON.stringify(gamesOBJ[95]);
   res.json(gameToSend);
 });
 
-app.get(process.env.CERTBOT_ADDRESS, function(req,res){
-  res.send(process.env.CERTBOT_DATA);
-});
+
+// app.get(process.env.CERTBOT_ADDRESS, function(req,res){
+//   res.send(process.env.CERTBOT_DATA);
+// });
 
 app.listen(PORT, function(){
   console.log(`working at port: ${ PORT }`);

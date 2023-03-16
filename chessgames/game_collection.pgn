@@ -2640,39 +2640,6 @@ Black has ideas of Rd3-Qd6 and it is hard to make progress for White. Not an
 easy continuation to evaluate, but objectively 27.Ng5? relinquished all
 White's advantage.} 1-0
 
-[Event "Exercise #5"]
-[Site "Moscow"]
-[Date "1943.12.??"]
-[Round "?"]
-[White "Smyslov, Vassily V"]
-[Black "Botvinnik, Mikhail"]
-[Result "1-0"]
-[ECO "C82"]
-[Annotator "Nemec Vjekoslav"]
-[SetUp "1"]
-[FEN "3r4/R5pk/3q4/1p2r1p1/3p2B1/6QP/1P1B2P1/7K w - - 0 36"]
-[PlyCount "4"]
-[EventDate "1943.12.??"]
-[EventType "tourn"]
-[EventRounds "17"]
-[EventCountry "URS"]
-[SourceTitle "EXT 2011"]
-[Source "ChessBase"]
-[SourceDate "2010.11.26"]
-[SourceVersion "1"]
-[SourceVersionDate "2010.11.26"]
-[SourceQuality "1"]
-
-{After Botvinnik missed the defensive resource seen in the previous exercise,
-his game went quickly downhill and by move 36, Smyslov managed to finish the
-game in quite some style. Can you find the neat winning tactic Smyslov
-executed in the diagram position?} 36. Bf4 $1 {[%cal Rg3d6] Very strong,
-winning even more material! This is not the only winning move, of course, but
-it is the simplest! As someone said - in winning position, KISS (Keep It
-Simple Stupid).} Re1+ ({The bishop is immune as} 36... gxf4 37. Bf5+ {[%cal
-Rg3g7,Ra7g7] Leads to the mate on g7.}) 37. Qxe1 Qxf4 {Now White has a clean
-extra piece and the conversion shouldn't be in any question.} 1-0
-
 [Event "Moscow-ch23"]
 [Site "Moscow"]
 [Date "1943.12.??"]
@@ -3147,77 +3114,6 @@ slouch, but a very respectable master and the game was played at the strongest
 competition of that time - the USSR Championship - which just shows how much
 chess has evolved in the last 70 years on all fronts - especially in regard to
 the opening knowledge and in terms of defensive play.} 1-0
-
-[Event "Exercise #1"]
-[Site "The Hague NED / Moscow URS"]
-[Date "1948.04.11"]
-[Round "11"]
-[White "Vasily Smyslov"]
-[Black "Samuel Reshevsky"]
-[Result "1-0"]
-[ECO "C75"]
-[Annotator "mistr"]
-[SetUp "1"]
-[FEN "r2qr1k1/1ppb1pp1/p1np1bnp/3Np3/3PP3/1BP2N2/PP3PPP/R1BQ1RK1 w - - 0 13"]
-[PlyCount "5"]
-[EventDate "1948.??.??"]
-
-{Even though there weren't any major International chess tournaments during
-the World War II, in the war-torn USSR more than a few tournaments were
-organized in the 1942-1945 period. Thus, Smyslov - as well as other Soviet
-players - did get their regular practice and continued developing. --- It is,
-therefore, not surprising that, after the war, Smyslov already turned out to
-be one of the best chess players in the world. It already showed in the first
-International tournament held in Groningen in 1946 where Smyslov came in third
-behind Botvinnik and Euwe. Thus, it wasn't surprising that Smyslov was invited
-to be one of the participants in the FIDE World Championship Tournament, held
-in the Hague and Moscow in 1948. --- This tournament was supposed to resolve
-the interregnum state that had arisen after Alekhine's death. Apart from
-Botvinnik and Smyslov, Euwe, Keres and Reshevsky participated. It was
-precisely the American grandmaster that Soviets feared the most as he was
-considered to be Botvinnik's most serious competitor. --- Every encounter with
-Reshevsky, was, thus, of utmost importance - but in round 11 of the tournament
-Smyslov inflicted him a devastating blow. It is one of those brilliant
-strategic/positional masterpieces Smyslov was rather known for and is
-definitely one of his best games that fully deserves to be included on this
-list. --- Let's join the game at the first critical moment - on move 13.
-Reshevsky used the Steinitz Defence of the Ruy Lopez in this game, but didn't
-handle the opening in very critical manner (not surprising, given that
-Reshevsky was never a true opening specialist). Yet, in the diagram position,
-there is a lot of tension in the center and it is not so easy to figure out
-how best to handle it. How would you continue as White here? Can you find the
-move Smyslov played?} 13. dxe5 $1 {For me, this is an oustanding move that
-shows superb judgment. White deals with the threat to the e4 pawn and claims
-that Black has no good way of recapturing on e5 for positional reasons.} Bxe5 {
-It is hard to say which recapture is better. Or more precisely - worse. Taking
-with the bishop seems crazy as it gets rid of the bishop pair, but Black is
-claiming that the knights are better in this position due to its closed nature.
-} (13... Ngxe5 {Taking with the knight would be met with} 14. Nxe5 {A very
-strong idea, once again emphasizing the fact that Black doesn't have good way
-of recapturing.} (14. Nd2 {[%cal Gf2f4] Even this knight retreat, preserving
-the pieces and preparing f4, is possible.}) 14... Nxe5 (14... dxe5 {Always
-loses to} 15. Nxf6+ {[%cal Rd1d7] When Black is unable to recapture on f6 with
-the queen due to the hanging bishop.} gxf6 16. Qh5 {Here White is winning
-directly due to Black's ruined kingside.}) (14... Rxe5 {is no better as after}
-15. Bc2 {[%cal Gf2f4] f4 is coming next and Black is again in trouble.}) (14...
-Bxe5 15. f4 {Is very strong for White as after} Bf6 16. Bc2 {There are all
-kinds of threats on the kingside and Black is suffering due to the lack of
-space.}) 15. f4 {[%csl Ge4,Gf4] And here White obtains a very dangerous pawn
-duo in the center and Black is suffering from the lack of space.}) (13... Ncxe5
-14. Nxe5 {Leads to a very similar variations as after 13...Ngxe5.}) (13... dxe5
-{Taking with the pawn is losing on the spot as after} 14. Nxf6+ {[%cal Rd1d7]
-The queen is unable to recapture on f6 due to the hanging bishop on d7 and
-after} gxf6 {Black is just busted due to the weakened kingside structure.
-White even has the immediate} 15. Nh4 Nxh4 16. Qh5 {[%cal Rh5h6,Rh5h4]
-Basically winning on the spot.}) 14. Nxe5 {Once again, White invites Black to
-place a piece on e5 so that f4 can happen next.} dxe5 {[%csl Ge5][%cal Ge5f4]
-Black is trying to stabillize the center and prevent the whole f4 idea, but
-this invites different kinds of problems.} (14... Ngxe5 15. f4 {Is still very
-dangerous for Black.}) (14... Ncxe5 15. f4 {Leads to something very similar.})
-(14... Rxe5 15. Bc2 {[%cal Gf2f4] With f4 coming next, is also not very
-attractive.}) 15. Qf3 {[%cal Rf3f7,Rb3f7] Threatening all sorts of discoveries
-against f7. Black's problem are passive pieces - the knight is unable to jump
-to f4 and the other one is severely restricted by the c3 pawn.} 1-0
 
 [Event "Exercise #2"]
 [Site "The Hague NED / Moscow URS"]
@@ -5977,3 +5873,106 @@ grandmaster like Larsen could not compete against Botvinnik in clear,
 strategical positions. Botvinnik's deep strategical idea of Ra1 and Qb1
 deserves a lot of praise!} 1-0
 
+[Event "Exercise #5"]
+[Site "Moscow"]
+[Date "1943.12.??"]
+[Round "?"]
+[White "Smyslov, Vassily V"]
+[Black "Botvinnik, Mikhail"]
+[Result "1-0"]
+[ECO "C82"]
+[Annotator "Nemec Vjekoslav"]
+[SetUp "1"]
+[FEN "3r4/R5pk/3q4/1p2r1p1/3p2B1/6QP/1P1B2P1/7K w - - 0 36"]
+[PlyCount "4"]
+[EventDate "1943.12.??"]
+[EventType "tourn"]
+[EventRounds "17"]
+[EventCountry "URS"]
+[SourceTitle "EXT 2011"]
+[Source "ChessBase"]
+[SourceDate "2010.11.26"]
+[SourceVersion "1"]
+[SourceVersionDate "2010.11.26"]
+[SourceQuality "1"]
+
+{After Botvinnik missed the defensive resource seen in the previous exercise,
+his game went quickly downhill and by move 36, Smyslov managed to finish the
+game in quite some style. Can you find the neat winning tactic Smyslov
+executed in the diagram position?} 36. Bf4 $1 {[%cal Rg3d6] Very strong,
+winning even more material! This is not the only winning move, of course, but
+it is the simplest! As someone said - in winning position, KISS (Keep It
+Simple Stupid).} Re1+ ({The bishop is immune as} 36... gxf4 37. Bf5+ {[%cal
+Rg3g7,Ra7g7] Leads to the mate on g7.}) 37. Qxe1 Qxf4 {Now White has a clean
+extra piece and the conversion shouldn't be in any question.} 1-0
+
+[Event "Exercise #1"]
+[Site "The Hague NED / Moscow URS"]
+[Date "1948.04.11"]
+[Round "11"]
+[White "Vasily Smyslov"]
+[Black "Samuel Reshevsky"]
+[Result "1-0"]
+[ECO "C75"]
+[Annotator "mistr"]
+[SetUp "1"]
+[FEN "r2qr1k1/1ppb1pp1/p1np1bnp/3Np3/3PP3/1BP2N2/PP3PPP/R1BQ1RK1 w - - 0 13"]
+[PlyCount "5"]
+[EventDate "1948.??.??"]
+
+{Even though there weren't any major International chess tournaments during
+the World War II, in the war-torn USSR more than a few tournaments were
+organized in the 1942-1945 period. Thus, Smyslov - as well as other Soviet
+players - did get their regular practice and continued developing. --- It is,
+therefore, not surprising that, after the war, Smyslov already turned out to
+be one of the best chess players in the world. It already showed in the first
+International tournament held in Groningen in 1946 where Smyslov came in third
+behind Botvinnik and Euwe. Thus, it wasn't surprising that Smyslov was invited
+to be one of the participants in the FIDE World Championship Tournament, held
+in the Hague and Moscow in 1948. --- This tournament was supposed to resolve
+the interregnum state that had arisen after Alekhine's death. Apart from
+Botvinnik and Smyslov, Euwe, Keres and Reshevsky participated. It was
+precisely the American grandmaster that Soviets feared the most as he was
+considered to be Botvinnik's most serious competitor. --- Every encounter with
+Reshevsky, was, thus, of utmost importance - but in round 11 of the tournament
+Smyslov inflicted him a devastating blow. It is one of those brilliant
+strategic/positional masterpieces Smyslov was rather known for and is
+definitely one of his best games that fully deserves to be included on this
+list. --- Let's join the game at the first critical moment - on move 13.
+Reshevsky used the Steinitz Defence of the Ruy Lopez in this game, but didn't
+handle the opening in very critical manner (not surprising, given that
+Reshevsky was never a true opening specialist). Yet, in the diagram position,
+there is a lot of tension in the center and it is not so easy to figure out
+how best to handle it. How would you continue as White here? Can you find the
+move Smyslov played?} 13. dxe5 $1 {For me, this is an oustanding move that
+shows superb judgment. White deals with the threat to the e4 pawn and claims
+that Black has no good way of recapturing on e5 for positional reasons.} Bxe5 {
+It is hard to say which recapture is better. Or more precisely - worse. Taking
+with the bishop seems crazy as it gets rid of the bishop pair, but Black is
+claiming that the knights are better in this position due to its closed nature.
+} (13... Ngxe5 {Taking with the knight would be met with} 14. Nxe5 {A very
+strong idea, once again emphasizing the fact that Black doesn't have good way
+of recapturing.} (14. Nd2 {[%cal Gf2f4] Even this knight retreat, preserving
+the pieces and preparing f4, is possible.}) 14... Nxe5 (14... dxe5 {Always
+loses to} 15. Nxf6+ {[%cal Rd1d7] When Black is unable to recapture on f6 with
+the queen due to the hanging bishop.} gxf6 16. Qh5 {Here White is winning
+directly due to Black's ruined kingside.}) (14... Rxe5 {is no better as after}
+15. Bc2 {[%cal Gf2f4] f4 is coming next and Black is again in trouble.}) (14...
+Bxe5 15. f4 {Is very strong for White as after} Bf6 16. Bc2 {There are all
+kinds of threats on the kingside and Black is suffering due to the lack of
+space.}) 15. f4 {[%csl Ge4,Gf4] And here White obtains a very dangerous pawn
+duo in the center and Black is suffering from the lack of space.}) (13... Ncxe5
+14. Nxe5 {Leads to a very similar variations as after 13...Ngxe5.}) (13... dxe5
+{Taking with the pawn is losing on the spot as after} 14. Nxf6+ {[%cal Rd1d7]
+The queen is unable to recapture on f6 due to the hanging bishop on d7 and
+after} gxf6 {Black is just busted due to the weakened kingside structure.
+White even has the immediate} 15. Nh4 Nxh4 16. Qh5 {[%cal Rh5h6,Rh5h4]
+Basically winning on the spot.}) 14. Nxe5 {Once again, White invites Black to
+place a piece on e5 so that f4 can happen next.} dxe5 {[%csl Ge5][%cal Ge5f4]
+Black is trying to stabillize the center and prevent the whole f4 idea, but
+this invites different kinds of problems.} (14... Ngxe5 15. f4 {Is still very
+dangerous for Black.}) (14... Ncxe5 15. f4 {Leads to something very similar.})
+(14... Rxe5 15. Bc2 {[%cal Gf2f4] With f4 coming next, is also not very
+attractive.}) 15. Qf3 {[%cal Rf3f7,Rb3f7] Threatening all sorts of discoveries
+against f7. Black's problem are passive pieces - the knight is unable to jump
+to f4 and the other one is severely restricted by the c3 pawn.} 1-0
