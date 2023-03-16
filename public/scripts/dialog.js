@@ -30,7 +30,7 @@ function hideMenu() {
 function playerOneHandler() {
     hideMenu()
     firstClickPlayerOne(true)
-    console.log('move ' + moveIndex, playerOneTurn)
+    console.log('player1 - move ' + moveIndex, playerOneTurn)
     if (moveIndex < moves.length && playerOneTurn) {
 
       movePlayerOne.style.display = 'block';
@@ -42,7 +42,6 @@ function playerOneHandler() {
       movePlayerOne.textContent = moves[moveIndex].notation.notation;
       moveIndex++
       playerOneTurn = !playerOneTurn;
-      console.log('next move ' + moveIndex, playerOneTurn)
     }
     else if (!resultMessage.textContent) {
       movePlayerOne.style.display = 'block'
@@ -66,7 +65,7 @@ function playerOneHandler() {
 function playerTwoHandler() {
     // hideMenu()
     firstClickPlayerOne(false)
-    console.log('======> move ' + moveIndex, playerOneTurn)
+    console.log('player2 - move ' + moveIndex, playerOneTurn)
 
     if (moveIndex < moves.length && !playerOneTurn) {
 
@@ -79,7 +78,6 @@ function playerTwoHandler() {
       movePlayerTwo.textContent = moves[moveIndex].notation.notation;
       moveIndex++
       playerOneTurn = !playerOneTurn;
-      console.log('next move ' + moveIndex, playerOneTurn)
     }
     else if (!resultMessage.textContent) {
       movePlayerTwo.style.display = 'block'
@@ -116,6 +114,7 @@ playsWhite = 0;
     .then(response => response.json())
     .then(data => {(
       jsonRes = JSON.parse(data),
+      console.log(jsonRes),
       window.jsonRes = jsonRes,
       moves = jsonRes.moves,
       result = jsonRes.tags.Result
@@ -151,15 +150,8 @@ function firstClickPlayerOne(a) {
 
   function start() {
 
-    console.log('====' + moves);
-    console.log('====' + jsonRes);
-    console.log('====' + moveIndex);
-    console.log('====' + playsWhite);
-
     clicked = false;
-
     moveIndex = 0;
-    console.log(moveIndex);
     movePlayerOne.style.display = 'none';
     movePlayerTwo.style.display = 'none';
     resultMessage.textContent = ''
