@@ -159,6 +159,8 @@ img {
     border: 1px solid;
     user-select: none;
     touch-action: manipulation;
+    -webkit-user-select: none;
+    -moz-user-select: none;
   }
 
   /* .toggle::before {
