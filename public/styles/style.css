@@ -156,6 +156,7 @@ img {
     cursor: pointer;
     border: 1px solid;
     user-select: none;
+    -webkit-user-select: none;
   }
 
   /* .toggle::before {
