@@ -140,6 +140,10 @@ img {
 
 }
 
+#my-toggle {
+    user-select: none;
+}
+
 .toggle {
     font-size: 1rem;
     margin-inline: auto;
