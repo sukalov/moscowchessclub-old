@@ -1,27 +1,20 @@
-/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ea! Corrupti harum quidem laborum, velit repellendus non, optio nisi pariatur et recusandae, voluptate suscipit natus nesciunt facilis consequuntur aut ullam. */
-
 #movePlayerOne,
 #movePlayerTwo {
-    display: none;
-    background-color: var(--text-color);
-    color: var(--bg-color);
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 10px;
-    /* font-size: 30px; */
     white-space: nowrap;
     user-select: none;
     position: absolute;
     width: auto;
+    top: -27%;
 }
 
 #movePlayerOne {
-    top: -25%;
     left: 70%;
     transform-origin: bottom left;
 }
 
 #movePlayerTwo {
-    top: -25%;
     right: 70%;
     transform-origin: bottom right;
 }
@@ -30,22 +23,25 @@
 #movePlayerTwo::before {
     content: "";
     display: block;
+    bottom: -30px;
     width: 0;
-    bottom: -25px;
     position: absolute;
     border-style: solid;
     border-width: 15px;
-    border-color: var(--text-color) transparent transparent var(--text-color);
+    border-color: var(--tail-color) transparent transparent var(--tail-color);
+    transition: bottom 0.25s, border-color var(--color-scheme-change) ease-in-out, color var(--color-scheme-change) ease-in-out;
 }
 
 #movePlayerOne::before {
-    transform: rotate(10deg);
+    transform: skew(-10deg);
     left: 5px;
+    /* bottom: var(--position1); */
 }
 
 #movePlayerTwo::before {
-    transform: scale(-1, 1) rotate(10deg);
+    transform: scaleX(-1) skewX(-10deg);
     right: 5px;
+    /* bottom: var(--position2); */
 }
 
 
@@ -61,8 +57,9 @@
     animation-fill-mode: forwards;
 }
 
-#result.animate {
+#result.animate, #playAgain.animate, #newGame.animate {
     animation: appear 1s ease;
+    animation-fill-mode: forwards;
 }
 
 @keyframes transform {
