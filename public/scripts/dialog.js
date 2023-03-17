@@ -14,6 +14,7 @@ const movePlayerTwo = document.getElementById('movePlayerTwo');
 const resultMessage = document.getElementById('result')
 const playAgain = document.getElementById('playAgain')
 const newGame = document.getElementById('newGame')
+const resContainer = document.getElementsByClassName('resContainer')
 playAgain.addEventListener('click', start);
 newGame.addEventListener('click', () => {
   getNewGame();
@@ -29,6 +30,7 @@ function hideMenu() {
 
 function playerOneHandler() {
     hideMenu()
+    // toggleCloud()
     firstClickPlayerOne(true)
     console.log('player1 - move ' + moveIndex, playerOneTurn)
     if (moveIndex < moves.length && playerOneTurn) {
@@ -56,6 +58,7 @@ function playerOneHandler() {
       movePlayerOne.classList.remove("animate-out");
       movePlayerOne.classList.remove("animate-in");
       movePlayerTwo.classList.remove("animate-in");
+
       resultMessage.textContent = getResult;
       playAgain.textContent = 'Сыграть ещё раз';
       newGame.textContent = 'Новая игра';
@@ -64,6 +67,7 @@ function playerOneHandler() {
 
 function playerTwoHandler() {
     // hideMenu()
+    // toggleCloud()
     firstClickPlayerOne(false)
     console.log('player2 - move ' + moveIndex, playerOneTurn)
 
@@ -92,6 +96,7 @@ function playerTwoHandler() {
       movePlayerTwo.classList.remove("animate-out");
       movePlayerOne.classList.remove("animate-in");
       movePlayerTwo.classList.remove("animate-in");
+
       resultMessage.textContent = getResult
       playAgain.textContent = 'Сыграть ещё раз'
       newGame.textContent = 'Новая игра'
@@ -142,8 +147,28 @@ function firstClickPlayerOne(a) {
     clicked = true; // теперь эта функция не будет срабатывать, пока не начнём всё заново
     playerOneTurn = a;
     playsWhite = true;
+    if (a) {
+      getColor(movePlayerOne, movePlayerTwo)
+    } else {
+      getColor(movePlayerTwo, movePlayerOne)
+    }  
   }
+  
 }
+
+
+function getColor (colorWhite, colorBlack) {
+  html.style.setProperty("--position1", '-29px')
+    html.style.setProperty("--position2", '-30px')
+  colorWhite.style.backgroundColor = '#dddddd'
+  colorWhite.style.color = '#111111'
+  colorBlack.style.border = '5px solid #dddddd'
+  colorBlack.style.backgroundColor = '#111111'
+  colorBlack.style.color = '#dddddd'
+  colorWhite.style.border = '5px solid #111111'
+}
+
+
 
   
   // var playerOneTurn = (Math.random() < 0.5);
