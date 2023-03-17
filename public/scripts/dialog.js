@@ -14,27 +14,18 @@ const movePlayerTwo = document.getElementById('movePlayerTwo');
 const resultMessage = document.getElementById('result')
 const playAgain = document.getElementById('playAgain')
 const newGame = document.getElementById('newGame')
-const resContainer = document.getElementsByClassName('resContainer')
+const menu = document.querySelectorAll('menu')
 playAgain.addEventListener('click', start);
 newGame.addEventListener('click', () => {
   getNewGame();
   start()});
 
-function hideMenu() {
-  if (moveIndex < moves.length) {
-    resultMessage.textContent = ''
-    playAgain.textContent = ''
-    newGame.textContent = ''
-  }
-}
-
 function playerOneHandler() {
-    hideMenu()
-    // toggleCloud()
+
     firstClickPlayerOne(true)
     console.log('player1 - move ' + moveIndex, playerOneTurn)
-    if (moveIndex < moves.length && playerOneTurn) {
 
+    if (moveIndex < moves.length && playerOneTurn) {
       movePlayerOne.style.display = 'block';
       movePlayerTwo.classList.add("animate-out");
       movePlayerTwo.classList.remove("animate-in");
@@ -58,7 +49,6 @@ function playerOneHandler() {
       movePlayerOne.classList.remove("animate-out");
       movePlayerOne.classList.remove("animate-in");
       movePlayerTwo.classList.remove("animate-in");
-
       resultMessage.textContent = getResult;
       playAgain.textContent = 'Сыграть ещё раз';
       newGame.textContent = 'Новая игра';
@@ -66,13 +56,11 @@ function playerOneHandler() {
   }
 
 function playerTwoHandler() {
-    // hideMenu()
-    // toggleCloud()
+
     firstClickPlayerOne(false)
     console.log('player2 - move ' + moveIndex, playerOneTurn)
 
     if (moveIndex < moves.length && !playerOneTurn) {
-
       movePlayerTwo.style.display = 'block';
       movePlayerOne.classList.add("animate-out");
       movePlayerOne.classList.remove("animate-in");
@@ -96,7 +84,6 @@ function playerTwoHandler() {
       movePlayerTwo.classList.remove("animate-out");
       movePlayerOne.classList.remove("animate-in");
       movePlayerTwo.classList.remove("animate-in");
-
       resultMessage.textContent = getResult
       playAgain.textContent = 'Сыграть ещё раз'
       newGame.textContent = 'Новая игра'
@@ -110,10 +97,8 @@ function getNewGame() {
 jsonRes = 0;
 moves = 0;
 moveIndex = 0;
-// result = 0;
 getResult = 0;
 playsWhite = 0;
-// playerOneTurn = undefined;
 
   fetch('./new-game')
     .then(response => response.json())
@@ -124,7 +109,6 @@ playsWhite = 0;
       moves = jsonRes.moves,
       result = jsonRes.tags.Result
     )});
-    // .then(data => playsWhite = true)
     // .then(data => {
       // if (result == '1/2-1/2') {
       //   getResult = '½-½'
@@ -158,8 +142,6 @@ function firstClickPlayerOne(a) {
 
 
 function getColor (colorWhite, colorBlack) {
-  html.style.setProperty("--position1", '-29px')
-    html.style.setProperty("--position2", '-30px')
   colorWhite.style.backgroundColor = '#dddddd'
   colorWhite.style.color = '#111111'
   colorBlack.style.border = '5px solid #dddddd'
@@ -168,13 +150,7 @@ function getColor (colorWhite, colorBlack) {
   colorWhite.style.border = '5px solid #111111'
 }
 
-
-
-  
-  // var playerOneTurn = (Math.random() < 0.5);
-
   function start() {
-
     clicked = false;
     moveIndex = 0;
     movePlayerOne.style.display = 'none';
@@ -193,6 +169,15 @@ function getColor (colorWhite, colorBlack) {
 
   player1.addEventListener("click", playerOneHandler);
   player2.addEventListener("click", playerTwoHandler);
+  addEventListener("keydown", function(event, key) {
+    key = event.keyCode
+    if (key === 188) {
+      playerOneHandler()
+    } else if (key === 190) {
+      playerTwoHandler()
+    }
+  });
+  
 
 //1. вынести playsWhite и все ифы из фетча куда-нибудь в конец
 // 2. для плеер 1 и плеер 2 20 строчек кода дублируются. оптимизировать чтобы строчки 
