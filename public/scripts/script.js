@@ -9,8 +9,8 @@ var html = document.getElementsByTagName("html")[0];
     html.style.setProperty("--text-color", "#cccccc");
     html.style.setProperty("--bg-color", "#111111");
     html.style.setProperty("--tail-color", '#dddddd')
-    // html.style.setProperty("--position1", '-29px')
-    // html.style.setProperty("--position2", '-30px')
+    html.style.setProperty("--position1", '-29px')
+    html.style.setProperty("--position2", '-30px')
     
 // function that changes html color scheme
 function toggleColorScheme() {
@@ -28,15 +28,15 @@ function toggleColorScheme2() {
     html.style.setProperty("--bg-color", "#dddddd");
     html.style.setProperty("--text-color", "#111111");
     html.style.setProperty("--tail-color", '#111111')
-    // html.style.setProperty("--position1", '-30px')
-    // html.style.setProperty("--position2", '-29px')
+    html.style.setProperty("--position1", '-30px')
+    html.style.setProperty("--position2", '-29px')
   } else {
     html.setAttribute("data-color-mode", "dark");
     html.style.setProperty("--bg-color", "#111111");
     html.style.setProperty("--text-color", "#cccccc");
     html.style.setProperty("--tail-color", '#dddddd')
-    // html.style.setProperty("--position1", '-29px')
-    // html.style.setProperty("--position2", '-30px')
+    html.style.setProperty("--position1", '-29px')
+    html.style.setProperty("--position2", '-30px')
   }
 }
 

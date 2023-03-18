@@ -15,6 +15,7 @@ const resultMessage = document.getElementById('result')
 const playAgain = document.getElementById('playAgain')
 const newGame = document.getElementById('newGame')
 const menu = document.querySelectorAll('menu')
+const html = document.getElementsByTagName("html")[0];
 playAgain.addEventListener('click', start);
 newGame.addEventListener('click', () => {
   getNewGame();
@@ -151,6 +152,12 @@ function getColor (colorWhite, colorBlack) {
 }
 
   function start() {
+    if (html.getAttribute("data-color-mode") === "dark") {
+    html.style.setProperty("--position1", '-30px')
+    html.style.setProperty("--position2", '-29px')
+    } else {
+      html.style.setProperty("--position1", '-29px')
+    html.style.setProperty("--position2", '-30px')}
     clicked = false;
     moveIndex = 0;
     movePlayerOne.style.display = 'none';
