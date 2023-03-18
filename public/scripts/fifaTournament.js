@@ -6,8 +6,9 @@ let allGroupTours = {};
 
 // конструктор добавляющий игроков
 class Player {
-    constructor(name) {
+    constructor(name, rating = 1500) {
         this.name = name;
+        this.rating = rating;
         this.wins = 0;
         this.draws = 0;
         this.loses = 0;
@@ -60,14 +61,16 @@ class Game {
 }
 
 // создаём функцию адд через которую будем обращаться к конструктору и добавлять игроков
-function add() {
-    for (let i = 0; i < arguments.length; i++) {
-        players.push(new Player(arguments[i]));
-      }  
+function add(name, rating){
+  if (name != undefined) {
+    players.push(new Player(name, rating))
+  } else {
+  console.log("надо указать имя игрока. например: add('пётр первый', 3000)")
+}
 }
 
 // делает из массива игроков объект с группами по 4 человека в группе
-function groupPeople(numPeople, people) {
+function groupPeople(numPeople = 4, people) {
     let groupNumber = 1;
 
     for (let i = 0; i < people.length; i += numPeople) {
@@ -108,7 +111,6 @@ function randomizeArray(arr) {
 
     // Iterate over each group in the input object
     for (const groupName in groups) {
-        console.log(groupName);
       const group = groups[groupName];
       const numPlayers = group.length;
 
@@ -137,9 +139,13 @@ function randomizeArray(arr) {
 }
 
 // перемешивает всех игроков и разбивает на группы по {numPeople} человек
-const startTournament = (numPeople = 5) => {
+const startTournament = (numPeople = 4, randomize = false) => {
     tournamentStatus = 0;
-    players = randomizeArray(players);
+    if (randomize === true){
+      players = randomizeArray(players);
+    } else {
+      players.sort((a, b) => a.rating - b.rating);
+    }
 
     const groups = groupPeople(numPeople, players);
     delete groups.status;
@@ -170,38 +176,38 @@ const newTour = () => {
     }
 }
 
-add('вова')
-add('александр роший')
-add('илья лакаев')
-add('выиталик')
-add('саша сонный')
-add('стас сиротин')
-add('луиза')
-add('джек восьмёркин')
-add('кот кокос')
-add('лёня бурдуковский')
-add('федя фокин')
-add('луна сегодня красивая правда')
-add('брянский волк')
-add('миша ярчевский')
-add('даур')
-add('артём вахрамеев')
-add('ира')
-add('саша другалёв')
-add('окс')
-add('лола ткаченко')
-add('алиса')
-add('егор м')
-add('лера')
-add('супрем двачевский')
-add('мурад')
-add('софи')
-add('рябиночка')
-add('андрей гузынин')
-add('руслан долотказин')
-add('утка убийца')
-add('полина')
-add('какаси сенсей')
+add('вова', 1800)
+add('александр роший', 1200)
+add('илья лакаев', 1800)
+add('выиталик', 1200)
+add('саша сонный', 1600)
+add('стас сиротин', 1500)
+add('луиза', 1100)
+add('джек восьмёркин', 1800)
+add('кот кокос', 1900)
+add('лёня бурдуковский', 1600)
+add('федя фокин', 1800)
+add('луна сегодня красивая правда', 1400)
+add('брянский волк', 2000)
+add('миша ярчевский', 1800)
+add('даур', 1300)
+add('артём вахрамеев',1200)
+add('ира', 1200)
+add('саша другалёв', 1500)
+add('окс', 1900)
+add('лола ткаченко', 1500)
+add('алиса', 1200)
+add('егор м', 1500)
+add('лера', 1300)
+add('супрем двачевский', 1850)
+add('мурад', 1100)
+add('софи', 1100)
+add('рябиночка', 1700)
+add('андрей гузынин', 1800)
+add('руслан долотказин', 1600)
+add('утка убийца', 1400)
+add('полина', 1200)
+add('какаси сенсей', 1200)
 
 startTournament();
 
@@ -231,6 +237,7 @@ function getNewGame() {
 }
 
 try {
+window.tournament = tournament;
 window.Player = Player;
 window.Game = Game;
 window.players = players;
@@ -241,6 +248,7 @@ window.startTournament = startTournament;
 window.save = save;
 window.getNewGame = getNewGame;
 window.jsonRes = jsonRes;
+
 
 } catch (err) {
   console.log(err)
