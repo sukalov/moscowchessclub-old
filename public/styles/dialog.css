@@ -25,13 +25,11 @@
     content: "";
     display: block;
     bottom: -30px;
-    width: 0;
-    height: 50%;
     position: absolute;
     border-style: solid;
     border-width: 15px;
     border-color: var(--tail-color) transparent transparent var(--tail-color);
-    /* transition: bottom 0.25s, border-color var(--color-scheme-change) ease-in-out, color var(--color-scheme-change) ease-in-out; */
+    transition: bottom 0.25s, border-color var(--color-scheme-change) ease-out, color var(--color-scheme-change) ease-out;
     /* z-index: 1; */
 }
 
