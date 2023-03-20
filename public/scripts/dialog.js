@@ -1,11 +1,4 @@
-let jsonRes
-let moves
-let moveIndex
-let result
-let getResult
-let playsWhite
-let playerOneTurn
-let clicked
+let jsonRes, moves, moveIndex, result, getResult, playsWhite, playerOneTurn, clicked
 
 const player1 = document.getElementById('motya');
 const player2 = document.getElementById('vanya');
@@ -144,10 +137,10 @@ function firstClickPlayerOne(a) {
 function getColor (colorWhite, colorBlack) {
   colorWhite.style.backgroundColor = '#dddddd'
   colorWhite.style.color = '#111111'
-  colorBlack.style.border = '5px solid #dddddd'
+  colorWhite.style.border = '5px solid var(--tail-color)'
   colorBlack.style.backgroundColor = '#111111'
   colorBlack.style.color = '#dddddd'
-  colorWhite.style.border = '5px solid #111111'
+  colorBlack.style.border = '5px solid var(--tail-color)'
 }
 
   function start() {
@@ -169,15 +162,19 @@ function getColor (colorWhite, colorBlack) {
 
   player1.addEventListener("click", playerOneHandler);
   player2.addEventListener("click", playerTwoHandler);
-  addEventListener("keydown", function(event, key) {
-    key = event.keyCode
-    if (key === 188) {
+  addEventListener("keydown", function(k) {
+    const {code, metaKey, shiftKey, altKey, ctrlKey} = k;
+    if (code === 'Comma' && !(ctrlKey || metaKey || shiftKey || altKey)){
       playerOneHandler()
-    } else if (key === 190) {
+    } else if (code === 'Period' && !(ctrlKey || metaKey || shiftKey || altKey)) {
       playerTwoHandler()
+    } else if (code === 'KeyN' && !(ctrlKey || metaKey || shiftKey || altKey)) {
+      getNewGame()
+      start()
+    } else if (code === 'KeyM' && !(ctrlKey || metaKey || shiftKey || altKey)) {
+      toggleButton()
     }
   });
-  
 
 //1. вынести playsWhite и все ифы из фетча куда-нибудь в конец
 // 2. для плеер 1 и плеер 2 20 строчек кода дублируются. оптимизировать чтобы строчки 

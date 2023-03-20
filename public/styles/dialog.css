@@ -1,13 +1,16 @@
 #movePlayerOne,
 #movePlayerTwo {
     border-radius: 15px;
+    border-width: 2px;
     padding: 10px;
     white-space: nowrap;
     user-select: none;
     position: absolute;
     width: auto;
     top: -27%;
-    box-shadow: 0 0 5px var(--tail-color);
+    transition: border-color var(--color-scheme-change) ease-out, color var(--color-scheme-change) ease-out;
+
+    /* box-shadow: 0 0 5px var(--tail-color); */
 }
 
 #movePlayerOne {
@@ -16,33 +19,33 @@
 }
 
 #movePlayerTwo {
+    transform: scaleX(-1);
     right: 70%;
     transform-origin: bottom right;
 }
 
 #movePlayerOne::before,
 #movePlayerTwo::before {
-    content: "";
-    display: block;
-    bottom: -30px;
-    /* bottom: var(--tail-position); */
+    content: '';
     position: absolute;
     border-style: solid;
-    border-width: 15px;
+    border-width: 20px 20px 0 0px;
+    /* border-color: var(--tail-color) transparent transparent transparent; */
     border-color: var(--tail-color) transparent transparent var(--tail-color);
-    transition: bottom 0.25s, border-color var(--color-scheme-change) ease-out, color var(--color-scheme-change) ease-out;
+    bottom: -24px;
+    transition: border-color var(--color-scheme-change) ease-out, color var(--color-scheme-change) ease-out;
+
 }
 
 #movePlayerOne::before {
     transform: skew(-10deg);
-    left: 5px;
-    /* bottom: var(--position1); */
+    left: 7px;
 }
 
 #movePlayerTwo::before {
     transform: scaleX(-1) skew(-10deg);
-    right: 5px;
-    /* bottom: var(--position2); */
+    /* transform: scaleX(-1); */
+    right: 7px;
 }
 
 
@@ -82,14 +85,15 @@
     font-size: 30px;
 }
 
-#playAgain, #newGame {
+#playAgain,
+#newGame {
     font-size: smaller;
     text-decoration: underline;
     transition: 0.2s ease;
 }
 
 #playAgain:hover {
-scale: 1.2;
+    scale: 1.2;
 }
 
 #newGame {
@@ -97,7 +101,7 @@ scale: 1.2;
 }
 
 #newGame:hover {
-scale: 1.2;
+    scale: 1.2;
 }
 
 @keyframes transform {
@@ -105,11 +109,11 @@ scale: 1.2;
         opacity: 0;
         transform: scale(0);
     }
-    
+
     50% {
         transform: scale(1.25);
     }
-    
+
     100% {
         opacity: 1;
         transform: scale(1);
@@ -121,7 +125,7 @@ scale: 1.2;
         opacity: 1;
         transform: scale(1);
     }
-    
+
     100% {
         opacity: 0;
         transform: scale(0);
@@ -129,15 +133,14 @@ scale: 1.2;
 }
 
 @keyframes appear {
-    
+
     from {
         opacity: 0;
         transform: scale(0);
     }
-    
+
     to {
         opacity: 1;
         transform: scale(1);
     }
 }
-
