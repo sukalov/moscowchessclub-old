@@ -130,6 +130,7 @@ window.start = start
 window.goToLastMove = goToLastMove
 
 function goToLastMove() { 
+  start()
   moveIndex = moves.length - 1;
   let randomBoolean = Math.random() < 0.5;
   firstClickPlayerOne(randomBoolean)
