@@ -52,13 +52,12 @@ function playerOneHandler(move1, move2) {
   console.log('player1 - move ' + moveIndex, playerOneTurn)
   if (moveIndex < moves.length && playerOneTurn) {
     bubbleHandler(move1, move2)
-  } else if (!resultMessage.textContent) {
+  } else if (!resultMessage.textContent && !playerOneTurn) {
     movePlayerOne.style.display = 'block'
     movePlayerOne.classList.add("animate-in");
     movePlayerOne.style.fontSize = '20px';
     movePlayerOne.textContent = 'ход Вора';
-  }
-  if (moveIndex == moves.length && playerOneTurn) {
+  } else {
     resultHandler(move1, move2)
   }
 }
@@ -68,13 +67,12 @@ function playerTwoHandler(move1, move2) {
   console.log('player2 - move ' + moveIndex, playerOneTurn)
   if (moveIndex < moves.length && !playerOneTurn) {
     bubbleHandler(move1, move2)
-  } else if (!resultMessage.textContent) {
+  } else if (!resultMessage.textContent && playerOneTurn) {
     movePlayerTwo.style.display = 'block'
     movePlayerTwo.classList.add("animate-in");
     movePlayerTwo.style.fontSize = '20px';
     movePlayerTwo.textContent = 'ход Матвея';
-  }
-  if (moveIndex == moves.length && !playerOneTurn) {
+  } else {
     resultHandler(move1, move2)
   }
 }
@@ -133,6 +131,13 @@ window.goToLastMove = goToLastMove
 
 function goToLastMove() { 
   moveIndex = moves.length - 1;
+  let randomBoolean = Math.random() < 0.5;
+  firstClickPlayerOne(randomBoolean)
+  if (randomBoolean == true) {
+  playerOneHandler(movePlayerOne, movePlayerTwo)
+  } else {
+    playerTwoHandler(movePlayerTwo, movePlayerOne)
+  }
 }
 
 getNewGame()
