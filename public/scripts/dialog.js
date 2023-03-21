@@ -159,9 +159,9 @@ player2.addEventListener("click", function () {
 addEventListener("keydown", function (k) {
   const { code, metaKey, shiftKey, altKey, ctrlKey } = k;
   if (code === 'Comma' && !(ctrlKey || metaKey || shiftKey || altKey)) {
-    playerHandler()
+    playerOneHandler(movePlayerOne, movePlayerTwo)
   } else if (code === 'Period' && !(ctrlKey || metaKey || shiftKey || altKey)) {
-    playerHandler()
+    playerTwoHandler(movePlayerTwo, movePlayerOne)
   } else if (code === 'KeyN' && !(ctrlKey || metaKey || shiftKey || altKey)) {
     getNewGame()
     start()
