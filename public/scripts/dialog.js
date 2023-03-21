@@ -7,8 +7,6 @@ const movePlayerTwo = document.getElementById('movePlayerTwo');
 const resultMessage = document.getElementById('result')
 const playAgain = document.getElementById('playAgain')
 const newGame = document.getElementById('newGame')
-const menu = document.querySelectorAll('menu')
-const html = document.getElementsByTagName("html")[0];
 playAgain.addEventListener('click', start);
 newGame.addEventListener('click', () => {
   getNewGame();
@@ -134,8 +132,7 @@ window.start = start
 window.goToLastMove = goToLastMove
 
 function goToLastMove() { 
-  moveIndex = moves.length - 1
-  firstClickPlayerOne(true)
+  moveIndex = moves.length - 1;
 }
 
 getNewGame()
