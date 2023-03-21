@@ -1,4 +1,4 @@
-let jsonRes, moves, moveIndex, result, getResult, playsWhite, playerOneTurn, clicked;
+let jsonRes, moves, moveIndex, result, getResult, onePlaysWhite, playerOneTurn, clicked;
 
 const player1 = document.getElementById('motya');
 const player2 = document.getElementById('vanya');
@@ -28,6 +28,17 @@ function bubbleHandler(move1, move2) {
 }
 
 function resultHandler(move1, move2) {
+  if (result == '1/2-1/2') {
+    getResult = '½-½'
+  } else if (result == '1-0' && onePlaysWhite) {
+    getResult = '1-0'
+  } else if (result == '0-1' && onePlaysWhite) {
+    getResult = '0-1'
+  } else if (result == '1-0' && !onePlaysWhite) {
+    getResult = '0-1'
+  } else {
+    getResult = '1-0'
+  }
   move2.style.display = 'none';
   move1.classList.add("animate-out");
   move2.classList.remove("animate-out");
@@ -39,17 +50,15 @@ function resultHandler(move1, move2) {
 }
 
 function playerOneHandler(move1, move2) {
-  
   firstClickPlayerOne(true)
   console.log('player1 - move ' + moveIndex, playerOneTurn)
-
   if (moveIndex < moves.length && playerOneTurn) {
     bubbleHandler(move1, move2)
   } else if (!resultMessage.textContent) {
-      movePlayerOne.style.display = 'block'
-      movePlayerOne.classList.add("animate-in");
-      movePlayerOne.style.fontSize = '20px';
-      movePlayerOne.textContent = 'ход Вора';
+    movePlayerOne.style.display = 'block'
+    movePlayerOne.classList.add("animate-in");
+    movePlayerOne.style.fontSize = '20px';
+    movePlayerOne.textContent = 'ход Вора';
   }
   if (moveIndex == moves.length && playerOneTurn) {
     resultHandler(move1, move2)
@@ -57,17 +66,15 @@ function playerOneHandler(move1, move2) {
 }
 
 function playerTwoHandler(move1, move2) {
-
   firstClickPlayerOne(false)
   console.log('player2 - move ' + moveIndex, playerOneTurn)
-
   if (moveIndex < moves.length && !playerOneTurn) {
     bubbleHandler(move1, move2)
   } else if (!resultMessage.textContent) {
-      movePlayerTwo.style.display = 'block'
-      movePlayerTwo.classList.add("animate-in");
-      movePlayerTwo.style.fontSize = '20px';
-      movePlayerTwo.textContent = 'ход Матвея';
+    movePlayerTwo.style.display = 'block'
+    movePlayerTwo.classList.add("animate-in");
+    movePlayerTwo.style.fontSize = '20px';
+    movePlayerTwo.textContent = 'ход Матвея';
   }
   if (moveIndex == moves.length && !playerOneTurn) {
     resultHandler(move1, move2)
@@ -75,44 +82,23 @@ function playerTwoHandler(move1, move2) {
 }
 
 function getNewGame() {
-  jsonRes = 0;
-  moves = 0;
-  moveIndex = 0;
-  getResult = 0;
-  playsWhite = 0;
-
+  jsonRes = moves = getResult = onePlaysWhite = 0;
   fetch('./new-game')
     .then(response => response.json())
     .then(data => {
-      (
-        jsonRes = JSON.parse(data),
+      (jsonRes = JSON.parse(data),
         console.log(jsonRes),
         window.jsonRes = jsonRes,
         moves = jsonRes.moves,
         result = jsonRes.tags.Result
       )
-    });
-  // .then(data => {
-  // if (result == '1/2-1/2') {
-  //   getResult = '½-½'
-  // }
-  // if (result == '1-0' && playsWhite) {
-  //   getResult = '1-0'
-  // } else if (result == '0-1' && playsWhite) {
-  //   getResult = '0-1'
-  // }
-  //  else if (result == '1-0' && !playsWhite) {
-  //   getResult = '1-0' 
-  // } else {
-  //   getResult = '0-1'
-  // }
-  // })
+    })
 }
 
 function firstClickPlayerOne(b) {
   if (!clicked) {
     clicked = true; // теперь эта функция не будет срабатывать, пока не начнём всё заново
-    playsWhite = true;
+    onePlaysWhite = b;
     if (b) {
       getColor(movePlayerOne, movePlayerTwo)
       playerOneTurn = true;
@@ -145,6 +131,12 @@ function start() {
 window.getNewGame = getNewGame
 window.jsonRes = jsonRes
 window.start = start
+window.goToLastMove = goToLastMove
+
+function goToLastMove() { 
+  moveIndex = moves.length - 1
+  firstClickPlayerOne(true)
+}
 
 getNewGame()
 start()
@@ -169,5 +161,3 @@ addEventListener("keydown", function (k) {
     toggleButton()
   }
 });
-
-//1. вынести playsWhite и все ифы из фетча куда-нибудь в конец

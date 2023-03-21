@@ -80,16 +80,14 @@ app.post("/save", function (req, res) {
 }); 
 
 function getRandomGame(arr) {
-  
   const max = arr.length - 1; // определяем максимальный индекс длинной массива
   const randomIndex = Math.floor(Math.random() * (max));
   return randomIndex;
-
 }
 
 app.get('/new-game', function(req, res) {
   const gameToSend = JSON.stringify(gamesOBJ[getRandomGame(gamesOBJ)]);
-  // const gameToSend = JSON.stringify(gamesOBJ[95]);
+  // const gameToSend = JSON.stringify(gamesOBJ[2]);
   res.json(gameToSend);
 });
 
