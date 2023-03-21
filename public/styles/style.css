@@ -28,7 +28,7 @@ body {
     line-height: 1.9rem;
     padding: 1rem 0;
     font-family: 'Roboto Mono', monospace;
-    height: 100vh;
+    height: 100svh;
     position: relative;
 }
 .content{
@@ -49,7 +49,7 @@ body {
     margin: 0 auto;
     padding-block: 2vh 3vh;
     padding-inline: 15px;
-    height: 85%;
+    height: 85vh;
     
     /* border: 2px solid; */
     

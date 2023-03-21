@@ -43,7 +43,7 @@
 // const storedObject = JSON.parse(localStorage.getItem('myObject'));
 // console.log(storedObject); // { foo: 'bar', baz: 42 }
 
-const players = [1,2,3,4,5,6,7,8];
+const players = [1,2,3,4,5];
   
   function generateRounds(arr) {
     const numberOfRounds = arr.length - 1;
@@ -58,6 +58,15 @@ const players = [1,2,3,4,5,6,7,8];
       rounds['round ' + round] = roundGames;
       arr.splice(1, 0, arr[numberOfRounds]);
       arr.pop();
+    }
+    if (arr.length % 2 == 0) {
+        arr.splice(arr[numberOfRounds], 0, 0);
+        arr.pop();
+        for (let j = 0; j < arr.length / 2; j++) { 
+            let game = [arr[j], arr[arr.length - 1 - j]];
+            roundGames.push(game);
+          }
+          rounds['round ' + round] = roundGames;
     }
     return rounds
   }
