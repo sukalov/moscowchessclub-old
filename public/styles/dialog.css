@@ -1,15 +1,12 @@
-#movePlayerOne,
-#movePlayerTwo {
+.moves {
     border-radius: 15px;
-    border-width: 2px;
     padding: 10px;
     white-space: nowrap;
     user-select: none;
     position: absolute;
     width: auto;
     top: -27%;
-    transition: border-color var(--color-scheme-change) ease-out, color var(--color-scheme-change) ease-out;
-
+    transition: border-color var(--color-scheme-change) ease-out;
     /* box-shadow: 0 0 5px var(--tail-color); */
 }
 
@@ -30,11 +27,9 @@
     position: absolute;
     border-style: solid;
     border-width: 20px 20px 0 0px;
-    /* border-color: var(--tail-color) transparent transparent transparent; */
     border-color: var(--tail-color) transparent transparent var(--tail-color);
     bottom: -24px;
-    transition: border-color var(--color-scheme-change) ease-out, color var(--color-scheme-change) ease-out;
-
+    transition: border-color var(--color-scheme-change) ease-out;
 }
 
 #movePlayerOne::before {
@@ -44,64 +39,125 @@
 
 #movePlayerTwo::before {
     transform: scaleX(-1) skew(-10deg);
-    /* transform: scaleX(-1); */
     right: 7px;
 }
 
 
 #movePlayerOne.animate-in,
-#movePlayerTwo.animate-in {
+#movePlayerTwo.animate-in,
+#resContainer.animate-in {
     animation: transform 0.5s ease;
     animation-fill-mode: forwards;
 }
 
 #movePlayerOne.animate-out,
-#movePlayerTwo.animate-out {
+#movePlayerTwo.animate-out,
+#resContainer.animate-out {
     animation: transform-reverse 0.25s ease;
     animation-fill-mode: forwards;
 }
 
-.resContainer {
-    /* display: none; */
-    align-items: center;
+#resContainer {
     position: absolute;
-    top: 20%;
-    text-align: center;
+    top: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
     line-height: 1;
+    z-index: 1;
+}
+
+#result {
+    font-size: 32px;
+    padding: 10px;
 }
 
 .menu {
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    padding: 5px;
-    user-select: none;
-    /* opacity: 0; */
-}
-
-
-#result {
-    bottom: 5px;
-    font-size: 30px;
-}
-
-#playAgain,
-#newGame {
+    padding: 7px;
+    text-align: center;
+    width: 100%;
     font-size: smaller;
-    text-decoration: underline;
     transition: 0.2s ease;
+    text-decoration: underline;
 }
 
-#playAgain:hover {
+.menu:hover {
     scale: 1.2;
 }
 
-#newGame {
-    bottom: 5px;
-}
+@media only screen and (max-width: 450px) {
 
-#newGame:hover {
-    scale: 1.2;
+    .person__name {
+        font-size: 22px;
+        line-height: 1.2;
+        user-select: none;
+    }
+
+    #motya {
+        right: 100px;
+        margin: auto;
+    }
+
+    #vanya {
+        left: 100px;
+        margin: auto;
+    }
+
+    #name_motya {
+        position: absolute;
+        text-align: left;
+        top: 72px;
+        left: 100px;
+    }
+
+    #name_vor {
+        position: absolute;
+        text-align: right;
+        bottom: 166px;
+        right: 100px;
+    }
+
+
+    #movePlayerOne {
+        top: 72%;
+        left: auto;
+        left: 30%;
+        transform-origin: top left;
+    }
+
+    #movePlayerTwo {
+        top: -20%;
+        right: auto;
+        right: 20%;
+        transform-origin: bottom right;
+    }
+
+    #movePlayerOne::before {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-width: 20px 20px 0 0px;
+        border-color: var(--tail-color) transparent transparent var(--tail-color);
+        left: auto;
+        left: 17px;
+        bottom: auto;
+        bottom: -20px;
+        transform: scaleX(-1) skew(-10deg) translateY(-4rem) rotate(180deg);
+
+    }
+
+
+    #resContainer {
+        top: 288px;
+        font-size: large;
+    }
+
+    #result {
+        font-size: 42px;
+        padding: 7px;
+    }
+
 }
 
 @keyframes transform {
@@ -129,18 +185,5 @@
     100% {
         opacity: 0;
         transform: scale(0);
-    }
-}
-
-@keyframes appear {
-
-    from {
-        opacity: 0;
-        transform: scale(0);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
     }
 }
