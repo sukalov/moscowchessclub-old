@@ -51,7 +51,6 @@ function resultHandler(move1, move2) {
 
 function playerOneHandler(move1, move2) {
   firstClickPlayerOne(true)
-  console.log('player1 - move ' + moveIndex, playerOneTurn)
   if (moveIndex < moves.length && playerOneTurn) {
     bubbleHandler(move1, move2)
   } else if (!getResult && !playerOneTurn) {
@@ -62,11 +61,11 @@ function playerOneHandler(move1, move2) {
   } else {
     resultHandler(move1, move2)
   }
+  console.log('player 1:\nmove ' + (moveIndex) + `, ` + moves[moveIndex - 1].notation.notation, '\n' + 'player 1 to move: \n' + playerOneTurn)
 }
 
 function playerTwoHandler(move1, move2) {
   firstClickPlayerOne(false)
-  console.log('player2 - move ' + moveIndex, playerOneTurn)
   if (moveIndex < moves.length && !playerOneTurn) {
     bubbleHandler(move1, move2)
   } else if (!getResult && playerOneTurn) {
@@ -77,6 +76,7 @@ function playerTwoHandler(move1, move2) {
   } else {
     resultHandler(move1, move2)
   }
+  console.log('player 2:\nmove ' + (moveIndex) + `, ` + moves[moveIndex - 1].notation.notation, '\n' + 'player 1 to move: \n' + playerOneTurn)
 }
 
 function getNewGame() {
