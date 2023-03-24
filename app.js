@@ -83,9 +83,9 @@ app.get("/testing", function (req, res) {
   res.json(gameToSend);
 });
 
-app.get(process.env.CERTBOT_ADDRESS, function(req,res){
-  res.send(process.env.CERTBOT_DATA);
-});
+// app.get(process.env.CERTBOT_ADDRESS, function(req,res){
+//   res.send(process.env.CERTBOT_DATA);
+// });
 
 app.listen(PORT, function(){
   console.log(`working at port: ${ PORT }`);

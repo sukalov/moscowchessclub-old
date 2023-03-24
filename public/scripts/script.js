@@ -70,4 +70,3 @@ Array.prototype.forEach.call(els, el => {
     el.addEventListener('touchstart', function() {touchHandle(el)});
     el.addEventListener('touchend', function() {touchHandle(el)});
 });
-
