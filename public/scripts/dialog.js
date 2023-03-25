@@ -9,11 +9,36 @@ const playAgain = document.getElementById('playAgain')
 const newGame = document.getElementById('newGame')
 const resContainer = document.getElementById('resContainer')
 const playerName = document.querySelectorAll('.person__info')
+const descriptionBox = document.getElementById('descriptionBox')
+const gameDescription = document.getElementById('gameDescription')
+const personOne = document.getElementById('one')
+const personTwo = document.getElementById('two')
+const closeButton = document.getElementById('closeButton')
 playAgain.addEventListener('click', start);
 newGame.addEventListener('click', () => {
   getNewGame();
   start()
 });
+
+function descriptionHandler() {
+  if (jsonRes.gameComment) {
+    gameDescription.textContent = jsonRes.gameComment.comment
+    descriptionBox.classList.remove('slide-out')
+    descriptionBox.classList.add('slide-in')
+    personOne.classList.remove('slide-in2')
+    personTwo.classList.remove('slide-in2')
+    personOne.classList.add('slide-out2')
+    personTwo.classList.add('slide-out2')
+  } else {
+    gameDescription.textContent = 'Управление клавиатурой: \n\n< – Ход игрока слева \n> – Ход игрока справа \nM – Сменить тему \nN – Новая игра';
+    descriptionBox.classList.remove('slide-out')
+    descriptionBox.classList.add('slide-in')
+    personOne.classList.remove('slide-in2')
+    personTwo.classList.remove('slide-in2')
+    personOne.classList.add('slide-out2')
+    personTwo.classList.add('slide-out2')
+  }
+}
 
 function bubbleHandler(move1, move2) {
   move1.style.display = 'block';
@@ -95,10 +120,12 @@ function getNewGame() {
 
 function firstClickPlayerOne(b) {
   if (!clicked) {
+    descriptionHandler()
     window.addEventListener('resize', adaptPage)
     adaptPage()
     clicked = true; // теперь эта функция не будет срабатывать, пока не начнём всё заново
     onePlaysWhite = b;
+
     if (b) {
       getColor(movePlayerOne, movePlayerTwo)
       playerOneTurn = true;
@@ -119,6 +146,12 @@ function getColor(colorWhite, colorBlack) {
 }
 
 function start() {
+  personOne.classList.add('slide-in2')
+  personTwo.classList.add('slide-in2')
+  personOne.classList.remove('slide-out2')
+  personTwo.classList.remove('slide-out2')
+  descriptionBox.classList.remove('slide-in')
+  descriptionBox.classList.add('slide-out')
   resContainer.classList.remove('animate-in')
   resContainer.classList.add('animate-out')
   clicked = false;
@@ -171,6 +204,10 @@ player1.addEventListener("click", function () {
 player2.addEventListener("click", function () {
   playerTwoHandler(movePlayerTwo, movePlayerOne)
 });
+
+closeButton.addEventListener('click', function () {
+  start()
+})
 
 addEventListener("keydown", function (k) {
   const { code, metaKey, shiftKey, altKey, ctrlKey } = k;

@@ -33,13 +33,16 @@
         </span>
     </div>
     <div class="people">
-        <div id="gameDescription"></div>
+        <div id="descriptionBox">
+                <div id="closeButton">×</div>
+                <div id="gameDescription">Error: something went wrong</div>
+        </div>
         <div id="resContainer">
         <div id="result"></div>
         <div class='menu' id="playAgain"></div>
         <div class='menu' id="newGame"></div>
         </div>
-        <div class="person">
+        <div class="person" id="one">
             <div class='moves' id="movePlayerOne"></div>
             <div id='motya' class="person__container">
                 <img class="person__circle" src="assets/chesspattern2.png" alt="chess pattern background">
@@ -50,7 +53,7 @@
                 <h2 class="person__name">матвей<br>гроссмейстер</h2>
             </div>
         </div>
-        <div class="person">
+        <div class="person" id="two">
             <div class='moves' id="movePlayerTwo"></div>
             <div id='vanya' class="person__container">
                 <img class="person__circle" src="assets/chesspattern2.png" alt="chess pattern background">
@@ -69,6 +72,6 @@
   <footer>
 </footer>
 </div>
-<button onclick='lol()'>Турнирная фиглица</button>
+<!-- <button onclick='lol()'>Турнирная фиглица</button> -->
 </body>
 </html>

@@ -86,6 +86,86 @@
     scale: 1.2;
 }
 
+#descriptionBox {
+    position: absolute;
+    top: auto;
+    max-height: 500px;
+    width: 70%;
+    max-width: 300px;
+    justify-self: center;
+    z-index: 10;
+    /* border: 1px solid red; */
+    background-color: var(--text-color);
+    transition: 
+    background-color var(--color-scheme-change) ease-out, 
+    scale 0.5s ease-in-out;
+    opacity: 90%;
+    border-radius: 10px;
+}
+
+#gameDescription {
+    /* border: 1px solid red; */
+    display: block;
+    position: relative;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    padding: 20px;
+    max-height: 500px;
+    color: var(--bg-color);
+    font-size: larger;
+    line-height: 1.5;
+    user-select: none;
+    overflow: auto;
+}
+
+#descriptionBox #closeButton {
+    position: fixed;
+    padding-left: 5px;
+    border: 1px solid red;
+    aspect-ratio: 1/1;
+    color: var(--bg-color);
+    text-align: center;
+    justify-content: center;
+    user-select: none;
+    font-size: x-large;
+    height: 40px;
+    top: 0;
+    right: 0;
+    z-index: 20;
+}
+
+#descriptionBox.slide-in {
+    scale: 1;
+}
+
+#descriptionBox.slide-out {
+    scale: 0;
+}
+
+#one, #two {
+    transition: transform 1s ease-in-out, scale 1s ease-in-out;
+}
+
+#one.slide-in2 {
+    scale: 1;
+    transform: translate(0, 0)
+
+}
+#two.slide-in2 {
+    scale: 1;
+    transform: translate(0, 0);
+
+}
+#one.slide-out2 {
+    scale: 3;
+    transform: translate(-300px, -10px)
+}
+#two.slide-out2 {
+    scale: 3;
+    transform: translate(300px, -10px);
+
+}
+
 @media only screen and (max-width: 450px) {
 
     .person__name {
@@ -186,4 +266,6 @@
         opacity: 0;
         transform: scale(0);
     }
+
 }
+
