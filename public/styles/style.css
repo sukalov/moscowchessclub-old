@@ -30,7 +30,6 @@ html {
 }
 
 body {
-    overflow:hidden;
     font-size: 1.25rem; 
     line-height: 1.9rem;
     padding: 1rem 0;
@@ -39,7 +38,6 @@ body {
     position: relative;
 }
 .content{
-    overflow:hidden;
     width: 50%;
     margin: 0 auto;
     display: block;
@@ -53,6 +51,7 @@ body {
     align-items: center;
     gap: 3vw;
     max-width: 700px;
+    /* max-width: 100vw; */
     /* min-width: 500px; */
     margin: 0 auto;
     padding-block: 2vh 3vh;
@@ -88,7 +87,6 @@ img {
     display: grid;
     align-items: end;
     border-radius: 0 0 100vw 100vw;
-    overflow: hidden;
     mask-image: -webkit-radial-gradient(white, black);
     -webkit-mask-image: -webkit-radial-gradient(white, black);
     /* this line -webkit-mask-img prevents laggy png images but i don't know how */
@@ -97,6 +95,7 @@ img {
     transition: transform var(--transform-speed) ease-in-out;
     -webkit-transition: transform var(--transform-speed) ease-in-out;
     /* border-bottom: 2px solid; */
+    overflow: hidden;
 }
 
 .person__container.touched {
