@@ -1,27 +1,76 @@
-#loader {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+
+p {
     font-family: 'Roboto Mono', monospace;
-    position: relative;
-    display: block;
-    top: 45svh;
-    text-align: center;
-    margin-inline: auto;
-    animation-name: loader;
-    animation-iteration-count: infinite;
-    animation-duration: 2s;
-    animation-direction: alternate;
-    -webkit-animation-name: loader;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-duration: 2s;
-    -webkit-animation-direction: alternate;
+    font-size: larger;
 }
 
-@keyframes loader {
+.loader {
+    /* border: 1px solid red; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    box-sizing: border-box;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+}
+.cube {
+    
+    position: relative;
+    top: 50%;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transform: translateZ(-100px);
+    animation: rotate 10s linear infinite;
+    scale: 0.35;
+}
+
+.cube .face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 2px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    color: #fff;
+    user-select: none;
+}
+
+@keyframes rotate {
     from {
-      font-size:1rem;
+        transform: translateZ(-100px);
     }
+
     to {
-        font-size: 1.5rem;
+        transform: translateZ(-100px) rotateY(360deg) rotateX(360deg); 
     }
+}
+
+.cube .face.front {
+    transform: rotateY(0deg) translateZ(100px);
+}
+
+.cube .face.back {
+    transform: rotateY(180deg) translateZ(100px);
+}
+  
+.cube .face.right {
+    transform: rotateY(90deg) translateZ(100px);
+}
+  
+.cube .face.left {
+    transform: rotateY(-90deg) translateZ(100px);
+}
+  
+.cube .face.top {
+    transform: rotateX(90deg) translateZ(100px);
+}
+  
+.cube .face.bottom {
+    transform: rotateX(-90deg) translateZ(100px);
 }
