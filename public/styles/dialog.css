@@ -118,7 +118,7 @@
     overflow: auto;
 }
 
-#descriptionBox #closeButton {
+#closeButton {
     position: fixed;
     padding-left: 5px;
     /* border: 1px solid red; */

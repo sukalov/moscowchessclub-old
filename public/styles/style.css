@@ -22,6 +22,7 @@
 html {
     /* color-scheme: dark light; */
     min-width: 250px;
+    overflow:hidden;
     background-color: var(--bg-color);
     color: var(--text-color);
     transition: background-color var(--color-scheme-change) ease-in-out, color var(--color-scheme-change) ease-in-out;
@@ -29,6 +30,7 @@ html {
 }
 
 body {
+    overflow:hidden;
     font-size: 1.25rem; 
     line-height: 1.9rem;
     padding: 1rem 0;
@@ -37,6 +39,7 @@ body {
     position: relative;
 }
 .content{
+    overflow:hidden;
     width: 50%;
     margin: 0 auto;
     display: block;
