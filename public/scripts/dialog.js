@@ -1,4 +1,4 @@
-let jsonRes, moves, moveIndex, result, getResult, onePlaysWhite, playerOneTurn, clicked;
+let jsonRes, moves, moveIndex, result, getResult, onePlaysWhite, playerOneTurn, clicked, clickedSecondTime, firstMoveClick;
 
 const player1 = document.getElementById('motya');
 const player2 = document.getElementById('vanya');
@@ -21,7 +21,9 @@ newGame.addEventListener('click', () => {
 });
 
 function descriptionHandler() {
+  if (!clicked) {
   if (jsonRes.gameComment) {
+    clicked = true
     gameDescription.textContent = jsonRes.gameComment.comment
     descriptionBox.classList.remove('slide-out')
     descriptionBox.classList.add('slide-in')
@@ -30,6 +32,7 @@ function descriptionHandler() {
     personOne.classList.add('slide-out2')
     personTwo.classList.add('slide-out2')
   } else {
+    clicked = true
     gameDescription.textContent = 'Управление клавиатурой: \n\n< – Ход игрока слева \n> – Ход игрока справа \nM – Сменить тему \nN – Новая игра';
     descriptionBox.classList.remove('slide-out')
     descriptionBox.classList.add('slide-in')
@@ -37,7 +40,7 @@ function descriptionHandler() {
     personTwo.classList.remove('slide-in2')
     personOne.classList.add('slide-out2')
     personTwo.classList.add('slide-out2')
-  }
+  }}
 }
 
 function bubbleHandler(move1, move2) {
@@ -75,34 +78,39 @@ function resultHandler(move1, move2) {
 }
 
 function playerOneHandler(move1, move2) {
-  firstClickPlayerOne(true)
-  if (moveIndex < moves.length && playerOneTurn) {
-    bubbleHandler(move1, move2)
-  } else if (!getResult && !playerOneTurn) {
-    movePlayerOne.style.display = 'block'
-    movePlayerOne.classList.add("animate-in");
-    movePlayerOne.style.fontSize = '20px';
-    movePlayerOne.textContent = 'ход Вора';
-  } else {
-    resultHandler(move1, move2)
-  }
-  console.log('player 1:\nmove ' + (moveIndex) + `, ` + moves[moveIndex - 1].notation.notation, '\n' + 'player 1 to move: \n' + playerOneTurn)
+  descriptionHandler()
+  if (clickedSecondTime) {
+    firstClickPlayerOne(false)
+    if (moveIndex < moves.length && playerOneTurn) {
+      bubbleHandler(move1, move2)
+    } else if (!getResult && !playerOneTurn) {
+      movePlayerOne.style.display = 'block'
+      movePlayerOne.classList.add("animate-in");
+      movePlayerOne.style.fontSize = '20px';
+      movePlayerOne.textContent = 'ход Вора';
+    } else {
+      resultHandler(move1, move2)
+    }
+    console.log('player 1:\nmove ' + (moveIndex) + `, ` + moves[moveIndex - 1].notation.notation, '\n' + 'player 1 to move: \n' + playerOneTurn)
+  } 
 }
 
 function playerTwoHandler(move1, move2) {
-  firstClickPlayerOne(false)
-  if (moveIndex < moves.length && !playerOneTurn) {
-    bubbleHandler(move1, move2)
-  } else if (!getResult && playerOneTurn) {
-    movePlayerTwo.style.display = 'block'
-    movePlayerTwo.classList.add("animate-in");
-    movePlayerTwo.style.fontSize = '20px';
-    movePlayerTwo.textContent = 'ход Матвея';
-  } else {
-    resultHandler(move1, move2)
-  }
-  console.log('player 2:\nmove ' + (moveIndex) + `, ` + moves[moveIndex - 1].notation.notation, '\n' + 'player 1 to move: \n' + playerOneTurn)
-}
+  descriptionHandler()
+  if (clickedSecondTime) {
+    firstClickPlayerOne(false)
+    if (moveIndex < moves.length && !playerOneTurn) {
+      bubbleHandler(move1, move2)
+    } else if (!getResult && playerOneTurn) {
+      movePlayerTwo.style.display = 'block'
+      movePlayerTwo.classList.add("animate-in");
+      movePlayerTwo.style.fontSize = '20px';
+      movePlayerTwo.textContent = 'ход Матвея';
+    } else {
+      resultHandler(move1, move2)
+    }
+    console.log('player 2:\nmove ' + (moveIndex) + `, ` + moves[moveIndex - 1].notation.notation, '\n' + 'player 1 to move: \n' + playerOneTurn)
+  }}
 
 function getNewGame() {
   jsonRes = moves = getResult = onePlaysWhite = 0;
@@ -119,13 +127,12 @@ function getNewGame() {
 }
 
 function firstClickPlayerOne(b) {
-  if (!clicked) {
-    descriptionHandler()
+  if (!firstMoveClick) {
     window.addEventListener('resize', adaptPage)
     adaptPage()
-    clicked = true; // теперь эта функция не будет срабатывать, пока не начнём всё заново
+    firstMoveClick = true; // теперь эта функция не будет срабатывать, пока не начнём всё заново
     onePlaysWhite = b;
-
+  
     if (b) {
       getColor(movePlayerOne, movePlayerTwo)
       playerOneTurn = true;
@@ -154,9 +161,8 @@ function start() {
   descriptionBox.classList.add('slide-out')
   resContainer.classList.remove('animate-in')
   resContainer.classList.add('animate-out')
-  clicked = false;
+  clicked = clickedSecondTime = getResult = firstMoveClick = false;
   moveIndex = 0;
-  getResult = false;
   playerName.forEach((name) => {
     name.style.display = 'block'
   });
@@ -165,15 +171,8 @@ function start() {
 }
 
 function goToLastMove() {
-  start()
+  clicked = clickedSecondTime = true
   moveIndex = moves.length - 1;
-  let randomBoolean = Math.random() < 0.5;
-  firstClickPlayerOne(randomBoolean)
-  if (randomBoolean == true) {
-    playerOneHandler(movePlayerOne, movePlayerTwo)
-  } else {
-    playerTwoHandler(movePlayerTwo, movePlayerOne)
-  }
 }
 
 function adaptPage() {
@@ -206,7 +205,13 @@ player2.addEventListener("click", function () {
 });
 
 closeButton.addEventListener('click', function () {
-  start()
+  clickedSecondTime = true;
+  descriptionBox.classList.remove('slide-in')
+  descriptionBox.classList.add('slide-out')
+  personOne.classList.remove('slide-out2')
+  personTwo.classList.remove('slide-out2')
+  personOne.classList.add('slide-in2')
+  personTwo.classList.add('slide-in2')
 })
 
 addEventListener("keydown", function (k) {
