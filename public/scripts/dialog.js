@@ -22,25 +22,36 @@ newGame.addEventListener('click', () => {
 
 function descriptionHandler() {
   if (!clicked) {
-  if (jsonRes.gameComment) {
-    clicked = true
-    gameDescription.textContent = jsonRes.gameComment.comment
-    descriptionBox.classList.remove('slide-out')
-    descriptionBox.classList.add('slide-in')
-    personOne.classList.remove('slide-in2')
-    personTwo.classList.remove('slide-in2')
-    personOne.classList.add('slide-out2')
-    personTwo.classList.add('slide-out2')
-  } else {
-    clicked = true
-    gameDescription.textContent = 'Управление клавиатурой: \n\n< – Ход игрока слева \n> – Ход игрока справа \nM – Сменить тему \nN – Новая игра';
-    descriptionBox.classList.remove('slide-out')
-    descriptionBox.classList.add('slide-in')
-    personOne.classList.remove('slide-in2')
-    personTwo.classList.remove('slide-in2')
-    personOne.classList.add('slide-out2')
-    personTwo.classList.add('slide-out2')
-  }}
+    if (jsonRes.gameComment) {
+      clicked = true
+      gameDescription.textContent = jsonRes.gameComment.comment
+      descriptionBox.classList.remove('slide-out')
+      descriptionBox.classList.add('slide-in')
+      personOne.classList.remove('slide-in2')
+      personTwo.classList.remove('slide-in2')
+      personOne.classList.add('slide-out2')
+      personTwo.classList.add('slide-out2')
+    } else {
+      clicked = true
+      gameDescription.textContent = 'Управление клавиатурой: \n\n< – Ход игрока слева \n> – Ход игрока справа \nM – Сменить тему \nN – Новая игра \n? – Закрыть это окно';
+      descriptionBox.classList.remove('slide-out')
+      descriptionBox.classList.add('slide-in')
+      personOne.classList.remove('slide-in2')
+      personTwo.classList.remove('slide-in2')
+      personOne.classList.add('slide-out2')
+      personTwo.classList.add('slide-out2')
+    }
+  }
+}
+
+function closeDescription() {
+  clickedSecondTime = true;
+  descriptionBox.classList.remove('slide-in')
+  descriptionBox.classList.add('slide-out')
+  personOne.classList.remove('slide-out2')
+  personTwo.classList.remove('slide-out2')
+  personOne.classList.add('slide-in2')
+  personTwo.classList.add('slide-in2')
 }
 
 function bubbleHandler(move1, move2) {
@@ -80,7 +91,7 @@ function resultHandler(move1, move2) {
 function playerOneHandler(move1, move2) {
   descriptionHandler()
   if (clickedSecondTime) {
-    firstClickPlayerOne(false)
+    firstClickPlayerOne(true)
     if (moveIndex < moves.length && playerOneTurn) {
       bubbleHandler(move1, move2)
     } else if (!getResult && !playerOneTurn) {
@@ -189,9 +200,6 @@ function adaptPage() {
   }
 }
 
-getNewGame()
-start()
-
 window.getNewGame = getNewGame
 window.jsonRes = jsonRes
 window.start = start
@@ -205,13 +213,7 @@ player2.addEventListener("click", function () {
 });
 
 closeButton.addEventListener('click', function () {
-  clickedSecondTime = true;
-  descriptionBox.classList.remove('slide-in')
-  descriptionBox.classList.add('slide-out')
-  personOne.classList.remove('slide-out2')
-  personTwo.classList.remove('slide-out2')
-  personOne.classList.add('slide-in2')
-  personTwo.classList.add('slide-in2')
+  closeDescription()
 })
 
 addEventListener("keydown", function (k) {
@@ -225,5 +227,10 @@ addEventListener("keydown", function (k) {
     start()
   } else if (code === 'KeyM' && !(ctrlKey || metaKey || shiftKey || altKey)) {
     toggleButton()
+  } else if (code === 'Slash' && !(ctrlKey || metaKey || shiftKey || altKey)) {
+    closeDescription()
   }
 });
+
+getNewGame()
+start()
