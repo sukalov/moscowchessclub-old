@@ -185,9 +185,9 @@
     .reloadIcon {
         display: block;
         position: absolute;
-        height: 60px;
+        height: 70px;
         right: 0px;
-        top: 0;
+        top: -5px;
         padding: 20px;
         cursor: pointer;
         user-select: none;
