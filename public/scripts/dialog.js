@@ -1,7 +1,5 @@
 let jsonRes, moves, moveIndex, result, getResult, onePlaysWhite, playerOneTurn, clicked, clickedSecondTime, firstMoveClick;
 
-const player1 = document.getElementById('motya');
-const player2 = document.getElementById('vanya');
 const movePlayerOne = document.getElementById('movePlayerOne');
 const movePlayerTwo = document.getElementById('movePlayerTwo');
 const resultMessage = document.getElementById('result')
@@ -13,12 +11,25 @@ const descriptionBox = document.getElementById('descriptionBox')
 const gameDescription = document.getElementById('gameDescription')
 const personOne = document.getElementById('one')
 const personTwo = document.getElementById('two')
-const closeButton = document.getElementById('closeButton')
-playAgain.addEventListener('click', start);
+
+const player1 = document.getElementById('motya').addEventListener("click", function () {
+  playerOneHandler(movePlayerOne, movePlayerTwo)
+});
+const player2 = document.getElementById('vanya').addEventListener("click", function () {
+  playerTwoHandler(movePlayerTwo, movePlayerOne)
+});
+const closeButton = document.getElementById('closeButton').addEventListener('click', function () {
+  closeDescription()
+})
+const reloadIcon = document.querySelector('.reloadIcon').addEventListener('click', function () {
+  getNewGame()
+  start()
+})
 newGame.addEventListener('click', () => {
   getNewGame();
   start()
 });
+playAgain.addEventListener('click', start);
 
 function descriptionHandler() {
   if (!clicked) {
@@ -167,17 +178,6 @@ function getColor(colorWhite, colorBlack) {
   colorBlack.style.border = '5px solid var(--tail-color)'
 }
 
-function start() {
-  closeDescription()
-  clicked = clickedSecondTime = getResult = firstMoveClick = moveIndex = false;
-  moveIndex = 0;
-  playerName.forEach((name) => {
-    name.style.display = 'block'
-  });
-  movePlayerOne.style.display = 'none';
-  movePlayerTwo.style.display = 'none';
-}
-
 function goToLastMove() {
   clicked = clickedSecondTime = true
   moveIndex = moves.length - 1;
@@ -202,17 +202,6 @@ window.jsonRes = jsonRes
 window.start = start
 window.goToLastMove = goToLastMove
 
-player1.addEventListener("click", function () {
-  playerOneHandler(movePlayerOne, movePlayerTwo)
-});
-player2.addEventListener("click", function () {
-  playerTwoHandler(movePlayerTwo, movePlayerOne)
-});
-
-closeButton.addEventListener('click', function () {
-  closeDescription()
-})
-
 addEventListener("keydown", function (k) {
   const { code, metaKey, shiftKey, altKey, ctrlKey } = k;
   if (code === 'Comma' && !(ctrlKey || metaKey || shiftKey || altKey)) {
@@ -228,6 +217,17 @@ addEventListener("keydown", function (k) {
     closeDescription()
   }
 });
+
+function start() {
+  closeDescription()
+  clicked = clickedSecondTime = getResult = firstMoveClick = moveIndex = false;
+  moveIndex = 0;
+  playerName.forEach((name) => {
+    name.style.display = 'block'
+  });
+  movePlayerOne.style.display = 'none';
+  movePlayerTwo.style.display = 'none';
+}
 
 getNewGame()
 start()
