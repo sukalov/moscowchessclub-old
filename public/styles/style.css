@@ -76,9 +76,14 @@ img {
     --transform-speed: 250ms;
     position: relative;
     max-width: 11rem;
+    max-height: 17rem; 
+    /* чтобы они не расползались по вертикали */
+    justify-content: space-between;
+    margin: 1rem;
     margin-inline: auto;
     flex: 1 1;
     /* border: 2px solid; */
+    user-select: none;
 }
 
 .person__container {
@@ -148,7 +153,7 @@ img {
     margin-block: 20px;
     text-align: center;
     text-transform: uppercase;
-
+    user-select: none; /* добавил на всякий */
 }
 
 .toggle {
@@ -262,14 +267,14 @@ img {
         letter-spacing: 0.03rem;
         line-height: 1.2rem;
         flex-direction: column;
-        margin-top: 0px;
+        margin-top: 10px;
     }
     footer::before {
         content: 'сайт мосшахклуба в разработке';
     }
   }
 
-  @media only screen and (max-height: 700px){
+  @media only screen and (max-height: 800px){
     .person {
         max-width: 9rem;
     }
@@ -277,7 +282,7 @@ img {
         font-size: 0.7rem;
         letter-spacing: 0.04rem;
         line-height: 1.3rem;
-        margin-top: 10px;
+        margin-top: 25px;
     }
 
     footer::before {
