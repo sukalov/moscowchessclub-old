@@ -185,15 +185,16 @@
     .reloadIcon {
         display: block;
         position: absolute;
-        height: 30px;
-        right: 20px;
+        height: 60px;
+        right: 0px;
+        top: 0;
+        padding: 20px;
         cursor: pointer;
         user-select: none;
         touch-action: manipulation;
         -webkit-user-select: none;
         -moz-user-select: none;
         /* border: 1px solid red; */
-        scale: 0.8;
         fill: var(--text-color);
         transition: fill var(--color-scheme-change) ease-out;
         opacity: 0.5;
