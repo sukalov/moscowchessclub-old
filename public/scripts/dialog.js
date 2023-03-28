@@ -33,7 +33,9 @@ function descriptionHandler() {
       personTwo.classList.add('slide-out2')
     } else {
       clicked = true
-      gameDescription.textContent = 'Управление клавиатурой: \n\n< – Ход игрока слева \n> – Ход игрока справа \nM – Сменить тему \nN – Новая игра \n? – Закрыть это окно';
+      gameDescription.textContent = `Управление клавиатурой: 
+      \n< – Ход игрока слева \n> – Ход игрока справа 
+      \nM – Сменить тему \nN – Новая игра \n? – Закрыть это окно`;
       descriptionBox.classList.remove('slide-out')
       descriptionBox.classList.add('slide-in')
       personOne.classList.remove('slide-in2')
@@ -45,13 +47,15 @@ function descriptionHandler() {
 }
 
 function closeDescription() {
-  clickedSecondTime = true;
+  if (clicked) {clickedSecondTime = true}
   descriptionBox.classList.remove('slide-in')
   descriptionBox.classList.add('slide-out')
   personOne.classList.remove('slide-out2')
   personTwo.classList.remove('slide-out2')
   personOne.classList.add('slide-in2')
   personTwo.classList.add('slide-in2')
+  resContainer.classList.remove('animate-in')
+  resContainer.classList.add('animate-out')
 }
 
 function bubbleHandler(move1, move2) {
@@ -164,15 +168,8 @@ function getColor(colorWhite, colorBlack) {
 }
 
 function start() {
-  personOne.classList.add('slide-in2')
-  personTwo.classList.add('slide-in2')
-  personOne.classList.remove('slide-out2')
-  personTwo.classList.remove('slide-out2')
-  descriptionBox.classList.remove('slide-in')
-  descriptionBox.classList.add('slide-out')
-  resContainer.classList.remove('animate-in')
-  resContainer.classList.add('animate-out')
-  clicked = clickedSecondTime = getResult = firstMoveClick = false;
+  closeDescription()
+  clicked = clickedSecondTime = getResult = firstMoveClick = moveIndex = false;
   moveIndex = 0;
   playerName.forEach((name) => {
     name.style.display = 'block'
