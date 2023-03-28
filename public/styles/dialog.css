@@ -173,14 +173,43 @@
 }
 #two.slide-out2 {
     scale: 5;
-    transform: translate(300px, -5px);
+    transform: translate(300px, -5px)
+}
 
+.reloadIcon {
+    display: none;
 }
 
 @media only screen and (max-width: 450px) {
 
+    .reloadIcon {
+        display: block;
+        position: absolute;
+        height: 30px;
+        right: 20px;
+        cursor: pointer;
+        user-select: none;
+        touch-action: manipulation;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        /* border: 1px solid red; */
+        scale: 0.8;
+        fill: var(--text-color);
+        transition: fill var(--color-scheme-change) ease-out;
+        opacity: 0.5;
+    }
+
+    #one.slide-out2 {
+        scale: 5;
+        transform: translateY(-300px)
+    }
+    #two.slide-out2 {
+        scale: 5;
+        transform: translateY(300px)
+    }
+
    #movePlayerOne {
-        top: 86%;
+        top: 80%;
         transform-origin: top left;
     }
 
