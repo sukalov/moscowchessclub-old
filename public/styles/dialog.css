@@ -1,3 +1,7 @@
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
 .moves {
     border-radius: 15px;
     padding: 10px;
